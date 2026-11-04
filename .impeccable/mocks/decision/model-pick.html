@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AgroTrace — Registre d'exploitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Spectral+SC:wght@500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1440px; height: 900px; overflow: hidden; font-family: "Spectral", serif; display: flex; background:
+  repeating-linear-gradient(to bottom, transparent 0 27px, rgba(28,36,52,.055) 27px 28px),
+  repeating-linear-gradient(to right, transparent 0 27px, rgba(28,36,52,.055) 27px 28px),
+  #ece7d8; color: #232936; }
+.rail { width: 236px; flex: none; background: #1c2434; color: #c9c4b4; padding: 18px 12px 12px; display: flex; flex-direction: column; box-shadow: inset -1px 0 0 #0e1420; }
+.brand { display: flex; gap: 10px; align-items: center; padding: 0 6px 14px; border-bottom: 2px solid #a8845a; }
+.mark { width: 34px; height: 34px; border: 2px solid #a8845a; display: grid; place-items: center; color: #a8845a; font-size: 19px; font-weight: 800; }
+.brand b { color: #f5f2e6; font-size: 18px; letter-spacing: .02em; display: block; line-height: 1.15; }
+.brand small { font-family: "IBM Plex Mono"; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #8d97ab; display: block; margin-top: 3px; }
+.sec { font-family: "Spectral SC"; font-size: 10px; letter-spacing: .18em; color: #8d97ab; padding: 16px 8px 7px; border-bottom: 1px solid #2c3648; margin-bottom: 4px; display: flex; justify-content: space-between; }
+nav a { display: flex; align-items: baseline; gap: 8px; padding: 6px 9px; color: #b9b4a4; text-decoration: none; font-size: 13px; font-weight: 600; border-left: 2px solid transparent; }
+nav a small { margin-left: auto; font-family: "IBM Plex Mono"; font-size: 9px; color: #6c7890; }
+nav a.active { background: #141b29; color: #f5f2e6; border-left-color: #a8845a; }
+nav a.active small { color: #d8c49a; }
+.side-user { margin-top: auto; border-top: 1px solid #2c3648; padding: 12px 6px 0; display: flex; gap: 9px; align-items: center; }
+.av { width: 34px; height: 34px; background: #a8845a; color: #1c2434; font-family: "Spectral"; font-weight: 800; display: grid; place-items: center; }
+.side-user b { color: #f5f2e6; font-size: 12px; display: block; }
+.side-user span { font-family: "IBM Plex Mono"; font-size: 9px; color: #8d97ab; text-transform: uppercase; letter-spacing: .08em; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; justify-content: space-between; align-items: center; background: #f2efe2; border-bottom: 1px solid #c9c2ae; padding: 9px 26px; }
+.topbar .crumbs { font-family: "IBM Plex Mono"; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #6f6a5c; }
+.badge { font-family: "IBM Plex Mono"; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #1c2434; border: 1px solid #1c2434; padding: 4px 10px; background: #f5f2e6; }
+.badge i { color: #8c2f1b; font-style: normal; }
+.content { flex: 1; padding: 14px 26px 18px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 3px double #1c2434; padding-bottom: 9px; }
+.eyebrow { font-family: "Spectral SC"; font-size: 9px; letter-spacing: .22em; color: #8c2f1b; }
+h1 { font-size: 33px; font-weight: 800; color: #1c2434; letter-spacing: -.015em; margin-top: 1px; }
+.lead { font-style: italic; font-size: 13px; color: #55524a; margin-top: 2px; }
+.actions { display: flex; gap: 8px; }
+.btn { min-height: 34px; padding: 0 14px; font: 700 12px "Spectral SC"; letter-spacing: .08em; border: 1.5px solid #1c2434; background: #1c2434; color: #f5f2e6; display: inline-flex; align-items: center; cursor: pointer; }
+.btn.ghost { background: transparent; color: #1c2434; }
+.stamp { display: inline-block; transform: rotate(-4deg); border: 2px solid #8c2f1b; color: #8c2f1b; font: 600 9px "IBM Plex Mono"; letter-spacing: .14em; padding: 2px 7px; border-radius: 2px; vertical-align: 2px; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+.card { background: #f7f5ec; border: 1.5px solid #1c2434; padding: 9px 13px 11px; position: relative; box-shadow: 3px 3px 0 #1c2434; }
+.card .rub { font-family: "Spectral SC"; font-size: 9px; letter-spacing: .18em; color: #6f6a5c; display: flex; justify-content: space-between; border-bottom: 1px solid #d8d3c1; padding-bottom: 4px; }
+.card .val { font-family: "IBM Plex Mono"; font-size: 29px; font-weight: 600; margin-top: 7px; letter-spacing: -.03em; color: #1c2434; }
+.card .val small { font-size: 11px; color: #8c2f1b; font-weight: 500; }
+.card .sub { font-family: "Spectral"; font-style: italic; font-size: 11px; color: #55524a; margin-top: 5px; }
+.row { display: grid; grid-template-columns: 1.05fr 1fr 1fr; gap: 12px; margin-top: 13px; }
+.panel { background: #f7f5ec; border: 1.5px solid #1c2434; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 14px; border-bottom: 1.5px solid #1c2434; background: #efede0; }
+.panel-head h2 { font-size: 15px; font-weight: 700; color: #1c2434; }
+.panel-head span { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: #8d97ab; }
+.fiche { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+.fiche td { padding: 5px 14px; border-bottom: 1px dotted #d8d3c1; }
+.fiche tr:last-child td { border-bottom: 0; }
+.fiche td:last-child { text-align: right; font-family: "IBM Plex Mono"; font-size: 11px; color: #1c2434; font-variant-numeric: tabular-nums; }
+.neg { color: #8c2f1b; font-weight: 700; }
+.ok { color: #2f4f3a; font-weight: 700; }
+.alert-box { margin: 10px 14px; padding: 9px 12px; border: 1.5px solid #8c2f1b; color: #8c2f1b; font-family: "IBM Plex Mono"; font-size: 10px; line-height: 1.5; background: repeating-linear-gradient(-45deg, #fdf0ea 0 8px, #f7e2d9 8px 16px); }
+.alert-box b { text-transform: uppercase; letter-spacing: .1em; }
+.stock-head, .stock-row { display: grid; grid-template-columns: 1fr 70px 55px; gap: 8px; padding: 5px 14px; font-size: 11px; }
+.stock-head { font-family: "Spectral SC"; font-size: 8px; letter-spacing: .16em; color: #6f6a5c; border-bottom: 1px solid #d8d3c1; padding-bottom: 5px; margin-top: 5px; }
+.stock-row { font-family: "IBM Plex Mono"; border-bottom: 1px dotted #d8d3c1; }
+.stock-row:last-child { border-bottom: 0; }
+.stock-row span:first-child { font-family: "Spectral"; }
+.crit { color: #8c2f1b; font-weight: 600; }
+.ledger-footer { font-family: "IBM Plex Mono"; font-size: 8px; color: #8d97ab; letter-spacing: .1em; text-transform: uppercase; border-top: 1px solid #d8d3c1; padding: 6px 14px; }
+</style>
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand"><div class="mark">A</div><div><b>AgroTrace</b><small>Vergers Ambodisaina</small></div></div>
+    <div class="sec"><span>Exploitation</span><span>I–VII</span></div>
+    <nav>
+      <a class="active" href="#">Tableau de bord <small>01</small></a>
+      <a href="#">Parcelles <small>02</small></a>
+      <a href="#">Campagnes <small>03</small></a>
+      <a href="#">Activités <small>04</small></a>
+      <a href="#">Récoltes <small>05</small></a>
+      <a href="#">Stocks <small>06</small></a>
+      <a href="#">Lots <small>07</small></a>
+    </nav>
+    <div class="sec"><span>Pilotage</span><span>VIII–IX</span></div>
+    <nav>
+      <a href="#">Finances <small>08</small></a>
+      <a href="#">Utilisateurs <small>09</small></a>
+    </nav>
+    <div class="side-user"><div class="av">V</div><div><b>Voahirana Rabary</b><span>Responsable</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <span class="crumbs">Registre · Tableau de bord</span>
+      <span class="badge"><i>■</i> Campagne lychee 2026–27</span>
+    </div>
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Fiche n° 0147 · Exploitation Vergers Ambodisaina</div>
+          <h1>Tableau de bord <span class="stamp">En cours</span></h1>
+          <p class="lead">État des parcelles, récoltes, lots et stocks à la date du 12 décembre 2026.</p>
+        </div>
+        <div class="actions">
+          <button class="btn ghost">+ Nouvelle activité</button>
+          <button class="btn">+ Enregistrer une récolte</button>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="rub"><span>01 · Campagnes</span><span>Registre</span></div><div class="val">2</div><div class="sub">en cours depuis le 03/11</div></div>
+        <div class="card"><div class="rub"><span>02 · Parcelles</span><span>6 fiches</span></div><div class="val">24,5 <small>ha</small></div><div class="sub">3 parcelles en récolte · litchi</div></div>
+        <div class="card"><div class="rub"><span>03 · Récolte</span><span>Cumul</span></div><div class="val">18 240 <small>kg</small></div><div class="sub">+12 % par rapport à 2025</div></div>
+        <div class="card"><div class="rub"><span>04 · Lots</span><span>Tracés</span></div><div class="val">12 300 <small>kg</small></div><div class="sub">4 lots en attente d'affectation</div></div>
+      </div>
+      <div class="row">
+        <section class="panel">
+          <div class="panel-head"><h2>Indicateurs de campagne</h2><span>Extrait n° 3</span></div>
+          <table class="fiche">
+            <tr><td>Rendement</td><td>744 kg/ha</td></tr>
+            <tr><td>Récolte non affectée</td><td class="neg">8,4 %</td></tr>
+            <tr><td>Coût de production</td><td>1,87 /kg</td></tr>
+            <tr><td>Marge simplifiée</td><td class="ok">+26 880,00</td></tr>
+          </table>
+          <div class="ledger-footer">Calculés sur la campagne lychee 2026–27 · maj 12/12/2026</div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>Alertes</h2><span>À émarger</span></div>
+          <div class="alert-box"><b>Stock critique</b><br>Engrais NPK 15-15-15 — 118 kg disponibles, seuil 150 kg. Réapprovisionner avant le prochain apport.</div>
+          <table class="fiche">
+            <tr><td>Récoltes &gt; 3 jours non affectées</td><td class="neg">3</td></tr>
+            <tr><td>Lots clôturés non vendus</td><td>2</td></tr>
+          </table>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>État des stocks</h2><span>Suivi intrants</span></div>
+          <div class="stock-head"><span>Intrant</span><span>Dispo</span><span>Seuil</span></div>
+          <div class="stock-row"><span>Engrais NPK</span><span class="crit">118 kg</span><span>150</span></div>
+          <div class="stock-row"><span>Urée</span><span>240 kg</span><span>100</span></div>
+          <div class="stock-row"><span>Soufre (fong.)</span><span class="crit">35 L</span><span>40</span></div>
+          <div class="stock-row"><span>Cageots</span><span>210 u</span><span>50</span></div>
+          <div class="ledger-footer">Émargement à apposer à réception</div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

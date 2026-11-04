@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AgroTrace — Départ lychee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1440px; height: 900px; overflow: hidden; font-family: "Barlow", system-ui, sans-serif; background: #f4f3ef; color: #191914; display: flex; }
+.rail { width: 228px; flex: none; background: #191914; color: #d8d6cd; padding: 16px 12px 10px; display: flex; flex-direction: column; }
+.brand { display: flex; gap: 10px; align-items: center; padding: 0 6px 12px; border-bottom: 1px dashed #4a4a44; }
+.mark { width: 32px; height: 32px; background: #f4f3ef; color: #191914; display: grid; place-items: center; font: 700 17px "Barlow Condensed"; }
+.brand b { color: #f4f3ef; font-family: "Barlow Condensed"; font-size: 19px; letter-spacing: .03em; text-transform: uppercase; display: block; line-height: 1; }
+.brand small { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .1em; color: #9c9a90; text-transform: uppercase; display: block; margin-top: 4px; }
+.sec { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .18em; color: #8f8d84; padding: 15px 8px 6px; border-bottom: 1px dashed #4a4a44; margin-bottom: 4px; text-transform: uppercase; }
+nav a { display: flex; align-items: center; gap: 8px; padding: 6px 9px; color: #c9c7bd; text-decoration: none; font-size: 12px; font-weight: 500; border-bottom: 1px dashed transparent; }
+nav a small { margin-left: auto; font-family: "IBM Plex Mono"; font-size: 8px; color: #6f6d64; }
+nav a.active { background: #f4f3ef; color: #191914; font-weight: 700; }
+nav a.active small { color: #d1341f; }
+.side-user { margin-top: auto; border-top: 1px dashed #4a4a44; padding-top: 12px; display: flex; gap: 9px; align-items: center; padding-inline: 6px; }
+.av { width: 32px; height: 32px; background: #d1341f; color: #f4f3ef; font: 700 12px "IBM Plex Mono"; display: grid; place-items: center; }
+.side-user b { color: #f4f3ef; font-size: 11.5px; display: block; }
+.side-user span { font-family: "IBM Plex Mono"; font-size: 8px; color: #8f8d84; text-transform: uppercase; }
+.barcode { margin-top: 12px; height: 34px; background: repeating-linear-gradient(90deg, #f4f3ef 0 2px, transparent 2px 4px, #f4f3ef 4px 7px, transparent 7px 9px, #f4f3ef 9px 10px, transparent 10px 14px); opacity: .85; }
+.barcode-caption { font-family: "IBM Plex Mono"; font-size: 7px; letter-spacing: .3em; color: #8f8d84; text-align: center; margin-top: 4px; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 9px 26px; background: #f4f3ef; border-bottom: 2px solid #191914; }
+.topbar .crumbs { font-family: "IBM Plex Mono"; font-size: 9px; letter-spacing: .14em; color: #6f6d64; text-transform: uppercase; }
+.badge { font-family: "IBM Plex Mono"; font-size: 9px; font-weight: 600; letter-spacing: .18em; border: 1px solid #191914; padding: 4px 12px; text-transform: uppercase; }
+.content { flex: 1; padding: 14px 26px 18px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #191914; padding-bottom: 10px; }
+.eyebrow { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .2em; color: #d1341f; text-transform: uppercase; }
+h1 { font-family: "Barlow Condensed"; font-size: 40px; font-weight: 700; letter-spacing: .01em; text-transform: uppercase; color: #191914; line-height: .95; margin-top: 2px; }
+.lead { font-size: 12px; color: #55534c; margin-top: 4px; }
+.actions { display: flex; gap: 8px; }
+.btn { min-height: 34px; padding: 0 16px; font: 700 12px "Barlow Condensed"; letter-spacing: .07em; text-transform: uppercase; background: #191914; color: #f4f3ef; border: 0; display: inline-flex; align-items: center; cursor: pointer; }
+.btn.ghost { background: transparent; color: #191914; border: 1.5px solid #191914; }
+.pass-strip { display: flex; gap: 0; margin-top: 12px; border: 1.5px solid #191914; background: #fff; }
+.pass-cell { flex: 1; padding: 7px 14px; border-right: 1.5px dashed #191914; }
+.pass-cell:last-child { border-right: 0; }
+.pass-cell .k { font-family: "IBM Plex Mono"; font-size: 7px; letter-spacing: .16em; color: #d1341f; text-transform: uppercase; }
+.pass-cell .v { font-family: "IBM Plex Mono"; font-size: 17px; font-weight: 600; margin-top: 1px; font-variant-numeric: tabular-nums; }
+.pass-cell .v small { font-size: 9px; color: #6f6d64; }
+.board-title { display: flex; justify-content: space-between; align-items: baseline; margin-top: 13px; padding-bottom: 6px; border-bottom: 1px solid #191914; }
+.board-title h2 { font-family: "Barlow Condensed"; font-size: 17px; text-transform: uppercase; letter-spacing: .06em; }
+.board-title span { font-family: "IBM Plex Mono"; font-size: 8px; color: #6f6d64; text-transform: uppercase; letter-spacing: .14em; }
+.board { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 12px; margin-top: 10px; }
+.panel { border: 1.5px solid #191914; background: #fff; }
+.panel-head { display: flex; justify-content: space-between; padding: 8px 12px; border-bottom: 1.5px solid #191914; background: #eeede8; }
+.panel-head h3 { font-family: "Barlow Condensed"; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.gate-rows { padding: 6px 0; }
+.g-row { display: grid; grid-template-columns: 52px 1fr auto; gap: 10px; align-items: center; padding: 5.5px 12px; border-bottom: 1px dashed #d8d6cd; font-family: "IBM Plex Mono"; font-size: 10px; }
+.g-row:last-child { border-bottom: 0; }
+.g-row .t { font-weight: 600; }
+.g-row .n { font-family: "Barlow"; font-size: 11px; color: #191914; }
+.g-row .s { font-size: 8px; padding: 2px 7px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+.s-ok { border: 1px solid #1f7a3d; color: #1f7a3d; }
+.s-warn { border: 1px solid #b45309; color: #b45309; }
+.s-crit { border: 1px solid #d1341f; color: #fff; background: #d1341f; }
+.alert-row { display: flex; gap: 10px; align-items: center; background: #d1341f; color: #fff; padding: 8px 12px; font-family: "IBM Plex Mono"; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; }
+.kv { display: flex; justify-content: space-between; padding: 6px 12px; border-bottom: 1px dashed #d8d6cd; font-size: 11px; font-family: "IBM Plex Mono"; }
+.kv:last-child { border-bottom: 0; }
+.kv span { color: #55534c; font-family: "Barlow"; font-size: 11.5px; }
+.neg { color: #d1341f; font-weight: 700; }
+.ok { color: #1f7a3d; font-weight: 700; }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid #191914; border-top: 0; }
+.metric { padding: 8px 12px; border-right: 1px dashed #191914; }
+.metric:last-child { border-right: 0; }
+.metric b { display: block; font-family: "IBM Plex Mono"; font-size: 17px; font-variant-numeric: tabular-nums; }
+.metric span { font-family: "IBM Plex Mono"; font-size: 7px; letter-spacing: .12em; text-transform: uppercase; color: #6f6d64; }
+</style>
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand"><div class="mark">A—T</div><div><b>AgroTrace</b><small>Vergers Ambodisaina</small></div></div>
+    <div class="sec">— Exploitation</div>
+    <nav>
+      <a class="active" href="#">Tableau de bord <small>01</small></a>
+      <a href="#">Parcelles <small>02</small></a>
+      <a href="#">Campagnes <small>03</small></a>
+      <a href="#">Activités <small>04</small></a>
+      <a href="#">Récoltes <small>05</small></a>
+      <a href="#">Stocks <small>06</small></a>
+      <a href="#">Lots <small>07</small></a>
+    </nav>
+    <div class="sec">— Pilotage</div>
+    <nav>
+      <a href="#">Finances <small>08</small></a>
+      <a href="#">Utilisateurs <small>09</small></a>
+    </nav>
+    <div class="side-user"><div class="av">V</div><div><b>Voahirana Rabary</b><span>Responsable</span></div></div>
+    <div class="barcode"></div>
+    <div class="barcode-caption">VT-2026-0147</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <span class="crumbs">Départ · Tableau de bord</span>
+      <span class="badge">LYC-2026-27 · En cours</span>
+    </div>
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Tableau des départs — campagne lychee</div>
+          <h1>Tableau<br>de bord</h1>
+          <p class="lead">Récoltes, lots, stocks et finances de l'exploitation, par ordre de départ.</p>
+        </div>
+        <div class="actions">
+          <button class="btn ghost">+ Nouvelle activité</button>
+          <button class="btn">+ Enregistrer une récolte</button>
+        </div>
+      </div>
+      <div class="pass-strip">
+        <div class="pass-cell"><div class="k">Campagne</div><div class="v">2 <small>actives</small></div></div>
+        <div class="pass-cell"><div class="k">Parcelles</div><div class="v">6 <small>· 24.5 ha</small></div></div>
+        <div class="pass-cell"><div class="k">Récolte cumulée</div><div class="v">18 240 <small>kg</small></div></div>
+        <div class="pass-cell"><div class="k">Lots tracés</div><div class="v">12 300 <small>kg</small></div></div>
+        <div class="pass-cell"><div class="k">Code lot</div><div class="v">2026-018 <small>›</small></div></div>
+      </div>
+      <div class="board-title"><h2>Départs &amp; alertes</h2><span>Mis à jour 07:14 — 12 déc. 2026</span></div>
+      <div class="board">
+        <section class="panel">
+          <div class="panel-head"><h3>Prochains mouvements</h3><span>Flux</span></div>
+          <div class="gate-rows">
+            <div class="g-row"><span class="t">12 DÉC</span><span class="n">Campagne lychee — récolte NORD-04 (320 kg)</span><span class="s s-ok">OK</span></div>
+            <div class="g-row"><span class="t">13 DÉC</span><span class="n">Traitement soufre — parcelle SUD-02</span><span class="s s-warn">À surveiller</span></div>
+            <div class="g-row"><span class="t">14 DÉC</span><span class="n">Lot 2026-018 — clôture puis vente export</span><span class="s s-ok">OK</span></div>
+            <div class="g-row"><span class="t">21 DÉC</span><span class="n">Récolte estimée — fenêtre optimale (12–28 déc.)</span><span class="s s-warn">Planifié</span></div>
+          </div>
+          <div class="alert-row"><span>Gate change</span><span>Stock NPK critique — 118 kg (seuil 150). Réappro immédiat.</span></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h3>Rendement &amp; marge</h3><span>Campagne</span></div>
+          <div class="kv"><span>Rendement</span><b>744 kg/ha</b></div>
+          <div class="kv"><span>Récolte non affectée</span><b class="neg">8.4 %</b></div>
+          <div class="kv"><span>Coût de production</span><b>1.87 /kg</b></div>
+          <div class="kv"><span>Dépenses</span><b>24 380.00</b></div>
+          <div class="kv"><span>Recettes</span><b>51 260.00</b></div>
+          <div class="kv"><span>Marge simplifiée</span><b class="ok">+26 880.00</b></div>
+          <div class="metrics">
+            <div class="metric"><b>+6.3%</b><span>Écart vs objectif</span></div>
+            <div class="metric"><b class="neg">8.4%</b><span>Part non affectée</span></div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h3>État des stocks</h3><span>Seuils</span></div>
+          <div class="kv"><span>Engrais NPK 15-15-15</span><b class="neg">118 kg</b></div>
+          <div class="kv"><span>Urée</span><b>240 kg</b></div>
+          <div class="kv"><span>Soufre (fong.)</span><b class="neg">35 L</b></div>
+          <div class="kv"><span>Cageots</span><b>210 u</b></div>
+          <div class="kv"><span>Récoltes &gt; 3 jours</span><b class="neg">3</b></div>
+          <div class="kv"><span>Lots clôturés non vendus</span><b>2</b></div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

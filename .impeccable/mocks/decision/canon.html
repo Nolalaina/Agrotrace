@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AgroTrace — Tableau de bord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1440px; height: 900px; overflow: hidden; font-family: "Inter", system-ui, sans-serif; background: #f6f8fb; color: #0f172a; display: flex; font-size: 13px; }
+.rail { width: 240px; flex: none; background: #ffffff; border-right: 1px solid #e2e8f0; padding: 18px 14px 12px; display: flex; flex-direction: column; }
+.brand { display: flex; gap: 10px; align-items: center; padding: 2px 8px 16px; border-bottom: 1px solid #e2e8f0; }
+.mark { width: 34px; height: 34px; background: #2563eb; border-radius: 10px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 16px; }
+.brand b { font-size: 15.5px; font-weight: 800; letter-spacing: -.02em; color: #0f172a; display: block; }
+.brand small { font-size: 10.5px; color: #64748b; display: block; margin-top: 1px; }
+.sec { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; padding: 14px 10px 5px; }
+nav a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; color: #475569; text-decoration: none; font-size: 12.5px; font-weight: 500; }
+nav a .dot { width: 6px; height: 6px; border-radius: 999px; background: #cbd5e1; flex: none; }
+nav a:hover { background: #f1f5f9; }
+nav a.active { background: #eff4ff; color: #2563eb; font-weight: 600; }
+nav a.active .dot { background: #2563eb; }
+.side-user { margin-top: auto; border-top: 1px solid #e2e8f0; padding: 12px 8px 0; display: flex; gap: 10px; align-items: center; }
+.av { width: 34px; height: 34px; border-radius: 999px; background: #e2e8f0; color: #2563eb; font-weight: 700; display: grid; place-items: center; font-size: 13px; }
+.side-user b { font-size: 12px; color: #0f172a; display: block; }
+.side-user span { font-size: 10px; color: #94a3b8; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 28px; background: #ffffff; border-bottom: 1px solid #e2e8f0; }
+.topbar .crumbs { font-size: 11px; font-weight: 600; color: #94a3b8; letter-spacing: .02em; }
+.badge { font-size: 10.5px; font-weight: 700; color: #2563eb; background: #eff4ff; border-radius: 999px; padding: 5px 12px; }
+.content { flex: 1; padding: 18px 28px 20px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; }
+.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #2563eb; }
+h1 { font-size: 24px; font-weight: 800; letter-spacing: -.03em; color: #0f172a; margin-top: 2px; }
+.lead { font-size: 12px; color: #64748b; margin-top: 2px; }
+.actions { display: flex; gap: 8px; }
+.btn { min-height: 36px; padding: 0 16px; font: 600 12px "Inter"; background: #2563eb; color: #fff; border: 0; border-radius: 8px; display: inline-flex; align-items: center; cursor: pointer; }
+.btn.ghost { background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px; box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+.card .k { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #64748b; display: flex; justify-content: space-between; }
+.card .v { font-size: 28px; font-weight: 800; letter-spacing: -.03em; color: #0f172a; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.card .v small { font-size: 12px; color: #94a3b8; font-weight: 600; }
+.card .d { font-size: 10.5px; color: #64748b; margin-top: 4px; }
+.up { color: #16a34a; font-weight: 600; }
+.row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
+.panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+.panel-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+.panel-head h2 { font-size: 13px; font-weight: 700; color: #0f172a; }
+.panel-head span { font-size: 10px; color: #94a3b8; font-weight: 600; }
+.panel-body { padding: 12px 16px; }
+.kv { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f1f5f9; font-size: 11.5px; }
+.kv:last-child { border-bottom: 0; }
+.kv span { color: #64748b; }
+.kv b { color: #0f172a; font-weight: 600; font-variant-numeric: tabular-nums; }
+.bad { color: #dc2626; } .good { color: #16a34a; } .warn { color: #d97706; }
+.alert { display: flex; gap: 10px; align-items: flex-start; background: #fffbeb; border: 1px solid #fde68a; padding: 10px 12px; border-radius: 10px; margin-top: 10px; }
+.alert b { font-size: 11px; color: #92400e; display: block; }
+.alert span { font-size: 10.5px; color: #b45309; }
+.stock-head, .stock-row { display: grid; grid-template-columns: 1fr 72px 54px; gap: 8px; padding: 7px 16px; font-size: 11.5px; }
+.stock-head { font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; padding-bottom: 4px; border-bottom: 1px solid #f1f5f9; margin-top: 4px; }
+.stock-row { border-bottom: 1px solid #f8fafc; }
+.stock-row:last-child { border-bottom: 0; }
+.stock-row b { font-variant-numeric: tabular-nums; }
+.bar { height: 6px; background: #f1f5f9; border-radius: 999px; overflow: hidden; margin-top: 8px; }
+.bar > div { height: 100%; background: #2563eb; border-radius: 999px; }
+</style>
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand"><div class="mark">A</div><div><b>AgroTrace</b><small>Vergers Ambodisaina</small></div></div>
+    <div class="sec">Exploitation</div>
+    <nav>
+      <a class="active" href="#"><span class="dot"></span>Tableau de bord</a>
+      <a href="#"><span class="dot"></span>Parcelles</a>
+      <a href="#"><span class="dot"></span>Campagnes</a>
+      <a href="#"><span class="dot"></span>Activités</a>
+      <a href="#"><span class="dot"></span>Récoltes</a>
+      <a href="#"><span class="dot"></span>Stocks</a>
+      <a href="#"><span class="dot"></span>Lots</a>
+    </nav>
+    <div class="sec">Pilotage</div>
+    <nav>
+      <a href="#"><span class="dot"></span>Finances</a>
+      <a href="#"><span class="dot"></span>Utilisateurs</a>
+    </nav>
+    <div class="side-user"><div class="av">VR</div><div><b>Voahirana Rabary</b><span>Responsable</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <span class="crumbs">Dashboard · Overview</span>
+      <span class="badge">Campagne lychee 2026–27</span>
+    </div>
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Overview</div>
+          <h1>Tableau de bord</h1>
+          <p class="lead">Performance de l'exploitation — récoltes, lots et stocks.</p>
+        </div>
+        <div class="actions">
+          <button class="btn ghost">Nouvelle activité</button>
+          <button class="btn">+ Enregistrer une récolte</button>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="k">Campagnes actives <span>01</span></div><div class="v">2</div><div class="d">en cours depuis le 03/11</div></div>
+        <div class="card"><div class="k">Parcelles <span>02</span></div><div class="v">6<small> · 24.5 ha</small></div><div class="d">3 en récolte · litchi</div></div>
+        <div class="card"><div class="k">Récolte totale <span>05</span></div><div class="v">18 240<small> kg</small></div><div class="d"><span class="up">+12%</span> vs 2025</div></div>
+        <div class="card"><div class="k">Poids des lots <span>07</span></div><div class="v">12 300<small> kg</small></div><div class="d">4 en attente d'affectation</div></div>
+      </div>
+      <div class="row">
+        <section class="panel">
+          <div class="panel-head"><h2>Indicateurs calculés</h2><span>Cache 10 min</span></div>
+          <div class="panel-body">
+            <div class="kv"><span>Rendement</span><b>744 kg/ha</b></div>
+            <div class="bar"><div style="width:82%"></div></div>
+            <div class="kv"><span>Récolte non affectée</span><b class="warn">8.4 %</b></div>
+            <div class="kv"><span>Coût de production</span><b>1.87 /kg</b></div>
+            <div class="kv"><span>Marge simplifiée</span><b class="good">+26 880.00</b></div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>Alertes</h2><span>Priority</span></div>
+          <div class="panel-body">
+            <div class="alert"><span>⚠</span><div><b>Stock critique — Engrais NPK</b><span>118 kg restants (seuil 150 kg). Réappro recommandé avant le prochain apport.</span></div></div>
+            <div class="kv"><span>Récoltes &gt; 3 jours non affectées</span><b class="bad">3</b></div>
+            <div class="kv"><span>Lots clôturés non vendus</span><b>2</b></div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>État des stocks</h2><span>Thresholds</span></div>
+          <div class="stock-head"><span>Intrant</span><span>Dispo</span><span>Seuil</span></div>
+          <div class="stock-row"><span>Engrais NPK</span><b class="bad">118 kg</b><span>150</span></div>
+          <div class="stock-row"><span>Urée</span><b>240 kg</b><span>100</span></div>
+          <div class="stock-row"><span>Soufre (fong.)</span><b class="bad">35 L</b><span>40</span></div>
+          <div class="stock-row"><span>Cageots</span><b>210 u</b><span>50</span></div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

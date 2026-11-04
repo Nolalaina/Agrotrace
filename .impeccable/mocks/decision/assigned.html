@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AgroTrace — Almanach des vergers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Alegreya+Sans+SC:wght@500;700&family=Alegreya+Sans:wght@400..800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1440px; height: 900px; overflow: hidden; font-family: "Alegreya Sans", system-ui, sans-serif; background: #efe9d8; color: #221f1c; display: flex; }
+.rail { width: 236px; flex: none; background: #20352a; color: #d9d2b8; padding: 18px 14px 12px; display: flex; flex-direction: column; }
+.brand { display: flex; gap: 10px; align-items: center; padding: 0 6px 14px; border-bottom: 1px solid rgba(239,233,216,.18); }
+.mark { width: 34px; height: 34px; flex: none; border: 1px solid #b08d57; color: #b08d57; display: grid; place-items: center; border-radius: 2px; font-family: "Alegreya", serif; font-size: 22px; font-weight: 700; }
+.brand b { font-family: "Alegreya", serif; font-size: 19px; color: #f3efe0; letter-spacing: .01em; display: block; }
+.brand small { font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: #9db198; display: block; margin-top: 2px; }
+.sec { font-family: "Alegreya Sans SC", sans-serif; font-size: 10px; letter-spacing: .16em; color: #8ba184; padding: 14px 10px 6px; display: flex; justify-content: space-between; }
+.sec i { font-style: normal; color: #b08d57; }
+nav a { display: flex; align-items: baseline; gap: 9px; padding: 6px 10px; border-radius: 2px; color: #c9cbb4; font-size: 13.5px; font-weight: 600; text-decoration: none; border-left: 2px solid transparent; }
+nav a small { margin-left: auto; font-family: "Alegreya", serif; font-variant-numeric: tabular-nums; font-size: 11px; color: #7d9078; }
+nav a.active { background: rgba(239,233,216,.08); color: #f3efe0; border-left-color: #b08d57; }
+nav a.active small { color: #b08d57; }
+nav a:hover { background: rgba(239,233,216,.05); }
+.side-user { margin-top: auto; border-top: 1px solid rgba(239,233,216,.18); padding-top: 12px; display: flex; gap: 9px; align-items: center; padding-inline: 6px; }
+.av { width: 34px; height: 34px; flex: none; border-radius: 2px; background: #b08d57; color: #20352a; font-family: "Alegreya", serif; font-weight: 700; display: grid; place-items: center; }
+.side-user b { color: #f3efe0; font-size: 12.5px; display: block; }
+.side-user span { font-size: 10.5px; color: #9db198; text-transform: capitalize; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 26px; background: #f3efe0; border-bottom: 1px solid #d8cfba; }
+.topbar .crumbs { font-family: "Alegreya Sans SC"; font-size: 10px; letter-spacing: .14em; color: #6d7c6f; }
+.badge { display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: .05em; color: #20352a; border: 1px solid #20352a; padding: 4px 12px; border-radius: 2px; background: #eef0df; }
+.badge i { color: #7c2222; font-style: normal; }
+.content { flex: 1; padding: 16px 26px 20px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #221f1c; padding-bottom: 10px; }
+.eyebrow { font-family: "Alegreya Sans SC"; font-size: 9.5px; letter-spacing: .18em; color: #7c2222; }
+h1 { font-family: "Alegreya", serif; font-weight: 800; font-size: 34px; letter-spacing: -.01em; color: #221f1c; margin-top: 2px; }
+h1 em { font-style: italic; color: #7c2222; }
+.lead { font-family: "Alegreya", serif; font-style: italic; font-size: 13px; color: #55504a; margin-top: 3px; }
+.actions { display: flex; gap: 8px; }
+.btn { min-height: 34px; padding: 0 14px; border: 1px solid #221f1c; background: #221f1c; color: #f3efe0; font: 700 12px "Alegreya Sans"; display: inline-flex; align-items: center; gap: 7px; cursor: pointer; border-radius: 2px; letter-spacing: .02em; }
+.btn.ghost { background: transparent; color: #221f1c; }
+.btn.ghost:hover { background: #e6e0cd; }
+.ephemeride { display: flex; align-items: center; gap: 14px; background: #20352a; color: #efe9d8; padding: 7px 16px; border-radius: 2px; margin-top: 10px; }
+.moon { font-size: 19px; color: #b08d57; }
+.ephemeride .txt { font-family: "Alegreya", serif; font-size: 12px; }
+.ephemeride .txt b { color: #f3efe0; }
+.ephemeride .dot { margin: 0 8px; color: #b08d57; }
+.ephemeride .right { margin-left: auto; font-family: "Alegreya Sans SC"; font-size: 10px; letter-spacing: .15em; color: #b08d57; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 13px; }
+.card { background: #f3efe0; border: 1px solid #d8cfba; border-top: 3px double #221f1c; padding: 10px 14px 12px; }
+.card .rub { font-family: "Alegreya Sans SC"; font-size: 9px; letter-spacing: .2em; color: #7c2222; display: flex; justify-content: space-between; }
+.card .val { font-family: "Alegreya", serif; font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 800; margin-top: 4px; }
+.card .val small { font-size: 12px; color: #6d7c6f; font-weight: 500; margin-left: 3px; }
+.card .sub { font-size: 10.5px; color: #55504a; border-top: 1px dotted #c9c2ae; padding-top: 4px; margin-top: 6px; display: flex; justify-content: space-between; }
+.row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
+.panel { background: #f3efe0; border: 1px solid #d8cfba; border-radius: 2px; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 12px; border-bottom: 1px solid #d8cfba; }
+.panel-head h2 { font-family: "Alegreya", serif; font-size: 15px; font-weight: 700; }
+.panel-head span { font-family: "Alegreya Sans SC"; font-size: 8.5px; letter-spacing: .15em; color: #6d7c6f; }
+ul.leaders { list-style: none; padding: 8px 12px 12px; }
+ul.leaders li { display: flex; align-items: baseline; font-size: 12px; padding: 4.5px 0; border-bottom: 1px dotted #ddd6c5; }
+ul.leaders li:last-child { border-bottom: 0; }
+ul.leaders .dots { flex: 1; border-bottom: 1px dotted #b6af9c; margin: 0 8px; transform: translateY(-3px); }
+ul.leaders b { font-family: "Alegreya", serif; font-variant-numeric: tabular-nums; font-size: 12.5px; }
+.neg { color: #7c2222; }
+.ok { color: #20352a; }
+.alert-line { display: flex; gap: 8px; align-items: center; margin: 8px 12px 0; padding: 6px 10px; border-left: 3px solid #7c2222; background: #f6ead9; font-size: 11px; }
+.alert-line b { color: #7c2222; }
+.stock-head, .stock-row { display: grid; grid-template-columns: 1fr 74px 62px; gap: 8px; padding: 4px 12px; font-size: 11px; }
+.stock-head { font-family: "Alegreya Sans SC"; font-size: 8.5px; letter-spacing: .14em; color: #6d7c6f; border-bottom: 1px solid #d8cfba; padding-bottom: 5px; margin-top: 4px; }
+.stock-row { border-bottom: 1px dotted #ddd6c5; padding: 4.5px 12px; font-variant-numeric: tabular-nums; }
+.stock-row:last-child { border-bottom: 0; }
+.crit { color: #7c2222; font-weight: 700; }
+td { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand"><div class="mark">A</div><div><b>AgroTrace</b><small>Vergers Ambodisaina</small></div></div>
+    <div class="sec"><span>Exploitation</span><i>I–VII</i></div>
+    <nav>
+      <a class="active" href="#">Tableau de bord <small>01</small></a>
+      <a href="#">Parcelles <small>02</small></a>
+      <a href="#">Campagnes <small>03</small></a>
+      <a href="#">Activités <small>04</small></a>
+      <a href="#">Récoltes <small>05</small></a>
+      <a href="#">Stocks <small>06</small></a>
+      <a href="#">Lots <small>07</small></a>
+    </nav>
+    <div class="sec"><span>Pilotage</span><i>VIII–IX</i></div>
+    <nav>
+      <a href="#">Finances <small>08</small></a>
+      <a href="#">Utilisateurs <small>09</small></a>
+    </nav>
+    <div class="side-user"><div class="av">V</div><div><b>Voahirana Rabary</b><span>Responsable</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <span class="crumbs">AgroTrace · Tableau de bord</span>
+      <span class="badge"><i>●</i> Campagne lychee 2026–27</span>
+    </div>
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Almanach · 12 décembre 2026 · Jour 346</div>
+          <h1>Tableau <em>de bord</em></h1>
+          <p class="lead">Parcelles, récoltes, lots et stocks, à portée de main.</p>
+        </div>
+        <div class="actions">
+          <button class="btn ghost">+ Nouvelle activité</button>
+          <button class="btn">+ Enregistrer une récolte</button>
+        </div>
+      </div>
+      <div class="ephemeride">
+        <span class="moon">☽</span>
+        <span class="txt"><b>Éphéméride</b> — récolte estimée 21–28 déc.<span class="dot">·</span>lune montante<span class="dot">·</span>fenêtre lychee NORD-04 proche du seuil de cueillette</span>
+        <span class="right">Feuille n° 346</span>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="rub"><span>Rubrique I</span><span>Campagnes</span></div><div class="val">2</div><div class="sub"><span>en cours</span><span>depuis 03/11</span></div></div>
+        <div class="card"><div class="rub"><span>Rubrique II</span><span>Parcelles</span></div><div class="val">6 <small>· 24,5 ha</small></div><div class="sub"><span>3 en récolte</span><span>litchi</span></div></div>
+        <div class="card"><div class="rub"><span>Rubrique III</span><span>Récolte</span></div><div class="val">18 240 <small>kg</small></div><div class="sub"><span>cumul campagne</span><span>+12 % / 2025</span></div></div>
+        <div class="card"><div class="rub"><span>Rubrique IV</span><span>Lots</span></div><div class="val">12 300 <small>kg</small></div><div class="sub"><span>tracés, QR émis</span><span>4 en attente</span></div></div>
+      </div>
+      <div class="row">
+        <section class="panel">
+          <div class="panel-head"><h2>Indicateurs de la campagne</h2><span>Calculés à la volée</span></div>
+          <ul class="leaders">
+            <li>Rendement <span class="dots"></span> <b>744 kg/ha</b></li>
+            <li>Récolte non affectée <span class="dots"></span> <b class="neg">8,4 %</b></li>
+            <li>Coût de production <span class="dots"></span> <b>1,87 /kg</b></li>
+            <li>Marge simplifiée <span class="dots"></span> <b class="ok">+26 880,00</b></li>
+          </ul>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>Alertes</h2><span>À traiter</span></div>
+          <div class="alert-line"><span>⚠</span><span><b>Stock critique</b> — Engrais NPK 15-15-15 (118 kg, seuil 150)</span></div>
+          <div class="alert-line"><span>⚠</span><span><b>3 récoltes</b> non affectées depuis plus de 3 jours</span></div>
+          <ul class="leaders">
+            <li>Rendement objectif <span class="dots"></span> <b>700 kg/ha</b></li>
+            <li>Écart <span class="dots"></span> <b class="ok">+6,3 %</b></li>
+          </ul>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>État des stocks</h2><span>Suivi intrants</span></div>
+          <div class="stock-head"><span>Intrant</span><span>Dispo</span><span>Seuil</span></div>
+          <div class="stock-row"><span>Engrais NPK</span><span class="crit">118 kg</span><span>150</span></div>
+          <div class="stock-row"><span>Urée</span><span>240 kg</span><span>100</span></div>
+          <div class="stock-row"><span>Soufre (fong.)</span><span class="crit">35 L</span><span>40</span></div>
+          <div class="stock-row"><span>Cageots</span><span>210 u</span><span>50</span></div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

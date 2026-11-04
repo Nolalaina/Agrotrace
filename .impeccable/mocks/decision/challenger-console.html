@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AgroTrace — Dark Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1440px; height: 900px; overflow: hidden; font-family: "Inter", system-ui, sans-serif; background: #14161a; color: #d7d5cd; display: flex; font-size: 13px; }
+.rail { width: 216px; flex: none; background: #101216; border-right: 1px solid #262a32; padding: 16px 10px 10px; display: flex; flex-direction: column; }
+.brand { display: flex; gap: 10px; align-items: center; padding: 4px 8px 14px; border-bottom: 1px solid #262a32; }
+.mark { width: 30px; height: 30px; border: 1px solid #3a3f4a; color: #d8a24a; display: grid; place-items: center; font-family: "IBM Plex Mono"; font-size: 15px; }
+.brand b { color: #eceae2; font-size: 14px; display: block; letter-spacing: .02em; }
+.brand small { font-family: "IBM Plex Mono"; font-size: 8px; color: #6f7480; text-transform: uppercase; letter-spacing: .12em; display: block; margin-top: 2px; }
+.sec { font-family: "IBM Plex Mono"; font-size: 9px; letter-spacing: .16em; color: #565b66; padding: 14px 10px 6px; text-transform: uppercase; display: flex; justify-content: space-between; }
+nav a { display: flex; align-items: baseline; gap: 9px; padding: 6px 9px; color: #8a8f9c; text-decoration: none; font-size: 12px; font-weight: 500; border-left: 1px solid transparent; }
+nav a small { margin-left: auto; font-family: "IBM Plex Mono"; font-size: 9px; color: #4c515b; }
+nav a.active { background: #171a1f; color: #eceae2; border-left-color: #d8a24a; }
+nav a.active small { color: #d8a24a; }
+.side-user { margin-top: auto; border-top: 1px solid #262a32; padding: 10px 8px 0; display: flex; gap: 8px; align-items: center; }
+.av { width: 30px; height: 30px; background: #22262e; border: 1px solid #3a3f4a; color: #d8a24a; font-family: "IBM Plex Mono"; font-size: 12px; display: grid; place-items: center; }
+.side-user b { color: #eceae2; font-size: 11.5px; display: block; }
+.side-user span { font-family: "IBM Plex Mono"; font-size: 8px; color: #6f7480; text-transform: uppercase; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 8px 22px; border-bottom: 1px solid #262a32; background: #16181d; }
+.topbar .crumbs { font-family: "IBM Plex Mono"; font-size: 9px; color: #6f7480; letter-spacing: .14em; text-transform: uppercase; }
+.badge { font-family: "IBM Plex Mono"; font-size: 9px; letter-spacing: .1em; color: #d8a24a; border: 1px solid #3a3f4a; padding: 4px 10px; text-transform: uppercase; }
+.content { flex: 1; padding: 14px 22px 18px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 10px; border-bottom: 1px solid #262a32; }
+.eyebrow { font-family: "IBM Plex Mono"; font-size: 8.5px; letter-spacing: .2em; color: #d8a24a; text-transform: uppercase; }
+h1 { font-size: 26px; font-weight: 600; color: #eceae2; letter-spacing: -.02em; margin-top: 3px; }
+.lead { font-size: 11.5px; color: #8a8f9c; margin-top: 3px; }
+.actions { display: flex; gap: 8px; }
+.btn { min-height: 32px; padding: 0 12px; font: 600 11px "Inter"; background: #d8a24a; color: #14161a; border: 0; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.btn.ghost { background: transparent; color: #c9c7bd; border: 1px solid #3a3f4a; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-top: 12px; }
+.card { background: #181b20; border: 1px solid #262a32; padding: 10px 12px; }
+.card .rub { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .16em; color: #6f7480; text-transform: uppercase; display: flex; justify-content: space-between; border-bottom: 1px solid #262a32; padding-bottom: 5px; }
+.card .val { font-family: "IBM Plex Mono"; font-size: 28px; font-weight: 500; color: #eceae2; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.card .val small { font-size: 10px; color: #8a8f9c; }
+.card .sub { font-size: 10px; color: #6f7480; margin-top: 5px; }
+.row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 10px; margin-top: 12px; }
+.panel { background: #181b20; border: 1px solid #262a32; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 14px; border-bottom: 1px solid #262a32; }
+.panel-head h2 { font-family: "IBM Plex Mono"; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #eceae2; }
+.panel-head span { font-family: "IBM Plex Mono"; font-size: 8px; color: #565b66; }
+.panel-body { padding: 10px 14px 12px; }
+.kv { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #20242b; font-size: 11px; }
+.kv:last-child { border-bottom: 0; }
+.kv span { color: #8a8f9c; }
+.kv b { font-family: "IBM Plex Mono"; color: #eceae2; font-weight: 500; font-variant-numeric: tabular-nums; }
+.warn { color: #d8a24a; }
+.bad { color: #c05746; }
+.good { color: #7fb069; }
+.alert-panel { border-color: #3a2e1e; }
+.alert-item { display: flex; gap: 10px; align-items: baseline; font-size: 10.5px; padding: 6px 0; border-bottom: 1px solid #20242b; color: #d7d5cd; }
+.alert-item:last-child { border-bottom: 0; }
+.tag { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .1em; padding: 2px 6px; border: 1px solid #d8a24a; color: #d8a24a; text-transform: uppercase; flex: none; }
+.tag.crit { border-color: #c05746; color: #c05746; }
+.stock-head, .stock-row { display: grid; grid-template-columns: 1fr 72px 52px; gap: 8px; padding: 5px 0; font-size: 10.5px; border-bottom: 1px solid #20242b; }
+.stock-head { font-family: "IBM Plex Mono"; font-size: 8px; letter-spacing: .14em; color: #565b66; text-transform: uppercase; }
+.stock-row { font-family: "IBM Plex Mono"; font-variant-numeric: tabular-nums; }
+.stock-row span:first-child { font-family: "Inter"; }
+.stock-row:last-child { border-bottom: 0; }
+.destroy-zone { margin: 12px 0 0; border: 1px dashed #3a3f4a; padding: 14px 14px 12px; }
+.destroy-zone p { font-size: 9.5px; color: #565b66; margin-bottom: 10px; font-family: "IBM Plex Mono"; text-transform: uppercase; letter-spacing: .12em; }
+.destroy-zone .slot { display: flex; gap: 10px; }
+.destroy-btn { min-height: 30px; padding: 0 12px; background: transparent; border: 1px solid #c05746; color: #c05746; font: 600 10px "Inter"; cursor: pointer; }
+.destroy-btn + .gap { margin-left: 24px; }
+</style>
+</head>
+<body>
+  <aside class="rail">
+    <div class="brand"><div class="mark">&gt;_</div><div><b>AgroTrace</b><small>Vergers Ambodisaina</small></div></div>
+    <div class="sec"><span>Exploitation</span><span>01–07</span></div>
+    <nav>
+      <a class="active" href="#">dashboard <small>01</small></a>
+      <a href="#">parcelles <small>02</small></a>
+      <a href="#">campagnes <small>03</small></a>
+      <a href="#">activités <small>04</small></a>
+      <a href="#">récoltes <small>05</small></a>
+      <a href="#">stocks <small>06</small></a>
+      <a href="#">lots <small>07</small></a>
+    </nav>
+    <div class="sec"><span>Pilotage</span><span>08–09</span></div>
+    <nav>
+      <a href="#">finances <small>08</small></a>
+      <a href="#">utilisateurs <small>09</small></a>
+    </nav>
+    <div class="side-user"><div class="av">V</div><div><b>Voahirana Rabary</b><span>responsable</span></div></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <span class="crumbs">agrotrace / tableau-de-bord</span>
+      <span class="badge">campaign: lychee-2026-27</span>
+    </div>
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">/dashboard · maj 12.12.2026 07:14</div>
+          <h1>Tableau de bord</h1>
+          <p class="lead">Parcelles, récoltes, lots et stocks — vue d'ensemble exploitant.</p>
+        </div>
+        <div class="actions">
+          <button class="btn ghost">+ nouvelle activité</button>
+          <button class="btn">+ enregistrer une récolte</button>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="rub"><span>Campagnes actives</span><span>01</span></div><div class="val">2</div><div class="sub">en cours · depuis 03/11</div></div>
+        <div class="card"><div class="rub"><span>Parcelles</span><span>02</span></div><div class="val">6<small> · 24.5 ha</small></div><div class="sub">3 en récolte · litchi</div></div>
+        <div class="card"><div class="rub"><span>Récolte totale</span><span>05</span></div><div class="val">18 240<small> kg</small></div><div class="sub">+12% vs 2025</div></div>
+        <div class="card"><div class="rub"><span>Poids des lots</span><span>07</span></div><div class="val">12 300<small> kg</small></div><div class="sub">4 en attente d'affectation</div></div>
+      </div>
+      <div class="row">
+        <section class="panel">
+          <div class="panel-head"><h2>Indicateurs</h2><span>cache 10 min</span></div>
+          <div class="panel-body">
+            <div class="kv"><span>rendement</span><b>744 kg/ha</b></div>
+            <div class="kv"><span>récolte non affectée</span><b class="warn">8.4 %</b></div>
+            <div class="kv"><span>coût de production</span><b>1.87 /kg</b></div>
+            <div class="kv"><span>marge simplifiée</span><b class="good">+26 880.00</b></div>
+          </div>
+        </section>
+        <section class="panel alert-panel">
+          <div class="panel-head"><h2>Alertes · 2</h2><span>non acquittées</span></div>
+          <div class="panel-body">
+            <div class="alert-item"><span class="tag crit">stock</span><span>Engrais NPK 15-15-15 — <b>118 kg</b> restants (seuil 150)</span></div>
+            <div class="alert-item"><span class="tag">lots</span><span><b>3 récoltes</b> non affectées depuis plus de 3 jours</span></div>
+            <div class="destroy-zone">
+              <p>Zone isolée — actions destructrices</p>
+              <div class="slot"><button class="destroy-btn">Supprimer le brouillon</button><button class="destroy-btn gap">Écarter le lot #2026-018</button></div>
+            </div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>État des stocks</h2><span>seuils</span></div>
+          <div class="panel-body">
+            <div class="stock-head"><span>intrant</span><span>dispo</span><span>seuil</span></div>
+            <div class="stock-row"><span>Engrais NPK</span><span class="bad">118 kg</span><span>150</span></div>
+            <div class="stock-row"><span>Urée</span><span>240 kg</span><span>100</span></div>
+            <div class="stock-row"><span>Soufre (fong.)</span><span class="bad">35 L</span><span>40</span></div>
+            <div class="stock-row"><span>Cageots</span><span>210 u</span><span>50</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
