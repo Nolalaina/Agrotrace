@@ -9,8 +9,15 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
             fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
+                bunny('Alegreya', {
+                    weights: [400, 500, 700, 800],
+                    styles: ['normal', 'italic'],
+                }),
+                bunny('Alegreya Sans', {
+                    weights: [400, 500, 600, 700],
+                }),
+                bunny('Alegreya Sans SC', {
+                    weights: [500, 700],
                 }),
             ],
         }),

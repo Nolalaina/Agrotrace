@@ -14,6 +14,8 @@
     @endif
 </div>
 
+<x-ephemeride compact />
+
 <section class="panel">
     <div class="panel-head"><h3>Origine du lot <span class="muted">(traçabilité remontante)</span></h3></div>
     <div class="table-wrap">

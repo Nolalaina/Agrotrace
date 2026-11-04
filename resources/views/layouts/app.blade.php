@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#123024">
+    <meta name="theme-color" content="#20352a">
     <title>@yield('titre', 'Gestion fruitière') — AgroTrace</title>
     <script>
         (function () {
@@ -25,17 +25,17 @@
     @php
         $navigation = [
             'Exploitation' => [
-                ['route' => 'dashboard',       'motif' => 'dashboard',   'label' => 'Tableau de bord', 'icone' => 'home'],
-                ['route' => 'parcelles.index', 'motif' => 'parcelles.*', 'label' => 'Parcelles',       'icone' => 'map'],
-                ['route' => 'campagnes.index', 'motif' => 'campagnes.*', 'label' => 'Campagnes',       'icone' => 'calendar'],
-                ['route' => 'activites.index', 'motif' => 'activites.*', 'label' => 'Activités',       'icone' => 'activity'],
-                ['route' => 'recoltes.index',  'motif' => 'recoltes.*',  'label' => 'Récoltes',        'icone' => 'basket'],
-                ['route' => 'intrants.index',  'motif' => 'intrants.*',  'label' => 'Stocks',          'icone' => 'box'],
-                ['route' => 'lots.index',      'motif' => 'lots.*',      'label' => 'Lots',            'icone' => 'layers'],
+                ['route' => 'dashboard',       'motif' => 'dashboard',   'label' => 'Tableau de bord', 'icone' => 'home',     'folio' => '01'],
+                ['route' => 'parcelles.index', 'motif' => 'parcelles.*', 'label' => 'Parcelles',       'icone' => 'map',      'folio' => '02'],
+                ['route' => 'campagnes.index', 'motif' => 'campagnes.*', 'label' => 'Campagnes',       'icone' => 'calendar', 'folio' => '03'],
+                ['route' => 'activites.index', 'motif' => 'activites.*', 'label' => 'Activités',       'icone' => 'activity', 'folio' => '04'],
+                ['route' => 'recoltes.index',  'motif' => 'recoltes.*',  'label' => 'Récoltes',        'icone' => 'basket',   'folio' => '05'],
+                ['route' => 'intrants.index',  'motif' => 'intrants.*',  'label' => 'Stocks',          'icone' => 'box',      'folio' => '06'],
+                ['route' => 'lots.index',      'motif' => 'lots.*',      'label' => 'Lots',            'icone' => 'layers',   'folio' => '07'],
             ],
             'Pilotage' => [
-                ['route' => 'finances.index', 'motif' => 'finances.*', 'label' => 'Finances',     'icone' => 'coins', 'can' => 'voir-finances'],
-                ['route' => 'users.index',    'motif' => 'users.*',    'label' => 'Utilisateurs', 'icone' => 'users', 'can' => 'gerer-utilisateurs'],
+                ['route' => 'finances.index', 'motif' => 'finances.*', 'label' => 'Finances',     'icone' => 'coins', 'can' => 'voir-finances', 'folio' => '08'],
+                ['route' => 'users.index',    'motif' => 'users.*',    'label' => 'Utilisateurs', 'icone' => 'users', 'can' => 'gerer-utilisateurs', 'folio' => '09'],
             ],
         ];
         $utilisateur = auth()->user();
@@ -65,6 +65,7 @@
                                    @if (request()->routeIs($lien['motif'])) aria-current="page" @endif>
                                     <x-icon :name="$lien['icone']" />
                                     <span>{{ $lien['label'] }}</span>
+                                    <span class="nav-folio">{{ $lien['folio'] }}</span>
                                 </a>
                             @endforeach
                         @endif
@@ -97,12 +98,16 @@
                         <x-icon name="menu" />
                     </button>
                     <div class="topbar-heading">
-                        <span class="topbar-title">@yield('titre', 'Tableau de bord')</span>
+                        <span class="topbar-title">AgroTrace · @yield('titre', 'Tableau de bord')</span>
                         <span class="topbar-sub">{{ now()->locale('fr_FR')->translatedFormat('l j F Y') }}</span>
                     </div>
                 </div>
                 <div class="topbar-actions">
-                    <span class="meta-badge"><x-icon name="leaf" /> {{ $exploitation }}</span>
+                    @hasSection('topbar-badge')
+                        @yield('topbar-badge')
+                    @else
+                        <span class="meta-badge"><x-icon name="leaf" /> {{ $exploitation }}</span>
+                    @endif
                     <button type="button" class="icon-btn" data-theme-toggle aria-label="Basculer le thème clair/sombre" aria-pressed="false" title="Basculer le thème">
                         <x-icon name="moon" class="icon-moon" />
                         <x-icon name="sun" class="icon-sun" />

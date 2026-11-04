@@ -65,6 +65,7 @@
     </section>
 
     <p class="hint">Cette page ne contient aucune donnée financière.</p>
+    <p class="colophon">AgroTrace · Registre public des lots — feuille du {{ now()->locale('fr_FR')->translatedFormat('j F Y') }} · traçabilité vérifiable par QR code.</p>
 </div>
 </body>
 </html>

@@ -2,6 +2,12 @@
 
 @section('titre', 'Tableau de bord')
 
+@section('topbar-badge')
+    @if (!empty($stats['campagne_principale']))
+        <span class="meta-badge"><x-icon name="leaf" /> {{ $stats['campagne_principale'] }}</span>
+    @endif
+@endsection
+
 @section('contenu')
 @php($n = fn ($v, $d = 0) => number_format((float) $v, $d, ',', ' '))
 
@@ -15,6 +21,8 @@
         <a href="{{ route('activites.create') }}" class="btn btn-secondary"><x-icon name="activity" /> Nouvelle activité</a>
     </div>
 </div>
+
+<x-ephemeride :stats="$stats" />
 
 @if (!empty($notifications) && count($notifications))
     <div class="stack">
@@ -31,7 +39,7 @@
     <div class="stat-card has-icon">
         <span class="stat-icon"><x-icon name="calendar" /></span>
         <div class="stat-body">
-            <span class="stat-label">Campagnes actives</span>
+            <span class="stat-label">Rubrique I · Campagnes actives</span>
             <span class="stat-value">{{ $stats['campagnes_actives'] }}</span>
             <span class="stat-sub">en cours</span>
         </div>
@@ -39,7 +47,7 @@
     <div class="stat-card has-icon">
         <span class="stat-icon info"><x-icon name="map" /></span>
         <div class="stat-body">
-            <span class="stat-label">Parcelles</span>
+            <span class="stat-label">Rubrique II · Parcelles</span>
             <span class="stat-value">{{ $stats['nb_parcelles'] }}</span>
             <span class="stat-sub">{{ $n($stats['superficie_ha'], 1) }} ha au total</span>
         </div>
@@ -47,7 +55,7 @@
     <div class="stat-card has-icon">
         <span class="stat-icon success"><x-icon name="basket" /></span>
         <div class="stat-body">
-            <span class="stat-label">Récolte totale</span>
+            <span class="stat-label">Rubrique III · Récolte totale</span>
             <span class="stat-value">{{ $n($stats['recolte_totale_kg']) }}</span>
             <span class="stat-sub">kg cumulés</span>
         </div>
@@ -55,7 +63,7 @@
     <div class="stat-card has-icon">
         <span class="stat-icon accent"><x-icon name="layers" /></span>
         <div class="stat-body">
-            <span class="stat-label">Poids des lots</span>
+            <span class="stat-label">Rubrique IV · Poids des lots</span>
             <span class="stat-value">{{ $n($stats['poids_lots_kg']) }}</span>
             <span class="stat-sub">kg tracés</span>
         </div>
@@ -70,14 +78,11 @@
                 <p class="hint">Performance de la campagne en cours.</p>
             </div>
         </div>
-        <ul class="data-list">
-            <li><span>Rendement</span><strong>{{ $n($stats['rendement_kg_ha'], 1) }} kg/ha</strong></li>
-            <li><span>Récolte non affectée</span><strong>{{ $n($stats['taux_perte_potentielle'], 1) }} %</strong></li>
+        <ul class="leaders">
+            <li>Rendement <span class="dots"></span> <b>{{ $n($stats['rendement_kg_ha'], 1) }} kg/ha</b></li>
+            <li>Récolte non affectée <span class="dots"></span> <b>{{ $n($stats['taux_perte_potentielle'], 1) }} %</b></li>
             @isset($stats['cout_production_kg'])
-                <li>
-                    <span>Coût de production</span>
-                    <strong>{{ $stats['cout_production_kg'] !== null ? $n($stats['cout_production_kg'], 2).' /kg' : '—' }}</strong>
-                </li>
+                <li>Coût de production <span class="dots"></span> <b>{{ $stats['cout_production_kg'] !== null ? $n($stats['cout_production_kg'], 2).' /kg' : '—' }}</b></li>
             @endisset
         </ul>
     </section>

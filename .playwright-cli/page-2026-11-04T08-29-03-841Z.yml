@@ -1,0 +1,102 @@
+- generic [ref=f18e2]:
+  - complementary [ref=f18e3]:
+    - generic [ref=f18e4]:
+      - link "AgroTrace — Tableau de bord" [ref=f18e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/dashboard
+        - generic [ref=f18e10]:
+          - strong [ref=f18e11]: AgroTrace
+          - generic [ref=f18e12]: Vergers Ambodisaina
+      - navigation "Navigation principale" [ref=f18e13]:
+        - paragraph [ref=f18e14]: Exploitation
+        - link "Tableau de bord 01" [ref=f18e15] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/dashboard
+          - generic [ref=f18e20]: Tableau de bord
+          - generic [ref=f18e21]: "01"
+        - link "Parcelles 02" [ref=f18e22] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/parcelles
+          - generic [ref=f18e26]: Parcelles
+          - generic [ref=f18e27]: "02"
+        - link "Campagnes 03" [ref=f18e28] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/campagnes
+          - generic [ref=f18e32]: Campagnes
+          - generic [ref=f18e33]: "03"
+        - link "Activités 04" [ref=f18e34] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/activites
+          - generic [ref=f18e37]: Activités
+          - generic [ref=f18e38]: "04"
+        - link "Récoltes 05" [ref=f18e39] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/recoltes
+          - generic [ref=f18e43]: Récoltes
+          - generic [ref=f18e44]: "05"
+        - link "Stocks 06" [ref=f18e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/intrants
+          - generic [ref=f18e49]: Stocks
+          - generic [ref=f18e50]: "06"
+        - link "Lots 07" [ref=f18e51] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/lots
+          - generic [ref=f18e55]: Lots
+          - generic [ref=f18e56]: "07"
+        - paragraph [ref=f18e57]: Pilotage
+        - link "Finances 08" [ref=f18e58] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/finances
+          - generic [ref=f18e62]: Finances
+          - generic [ref=f18e63]: "08"
+        - link "Utilisateurs 09" [ref=f18e64] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/utilisateurs
+          - generic [ref=f18e69]: Utilisateurs
+          - generic [ref=f18e70]: "09"
+    - generic [ref=f18e71]:
+      - generic [ref=f18e72]:
+        - generic [ref=f18e73]: A
+        - generic [ref=f18e74]:
+          - strong [ref=f18e75]: Admin Vergers Ambodisaina
+          - generic [ref=f18e76]: admin
+      - button "Déconnexion" [ref=f18e78] [cursor=pointer]
+  - generic [ref=f18e82]:
+    - banner [ref=f18e83]:
+      - generic [ref=f18e84]:
+        - button "Ouvrir le menu" [ref=f18e85] [cursor=pointer]
+        - generic [ref=f18e88]: AgroTrace · Lot LOT-1-261018-R1ZW
+      - button "Activer le thème sombre" [ref=f18e91] [cursor=pointer]
+    - main [ref=f18e94]:
+      - generic [ref=f18e95]:
+        - generic [ref=f18e96]:
+          - heading "LOT-1-261018-R1ZW" [level=1] [ref=f18e97]
+          - paragraph [ref=f18e98]:
+            - generic [ref=f18e99]: Vendu
+            - text: 900.00 kg — qualité extra
+        - generic "QR code de traçabilité" [ref=f18e100]
+      - note "Éphéméride" [ref=f18e106]:
+        - generic [ref=f18e110]: mercredi 4 novembre 2026·jour 308·Dernier croissant (25 % éclairée)
+      - generic [ref=f18e111]:
+        - heading "Origine du lot (traçabilité remontante)" [level=3] [ref=f18e113]:
+          - text: Origine du lot
+          - generic [ref=f18e114]: (traçabilité remontante)
+        - table [ref=f18e116]:
+          - rowgroup [ref=f18e117]:
+            - row [ref=f18e118]:
+              - columnheader "Parcelle" [ref=f18e119]
+              - columnheader "Variété" [ref=f18e120]
+              - columnheader "Campagne" [ref=f18e121]
+              - columnheader "Date de récolte" [ref=f18e122]
+              - columnheader "Quantité (kg)" [ref=f18e123]
+          - rowgroup [ref=f18e124]:
+            - row [ref=f18e125]:
+              - cell "AMB-P01 — Tanambao Haut" [ref=f18e126]
+              - cell "Mauritius" [ref=f18e127]
+              - cell "Litchi AMB-P01 2026-2027" [ref=f18e128]
+              - cell "04/10/2026" [ref=f18e129]
+              - cell "500" [ref=f18e130]
+            - row [ref=f18e131]:
+              - cell "AMB-P01 — Tanambao Haut" [ref=f18e132]
+              - cell "Mauritius" [ref=f18e133]
+              - cell "Litchi AMB-P01 2026-2027" [ref=f18e134]
+              - cell "09/10/2026" [ref=f18e135]
+              - cell "400" [ref=f18e136]
+      - generic [ref=f18e137]:
+        - heading "Actions" [level=3] [ref=f18e139]
+        - generic [ref=f18e141]:
+          - button "Générer la fiche de traçabilité" [ref=f18e143] [cursor=pointer]
+          - link "Page publique" [ref=f18e144] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/tracabilite/LOT-1-261018-R1ZW
+      - generic [ref=f18e145]: Vendu à Exportateur Tamatave Fruits le 18/10/2026 — 4 500 000,00

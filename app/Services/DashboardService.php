@@ -59,6 +59,7 @@ class DashboardService
 
         return [
             'campagnes_actives' => Campagne::pourExploitation($id)->where('statut', Campagne::EN_COURS)->count(),
+            'campagne_principale' => Campagne::pourExploitation($id)->where('statut', Campagne::EN_COURS)->orderBy('id')->value('libelle'),
             'nb_parcelles' => Parcelle::pourExploitation($id)->count(),
             'superficie_ha' => $superficie,
             'recolte_totale_kg' => $recolteTotale,

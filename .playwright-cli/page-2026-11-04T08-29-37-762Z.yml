@@ -1,0 +1,179 @@
+- generic [ref=f20e2]:
+  - complementary [ref=f20e3]:
+    - generic [ref=f20e4]:
+      - link "AgroTrace — Tableau de bord" [ref=f20e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/dashboard
+        - generic [ref=f20e10]:
+          - strong [ref=f20e11]: AgroTrace
+          - generic [ref=f20e12]: Vergers Ambodisaina
+      - navigation "Navigation principale" [ref=f20e13]:
+        - paragraph [ref=f20e14]: Exploitation
+        - link "Tableau de bord 01" [ref=f20e15] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/dashboard
+          - generic [ref=f20e20]: Tableau de bord
+          - generic [ref=f20e21]: "01"
+        - link "Parcelles 02" [ref=f20e22] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/parcelles
+          - generic [ref=f20e26]: Parcelles
+          - generic [ref=f20e27]: "02"
+        - link "Campagnes 03" [ref=f20e28] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/campagnes
+          - generic [ref=f20e32]: Campagnes
+          - generic [ref=f20e33]: "03"
+        - link "Activités 04" [ref=f20e34] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/activites
+          - generic [ref=f20e37]: Activités
+          - generic [ref=f20e38]: "04"
+        - link "Récoltes 05" [ref=f20e39] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/recoltes
+          - generic [ref=f20e43]: Récoltes
+          - generic [ref=f20e44]: "05"
+        - link "Stocks 06" [ref=f20e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/intrants
+          - generic [ref=f20e49]: Stocks
+          - generic [ref=f20e50]: "06"
+        - link "Lots 07" [ref=f20e51] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/lots
+          - generic [ref=f20e55]: Lots
+          - generic [ref=f20e56]: "07"
+        - paragraph [ref=f20e57]: Pilotage
+        - link "Finances 08" [ref=f20e58] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/finances
+          - generic [ref=f20e62]: Finances
+          - generic [ref=f20e63]: "08"
+        - link "Utilisateurs 09" [ref=f20e64] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/utilisateurs
+          - generic [ref=f20e69]: Utilisateurs
+          - generic [ref=f20e70]: "09"
+    - generic [ref=f20e71]:
+      - generic [ref=f20e72]:
+        - generic [ref=f20e73]: A
+        - generic [ref=f20e74]:
+          - strong [ref=f20e75]: Admin Vergers Ambodisaina
+          - generic [ref=f20e76]: admin
+      - button "Déconnexion" [ref=f20e78] [cursor=pointer]
+  - generic [ref=f20e82]:
+    - banner [ref=f20e83]:
+      - generic [ref=f20e84]:
+        - button "Ouvrir le menu" [ref=f20e85] [cursor=pointer]
+        - generic [ref=f20e88]: AgroTrace · Tableau de bord
+      - button "Activer le thème sombre" [ref=f20e91] [cursor=pointer]
+    - main [ref=f20e94]:
+      - generic [ref=f20e95]:
+        - generic [ref=f20e96]:
+          - heading "Tableau de bord" [level=1] [ref=f20e97]
+          - paragraph [ref=f20e98]: "Suivi de l'exploitation : parcelles, récoltes, lots et santé des stocks."
+        - generic [ref=f20e99]:
+          - link "Enregistrer une récolte" [ref=f20e100] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/recoltes/create
+          - link "Nouvelle activité" [ref=f20e103] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/activites/create
+      - note "Éphéméride" [ref=f20e106]:
+        - generic [ref=f20e110]: mercredi 4 novembre 2026·jour 308 du calendrier·Dernier croissant · 25 % éclairée·3 campagnes actives·9,7 ha en production
+      - generic [ref=f20e112]:
+        - generic [ref=f20e118]:
+          - generic [ref=f20e119]: Rubrique I · Campagnes actives
+          - generic [ref=f20e120]: "3"
+          - generic [ref=f20e121]: en cours
+        - generic [ref=f20e127]:
+          - generic [ref=f20e128]: Rubrique II · Parcelles
+          - generic [ref=f20e129]: "3"
+          - generic [ref=f20e130]: 9,7 ha au total
+        - generic [ref=f20e136]:
+          - generic [ref=f20e137]: Rubrique III · Récolte totale
+          - generic [ref=f20e138]: 4 050
+          - generic [ref=f20e139]: kg cumulés
+        - generic [ref=f20e145]:
+          - generic [ref=f20e146]: Rubrique IV · Poids des lots
+          - generic [ref=f20e147]: 1 450
+          - generic [ref=f20e148]: kg tracés
+      - generic [ref=f20e149]:
+        - generic [ref=f20e150]:
+          - generic [ref=f20e152]:
+            - heading "Indicateurs calculés" [level=3] [ref=f20e153]
+            - paragraph [ref=f20e154]: Performance de la campagne en cours.
+          - list [ref=f20e155]:
+            - listitem [ref=f20e156]:
+              - text: Rendement
+              - generic [ref=f20e158]: 417,5 kg/ha
+            - listitem [ref=f20e159]:
+              - text: Récolte non affectée
+              - generic [ref=f20e161]: 64,2 %
+            - listitem [ref=f20e162]:
+              - text: Coût de production
+              - generic [ref=f20e164]: 372,41 /kg
+        - generic [ref=f20e165]:
+          - generic [ref=f20e166]:
+            - generic [ref=f20e167]:
+              - heading "Finances" [level=3] [ref=f20e168]
+              - paragraph [ref=f20e169]: Marge simplifiée sur l'exploitation.
+            - link "Détail" [ref=f20e170] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/finances
+          - list [ref=f20e171]:
+            - listitem [ref=f20e172]:
+              - generic [ref=f20e173]: Dépenses
+              - strong [ref=f20e174]: 540 000,00
+            - listitem [ref=f20e175]:
+              - generic [ref=f20e176]: Recettes
+              - strong [ref=f20e177]: 4 500 000,00
+            - listitem [ref=f20e178]:
+              - generic [ref=f20e179]: Marge
+              - strong [ref=f20e180]: 3 960 000,00
+        - generic [ref=f20e181]:
+          - generic [ref=f20e183]:
+            - heading "Alertes" [level=3] [ref=f20e184]
+            - paragraph [ref=f20e185]: Points à traiter en priorité.
+          - list [ref=f20e186]:
+            - listitem [ref=f20e187]:
+              - generic [ref=f20e188]: Stocks
+              - strong [ref=f20e189]: Aucune alerte
+            - listitem [ref=f20e190]:
+              - generic [ref=f20e191]: Récoltes non affectées
+              - strong [ref=f20e192]: 9 depuis plus de 3 jours
+      - generic [ref=f20e193]:
+        - generic [ref=f20e194]:
+          - generic [ref=f20e195]:
+            - heading "État des stocks" [level=3] [ref=f20e196]
+            - link "Voir tout" [ref=f20e197] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/intrants
+          - table [ref=f20e199]:
+            - rowgroup [ref=f20e200]:
+              - row [ref=f20e201]:
+                - cell "Bouillie bordelaise" [ref=f20e202]
+                - cell "28.00 kg" [ref=f20e203]
+                - cell "seuil 10.00" [ref=f20e204]
+              - row [ref=f20e205]:
+                - cell "Caisses de 10 kg" [ref=f20e206]
+                - cell "600.00 pièce" [ref=f20e207]
+                - cell "seuil 100.00" [ref=f20e208]
+              - row [ref=f20e209]:
+                - cell "NPK 15-15-15" [ref=f20e210]
+                - cell "55.00 kg" [ref=f20e211]
+                - cell "seuil 50.00" [ref=f20e212]
+        - generic [ref=f20e213]:
+          - generic [ref=f20e214]:
+            - heading "Activités récentes" [level=3] [ref=f20e215]
+            - link "Voir tout" [ref=f20e216] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/activites
+          - table [ref=f20e218]:
+            - rowgroup [ref=f20e219]:
+              - row [ref=f20e220]:
+                - cell "15/09/2026" [ref=f20e221]
+                - cell "Traitement" [ref=f20e222]
+                - cell "Litchi AMB-P03 2026-2027" [ref=f20e223]
+              - row [ref=f20e224]:
+                - cell "14/09/2026" [ref=f20e225]
+                - cell "Traitement" [ref=f20e226]
+                - cell "Litchi AMB-P02 2026-2027" [ref=f20e227]
+              - row [ref=f20e228]:
+                - cell "13/09/2026" [ref=f20e229]
+                - cell "Traitement" [ref=f20e230]
+                - cell "Litchi AMB-P01 2026-2027" [ref=f20e231]
+              - row [ref=f20e232]:
+                - cell "21/08/2026" [ref=f20e233]
+                - cell "Taille" [ref=f20e234]
+                - cell "Litchi AMB-P03 2026-2027" [ref=f20e235]
+              - row [ref=f20e236]:
+                - cell "20/08/2026" [ref=f20e237]
+                - cell "Taille" [ref=f20e238]
+                - cell "Litchi AMB-P02 2026-2027" [ref=f20e239]

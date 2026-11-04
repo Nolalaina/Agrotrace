@@ -1,0 +1,42 @@
+- generic [ref=f8e2]:
+  - generic [ref=f8e3]:
+    - link [ref=f8e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8000
+    - button "Activer le thème sombre" [ref=f8e9] [cursor=pointer]
+  - banner [ref=f8e12]:
+    - generic [ref=f8e13]: Lot vendu
+    - heading "Lot LOT-1-261018-R1ZW" [level=1] [ref=f8e14]
+    - paragraph [ref=f8e15]: 900,00 kg · qualité extra · clôturé le 18/10/2026
+  - generic [ref=f8e16]:
+    - generic [ref=f8e18]:
+      - heading "Origine des fruits" [level=3] [ref=f8e19]
+      - paragraph [ref=f8e20]: Parcelles et dates de récolte rattachées à ce lot.
+    - generic [ref=f8e21]:
+      - strong [ref=f8e22]: Parcelle AMB-P01
+      - text: — Tanambao Haut
+      - generic [ref=f8e23]:
+        - term [ref=f8e24]: Variété
+        - definition [ref=f8e25]: Mauritius
+        - term [ref=f8e26]: Lieu
+        - definition [ref=f8e27]: Mahambo, Analanjirofo
+        - term [ref=f8e28]: Récolté le
+        - definition [ref=f8e29]: 04/10/2026
+        - term [ref=f8e30]: Quantité
+        - definition [ref=f8e31]: 500,00 kg
+        - term [ref=f8e32]: Calibre
+        - definition [ref=f8e33]: gros
+    - generic [ref=f8e34]:
+      - strong [ref=f8e35]: Parcelle AMB-P01
+      - text: — Tanambao Haut
+      - generic [ref=f8e36]:
+        - term [ref=f8e37]: Variété
+        - definition [ref=f8e38]: Mauritius
+        - term [ref=f8e39]: Lieu
+        - definition [ref=f8e40]: Mahambo, Analanjirofo
+        - term [ref=f8e41]: Récolté le
+        - definition [ref=f8e42]: 09/10/2026
+        - term [ref=f8e43]: Quantité
+        - definition [ref=f8e44]: 400,00 kg
+        - term [ref=f8e45]: Calibre
+        - definition [ref=f8e46]: moyen
+  - paragraph [ref=f8e47]: Cette page ne contient aucune donnée financière.

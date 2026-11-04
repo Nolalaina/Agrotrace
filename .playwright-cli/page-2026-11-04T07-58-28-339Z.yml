@@ -1,0 +1,99 @@
+- generic [ref=f6e2]:
+  - complementary [ref=f6e3]:
+    - generic [ref=f6e4]:
+      - link "AgroTrace — Tableau de bord" [ref=f6e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/dashboard
+        - generic [ref=f6e10]:
+          - strong [ref=f6e11]: AgroTrace
+          - generic [ref=f6e12]: Vergers Ambodisaina
+      - navigation "Navigation principale" [ref=f6e13]:
+        - paragraph [ref=f6e14]: Exploitation
+        - link "Tableau de bord" [ref=f6e15] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/dashboard
+        - link "Parcelles" [ref=f6e21] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/parcelles
+        - link "Campagnes" [ref=f6e26] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/campagnes
+        - link "Activités" [ref=f6e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/activites
+        - link "Récoltes" [ref=f6e35] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/recoltes
+        - link "Stocks" [ref=f6e40] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/intrants
+        - link "Lots" [ref=f6e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/lots
+        - paragraph [ref=f6e50]: Pilotage
+        - link "Finances" [ref=f6e51] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/finances
+        - link "Utilisateurs" [ref=f6e56] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/utilisateurs
+    - generic [ref=f6e62]:
+      - generic [ref=f6e63]:
+        - generic [ref=f6e64]: A
+        - generic [ref=f6e65]:
+          - strong [ref=f6e66]: Admin Vergers Ambodisaina
+          - generic [ref=f6e67]: admin
+      - button "Déconnexion" [ref=f6e69] [cursor=pointer]
+  - generic [ref=f6e73]:
+    - banner [ref=f6e74]:
+      - generic [ref=f6e76]:
+        - generic [ref=f6e77]: Lots
+        - generic [ref=f6e78]: mercredi 4 novembre 2026
+      - generic [ref=f6e79]:
+        - generic [ref=f6e80]: Vergers Ambodisaina
+        - button "Activer le thème sombre" [ref=f6e84] [cursor=pointer]
+    - main [ref=f6e87]:
+      - generic [ref=f6e88]:
+        - generic [ref=f6e89]:
+          - heading "Lots de production" [level=1] [ref=f6e90]
+          - paragraph [ref=f6e91]: Chaque lot relie les récoltes d'origine à sa vente et à sa fiche de traçabilité.
+        - link "Composer un lot" [ref=f6e93] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/lots/create
+      - generic [ref=f6e97]:
+        - generic [ref=f6e98]:
+          - generic [ref=f6e99]: Code du lot
+          - searchbox "Code du lot" [ref=f6e100]
+        - generic [ref=f6e101]:
+          - generic [ref=f6e102]: Statut
+          - combobox "Statut" [ref=f6e103]:
+            - option "Tous les statuts" [selected]
+            - option "Ouvert"
+            - option "Clôturé"
+            - option "Vendu"
+        - button "Filtrer" [ref=f6e105] [cursor=pointer]
+      - table [ref=f6e108]:
+        - rowgroup [ref=f6e109]:
+          - row [ref=f6e110]:
+            - columnheader "Code" [ref=f6e111]
+            - columnheader "Statut" [ref=f6e112]
+            - columnheader "Qualité" [ref=f6e113]
+            - columnheader "Poids (kg)" [ref=f6e114]
+            - columnheader "Créé le" [ref=f6e115]
+        - rowgroup [ref=f6e116]:
+          - row [ref=f6e117]:
+            - cell [ref=f6e118]:
+              - link [ref=f6e119] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/lots/3
+                - strong [ref=f6e120]: LOT-1-261018-DUBQ
+            - cell "Ouvert" [ref=f6e121]
+            - cell "standard" [ref=f6e123]
+            - cell "300.00" [ref=f6e124]
+            - cell "18/10/2026" [ref=f6e125]
+          - row [ref=f6e126]:
+            - cell [ref=f6e127]:
+              - link [ref=f6e128] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/lots/2
+                - strong [ref=f6e129]: LOT-1-261018-BCBT
+            - cell "Clôturé" [ref=f6e130]
+            - cell "premiere" [ref=f6e132]
+            - cell "250.00" [ref=f6e133]
+            - cell "18/10/2026" [ref=f6e134]
+          - row [ref=f6e135]:
+            - cell [ref=f6e136]:
+              - link [ref=f6e137] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/lots/1
+                - strong [ref=f6e138]: LOT-1-261018-R1ZW
+            - cell "Vendu" [ref=f6e139]
+            - cell "extra" [ref=f6e141]
+            - cell "900.00" [ref=f6e142]
+            - cell "18/10/2026" [ref=f6e143]

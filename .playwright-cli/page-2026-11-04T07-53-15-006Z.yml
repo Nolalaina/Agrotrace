@@ -1,0 +1,32 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8000/login
+    - button "Activer le thème sombre" [ref=e9] [cursor=pointer]
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - heading "La traçabilité, du verger au lot." [level=1] [ref=e15]
+        - paragraph [ref=e16]: Centralisez les parcelles, les récoltes, les stocks et les activités agricoles dans une interface claire et rapide.
+        - list [ref=e17]:
+          - listitem [ref=e18]: Suivi de terrain
+          - listitem [ref=e22]: Traçabilité des lots
+          - listitem [ref=e26]: Alertes de stock
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - heading "Connexion" [level=2] [ref=e32]
+          - paragraph [ref=e33]: Accédez à l'espace de votre exploitation.
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]: Adresse e-mail
+            - textbox "Adresse e-mail" [active] [ref=e37]
+          - generic [ref=e38]:
+            - generic [ref=e39]: Mot de passe
+            - textbox "Mot de passe" [ref=e40]
+          - generic [ref=e41]:
+            - generic [ref=e42] [cursor=pointer]:
+              - checkbox "Se souvenir de moi" [ref=e43]
+              - generic [ref=e44]: Se souvenir de moi
+            - link "Créer un compte" [ref=e45] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/register
+          - button "Se connecter" [ref=e46] [cursor=pointer]

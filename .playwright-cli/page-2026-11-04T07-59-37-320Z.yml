@@ -1,0 +1,74 @@
+- generic [ref=f7e2]:
+  - complementary [ref=f7e3]:
+    - generic [ref=f7e4]:
+      - link "AgroTrace — Tableau de bord" [ref=f7e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000/dashboard
+        - generic [ref=f7e10]:
+          - strong [ref=f7e11]: AgroTrace
+          - generic [ref=f7e12]: Vergers Ambodisaina
+      - navigation "Navigation principale" [ref=f7e13]:
+        - paragraph [ref=f7e14]: Exploitation
+        - link "Tableau de bord" [ref=f7e15] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/dashboard
+        - link "Parcelles" [ref=f7e21] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/parcelles
+        - link "Campagnes" [ref=f7e26] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/campagnes
+        - link "Activités" [ref=f7e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/activites
+        - link "Récoltes" [ref=f7e35] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/recoltes
+        - link "Stocks" [ref=f7e40] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/intrants
+        - link "Lots" [ref=f7e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/lots
+        - paragraph [ref=f7e50]: Pilotage
+        - link "Finances" [ref=f7e51] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/finances
+        - link "Utilisateurs" [ref=f7e56] [cursor=pointer]:
+          - /url: http://127.0.0.1:8000/utilisateurs
+    - generic [ref=f7e62]:
+      - generic [ref=f7e63]:
+        - generic [ref=f7e64]: A
+        - generic [ref=f7e65]:
+          - strong [ref=f7e66]: Admin Vergers Ambodisaina
+          - generic [ref=f7e67]: admin
+      - button "Déconnexion" [ref=f7e69] [cursor=pointer]
+  - generic [ref=f7e73]:
+    - banner [ref=f7e74]:
+      - generic [ref=f7e76]:
+        - generic [ref=f7e77]: Nouvelle récolte
+        - generic [ref=f7e78]: mercredi 4 novembre 2026
+      - generic [ref=f7e79]:
+        - generic [ref=f7e80]: Vergers Ambodisaina
+        - button "Activer le thème sombre" [ref=f7e84] [cursor=pointer]
+    - main [ref=f7e87]:
+      - heading "Enregistrer une récolte" [level=1] [ref=f7e90]
+      - generic [ref=f7e92]:
+        - generic [ref=f7e93]:
+          - generic [ref=f7e94]:
+            - generic [ref=f7e95]: Campagne (en cours)
+            - combobox "Campagne (en cours)" [ref=f7e96]:
+              - option "Litchi AMB-P01 2026-2027 — AMB-P01" [selected]
+              - option "Litchi AMB-P02 2026-2027 — AMB-P02"
+              - option "Litchi AMB-P03 2026-2027 — AMB-P03"
+          - generic [ref=f7e97]:
+            - generic [ref=f7e98]: Date
+            - textbox "Date" [ref=f7e99]: 2026-11-04
+          - generic [ref=f7e100]:
+            - generic [ref=f7e101]: Quantité (kg)
+            - spinbutton "Quantité (kg)" [ref=f7e102]
+          - generic [ref=f7e103]:
+            - generic [ref=f7e104]: Calibre
+            - combobox "Calibre" [ref=f7e105]:
+              - option "—" [selected]
+              - option "petit"
+              - option "moyen"
+              - option "gros"
+          - generic [ref=f7e106]:
+            - generic [ref=f7e107]: Notes
+            - textbox "Notes" [ref=f7e108]
+        - generic [ref=f7e109]:
+          - button "Enregistrer" [ref=f7e110] [cursor=pointer]
+          - link "Annuler" [ref=f7e111] [cursor=pointer]:
+            - /url: http://127.0.0.1:8000/recoltes
