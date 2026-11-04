@@ -3,7 +3,6 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Parcelles</span>
         <h1>{{ $parcelle->exists ? 'Parcelle '.$parcelle->code : 'Nouvelle parcelle' }}</h1>
     </div>
 </div>
@@ -63,7 +62,7 @@
                 @forelse ($lots as $l)
                     <tr>
                         <td><a href="{{ route('lots.show', $l) }}"><strong>{{ $l->code }}</strong></a></td>
-                        <td><span class="badge {{ $l->statut === 'ouvert' ? 'success' : ($l->statut === 'cloture' ? 'warning' : '') }}">{{ $l->statut }}</span></td>
+                        <td><span class="badge {{ $l->statut === 'ouvert' ? 'success' : ($l->statut === 'cloture' ? 'warning' : 'info') }}">{{ ['ouvert' => 'Ouvert', 'cloture' => 'Clôturé', 'vendu' => 'Vendu'][$l->statut] ?? $l->statut }}</span></td>
                         <td class="text-end">{{ $l->poids_total_kg }} kg</td>
                     </tr>
                 @empty

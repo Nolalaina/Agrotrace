@@ -41,7 +41,7 @@ class ApiTest extends TestCase
         $this->getJson('/api/lots/'.$lot->code)
             ->assertOk()
             ->assertJsonPath('data.code', $lot->code)
-            ->assertJsonPath('data.poids_total_kg', 120.0)
+            ->assertJsonPath('data.poids_total_kg', 120)
             ->assertJsonStructure(['data' => ['id', 'code', 'statut', 'poids_total_kg', 'recoltes']]);
     }
 

@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Terrain</span>
         <h1>Activités techniques</h1>
+        <p class="lead">Travaux de terrain, traitements et interventions, filtrables par campagne.</p>
     </div>
     <div class="actions">
         <a href="{{ route('activites.create') }}" class="btn btn-primary"><x-icon name="plus" /> Nouvelle activité</a>
@@ -91,7 +91,7 @@
             @forelse ($activites as $a)
                 <tr>
                     <td class="nowrap">{{ $a->date->format('d/m/Y') }}</td>
-                    <td><span class="badge info">{{ $a->type }}</span></td>
+                    <td><span class="badge info">{{ ucfirst($a->type) }}</span></td>
                     <td>{{ $a->campagne?->libelle }}</td>
                     <td>{{ $a->description }}</td>
                     <td>{{ $a->user?->name }}</td>

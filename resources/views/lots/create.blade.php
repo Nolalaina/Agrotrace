@@ -3,7 +3,6 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Lots</span>
         <h1>Composer un lot</h1>
         <p class="lead">Saisissez la quantité à prélever sur chaque récolte. Laissez vide pour ne pas l'utiliser.</p>
     </div>

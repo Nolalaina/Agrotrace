@@ -6,9 +6,9 @@
 
         <ul class="pagination">
             @if ($paginator->onFirstPage())
-                <li><span class="page disabled" aria-disabled="true">‹</span></li>
+                <li><span class="page disabled" aria-disabled="true"><x-icon name="chevron-left" /></span></li>
             @else
-                <li><a class="page" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="Page précédente">‹</a></li>
+                <li><a class="page" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="Page précédente"><x-icon name="chevron-left" /></a></li>
             @endif
 
             @foreach ($elements as $element)
@@ -28,9 +28,9 @@
             @endforeach
 
             @if ($paginator->hasMorePages())
-                <li><a class="page" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="Page suivante">›</a></li>
+                <li><a class="page" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="Page suivante"><x-icon name="chevron-right" /></a></li>
             @else
-                <li><span class="page disabled" aria-disabled="true">›</span></li>
+                <li><span class="page disabled" aria-disabled="true"><x-icon name="chevron-right" /></span></li>
             @endif
         </ul>
     </nav>

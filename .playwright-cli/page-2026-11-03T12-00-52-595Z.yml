@@ -1,0 +1,90 @@
+- generic [ref=f5e2]:
+  - complementary [ref=f5e3]:
+    - generic [ref=f5e4]:
+      - link "AgroTrace — Tableau de bord" [ref=f5e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8123/dashboard
+        - generic [ref=f5e10]:
+          - strong [ref=f5e11]: AgroTrace
+          - generic [ref=f5e12]: Vergers Ambodisaina
+      - navigation "Navigation principale" [ref=f5e13]:
+        - paragraph [ref=f5e14]: Exploitation
+        - link "Tableau de bord" [ref=f5e15] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/dashboard
+        - link "Parcelles" [ref=f5e21] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/parcelles
+        - link "Campagnes" [ref=f5e26] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/campagnes
+        - link "Activités" [ref=f5e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/activites
+        - link "Récoltes" [ref=f5e35] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/recoltes
+        - link "Stocks" [ref=f5e40] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/intrants
+        - link "Lots" [ref=f5e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/lots
+        - paragraph [ref=f5e50]: Pilotage
+        - link "Finances" [ref=f5e51] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/finances
+        - link "Utilisateurs" [ref=f5e56] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/utilisateurs
+    - generic [ref=f5e62]:
+      - generic [ref=f5e63]:
+        - generic [ref=f5e64]: A
+        - generic [ref=f5e65]:
+          - strong [ref=f5e66]: Admin Vergers Ambodisaina
+          - generic [ref=f5e67]: admin
+      - button "Déconnexion" [ref=f5e69] [cursor=pointer]
+  - generic [ref=f5e73]:
+    - banner [ref=f5e74]:
+      - generic [ref=f5e76]:
+        - generic [ref=f5e77]: Lot LOT-1-261018-BCBT
+        - generic [ref=f5e78]: mardi 3 novembre 2026
+      - generic [ref=f5e79]:
+        - generic [ref=f5e80]: Vergers Ambodisaina
+        - button "Activer le thème sombre" [ref=f5e84] [cursor=pointer]
+    - main [ref=f5e87]:
+      - generic [ref=f5e88]:
+        - generic [ref=f5e89]:
+          - heading "LOT-1-261018-BCBT" [level=1] [ref=f5e90]
+          - paragraph [ref=f5e91]:
+            - generic [ref=f5e92]: cloture
+            - text: 250.00 kg — qualité premiere
+        - generic "QR code de traçabilité" [ref=f5e93]
+      - generic [ref=f5e99]:
+        - heading "Origine du lot (traçabilité remontante)" [level=3] [ref=f5e101]:
+          - text: Origine du lot
+          - generic [ref=f5e102]: (traçabilité remontante)
+        - table [ref=f5e104]:
+          - rowgroup [ref=f5e105]:
+            - row [ref=f5e106]:
+              - columnheader "Parcelle" [ref=f5e107]
+              - columnheader "Variété" [ref=f5e108]
+              - columnheader "Campagne" [ref=f5e109]
+              - columnheader "Date de récolte" [ref=f5e110]
+              - columnheader "Quantité (kg)" [ref=f5e111]
+          - rowgroup [ref=f5e112]:
+            - row [ref=f5e113]:
+              - cell "AMB-P01 — Tanambao Haut" [ref=f5e114]
+              - cell "Mauritius" [ref=f5e115]
+              - cell "Litchi AMB-P01 2026-2027" [ref=f5e116]
+              - cell "14/10/2026" [ref=f5e117]
+              - cell "250" [ref=f5e118]
+      - generic [ref=f5e119]:
+        - heading "Actions" [level=3] [ref=f5e121]
+        - generic [ref=f5e123]:
+          - button "Générer la fiche de traçabilité" [ref=f5e125] [cursor=pointer]
+          - link "Page publique" [ref=f5e126] [cursor=pointer]:
+            - /url: http://127.0.0.1:8123/tracabilite/LOT-1-261018-BCBT
+      - generic [ref=f5e127]:
+        - heading "Vendre ce lot" [level=3] [ref=f5e129]
+        - generic [ref=f5e132]:
+          - generic [ref=f5e133]:
+            - generic [ref=f5e134]: Acheteur
+            - textbox "Acheteur" [ref=f5e135]
+          - generic [ref=f5e136]:
+            - generic [ref=f5e137]: Montant
+            - spinbutton "Montant" [ref=f5e138]
+          - generic [ref=f5e139]:
+            - generic [ref=f5e140]: Date de vente
+            - textbox "Date de vente" [ref=f5e141]: 2026-11-03
+          - button "Vendre" [ref=f5e144] [cursor=pointer]

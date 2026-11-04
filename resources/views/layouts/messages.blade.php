@@ -2,7 +2,7 @@
     <div class="alert alert-success" role="status">
         <x-icon name="check" />
         <div class="alert-body">{{ session('succes') }}</div>
-        <button type="button" class="alert-close" data-dismiss aria-label="Fermer">×</button>
+        <button type="button" class="alert-close" data-dismiss aria-label="Fermer"><x-icon name="x" /></button>
     </div>
 @endif
 
@@ -16,6 +16,6 @@
                 <ul>@foreach ($errors->all() as $erreur)<li>{{ $erreur }}</li>@endforeach</ul>
             @endif
         </div>
-        <button type="button" class="alert-close" data-dismiss aria-label="Fermer">×</button>
+        <button type="button" class="alert-close" data-dismiss aria-label="Fermer"><x-icon name="x" /></button>
     </div>
 @endif

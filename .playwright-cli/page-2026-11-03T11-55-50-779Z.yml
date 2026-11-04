@@ -1,0 +1,33 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8123/login
+    - button "Activer le thème sombre" [ref=e9] [cursor=pointer]
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: AgroTrace
+        - heading "La traçabilité, du verger au lot." [level=1] [ref=e16]
+        - paragraph [ref=e17]: Centralisez les parcelles, les récoltes, les stocks et les activités agricoles dans une interface claire et rapide.
+        - list [ref=e18]:
+          - listitem [ref=e19]: Suivi de terrain
+          - listitem [ref=e23]: Traçabilité des lots
+          - listitem [ref=e27]: Alertes de stock
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - heading "Connexion" [level=2] [ref=e33]
+          - paragraph [ref=e34]: Accédez à l'espace de votre exploitation.
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]: Adresse e-mail
+            - textbox "Adresse e-mail" [active] [ref=e38]
+          - generic [ref=e39]:
+            - generic [ref=e40]: Mot de passe
+            - textbox "Mot de passe" [ref=e41]
+          - generic [ref=e42]:
+            - generic [ref=e43] [cursor=pointer]:
+              - checkbox "Se souvenir de moi" [ref=e44]
+              - generic [ref=e45]: Se souvenir de moi
+            - link "Créer un compte" [ref=e46] [cursor=pointer]:
+              - /url: http://127.0.0.1:8123/register
+          - button "Se connecter" [ref=e47] [cursor=pointer]

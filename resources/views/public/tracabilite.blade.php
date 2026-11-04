@@ -3,34 +3,53 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1b5e3f">
+    <meta name="theme-color" content="#123024">
     <title>Traçabilité du lot {{ $t['code'] }} — AgroTrace</title>
-    @vite(['resources/css/app.css'])
-    <style>
-        .public-wrap { width: min(720px, 100%); margin: 0 auto; padding: 28px 16px 48px; }
-        .public-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; font-weight: 700; color: var(--primary-strong); }
-        .origin { padding: 16px 20px; border-bottom: 1px solid var(--line); }
-        .origin:last-child { border-bottom: 0; }
-        .origin dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 8px 0 0; }
-        .origin dt { color: var(--muted); }
-        .origin dd { margin: 0; }
-    </style>
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('agrotrace-theme');
+                var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.dataset.theme = stored === 'dark' || stored === 'light'
+                    ? stored
+                    : (dark ? 'dark' : 'light');
+            } catch (e) {
+                document.documentElement.dataset.theme = 'light';
+            }
+        })();
+    </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 <div class="public-wrap">
-    <div class="public-brand"><span class="brand-mark">A</span> AgroTrace</div>
+    <div class="guest-topbar">
+        <a class="brand" href="{{ url('/') }}">
+            <span class="brand-mark"><x-icon name="leaf" /></span>
+            AgroTrace
+        </a>
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Basculer le thème clair/sombre" aria-pressed="false" title="Basculer le thème">
+            <x-icon name="moon" class="icon-moon" />
+            <x-icon name="sun" class="icon-sun" />
+        </button>
+    </div>
 
-    <span class="eyebrow">Traçabilité</span>
-    <h1>Lot {{ $t['code'] }}</h1>
-    <p class="lead">
-        {{ number_format($t['poids_total_kg'], 2, ',', ' ') }} kg
-        @if ($t['qualite']) · qualité {{ $t['qualite'] }} @endif
-        · lot {{ $t['statut'] === 'vendu' ? 'vendu' : 'clôturé' }}
-        @if ($t['cloture_le']) le {{ \Illuminate\Support\Carbon::parse($t['cloture_le'])->format('d/m/Y') }} @endif
-    </p>
+    <header class="panel public-head">
+        <span class="badge {{ $t['statut'] === 'vendu' ? 'success' : 'warning' }}">Lot {{ $t['statut'] === 'vendu' ? 'vendu' : 'clôturé' }}</span>
+        <h1>Lot {{ $t['code'] }}</h1>
+        <p class="lead">
+            {{ number_format($t['poids_total_kg'], 2, ',', ' ') }} kg
+            @if ($t['qualite']) · qualité {{ $t['qualite'] }} @endif
+            @if ($t['cloture_le']) · clôturé le {{ \Illuminate\Support\Carbon::parse($t['cloture_le'])->format('d/m/Y') }} @endif
+        </p>
+    </header>
 
-    <section class="panel mt-3">
-        <div class="panel-head"><h3>Origine des fruits</h3></div>
+    <section class="panel">
+        <div class="panel-head">
+            <div>
+                <h3>Origine des fruits</h3>
+                <p class="hint">Parcelles et dates de récolte rattachées à ce lot.</p>
+            </div>
+        </div>
         @foreach ($t['origine'] as $o)
             <div class="origin">
                 <strong>Parcelle {{ $o['parcelle']['code'] ?? '—' }}</strong> — {{ $o['parcelle']['nom'] ?? '' }}

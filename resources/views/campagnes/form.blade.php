@@ -3,7 +3,6 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Campagnes</span>
         <h1>{{ $campagne->exists ? 'Modifier la campagne' : 'Nouvelle campagne' }}</h1>
     </div>
 </div>

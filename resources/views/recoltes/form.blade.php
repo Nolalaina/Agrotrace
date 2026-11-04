@@ -3,7 +3,6 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Récoltes</span>
         <h1>Enregistrer une récolte</h1>
     </div>
 </div>

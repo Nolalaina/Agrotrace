@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Exploitation</span>
         <h1>Parcelles</h1>
+        <p class="lead">Le registre des parcelles, variétés et surfaces de l'exploitation.</p>
     </div>
     <div class="actions">
         @can('create', App\Models\Parcelle::class)

@@ -1,0 +1,161 @@
+- generic [ref=f2e2]:
+  - complementary [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link "AgroTrace — Tableau de bord" [ref=f2e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8123/dashboard
+        - generic [ref=f2e10]:
+          - strong [ref=f2e11]: AgroTrace
+          - generic [ref=f2e12]: Vergers Ambodisaina
+      - navigation "Navigation principale" [ref=f2e13]:
+        - paragraph [ref=f2e14]: Exploitation
+        - link "Tableau de bord" [ref=f2e15] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/dashboard
+        - link "Parcelles" [ref=f2e21] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/parcelles
+        - link "Campagnes" [ref=f2e26] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/campagnes
+        - link "Activités" [ref=f2e31] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/activites
+        - link "Récoltes" [ref=f2e35] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/recoltes
+        - link "Stocks" [ref=f2e40] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/intrants
+        - link "Lots" [ref=f2e45] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/lots
+        - paragraph [ref=f2e50]: Pilotage
+        - link "Finances" [ref=f2e51] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/finances
+        - link "Utilisateurs" [ref=f2e56] [cursor=pointer]:
+          - /url: http://127.0.0.1:8123/utilisateurs
+    - generic [ref=f2e62]:
+      - generic [ref=f2e63]:
+        - generic [ref=f2e64]: A
+        - generic [ref=f2e65]:
+          - strong [ref=f2e66]: Admin Vergers Ambodisaina
+          - generic [ref=f2e67]: admin
+      - button "Déconnexion" [ref=f2e69] [cursor=pointer]
+  - generic [ref=f2e73]:
+    - banner [ref=f2e74]:
+      - generic [ref=f2e76]:
+        - generic [ref=f2e77]: Tableau de bord
+        - generic [ref=f2e78]: mardi 3 novembre 2026
+      - generic [ref=f2e79]:
+        - generic [ref=f2e80]: Vergers Ambodisaina
+        - button "Activer le thème clair" [pressed] [ref=f2e84] [cursor=pointer]
+    - main [ref=f2e88]:
+      - generic [ref=f2e89]:
+        - generic [ref=f2e90]:
+          - heading "Tableau de bord" [level=1] [ref=f2e91]
+          - paragraph [ref=f2e92]: "Suivi de l'exploitation : parcelles, récoltes, lots et santé des stocks."
+        - generic [ref=f2e93]:
+          - link "Enregistrer une récolte" [ref=f2e94] [cursor=pointer]:
+            - /url: http://127.0.0.1:8123/recoltes/create
+          - link "Nouvelle activité" [ref=f2e97] [cursor=pointer]:
+            - /url: http://127.0.0.1:8123/activites/create
+      - generic [ref=f2e100]:
+        - generic [ref=f2e106]:
+          - generic [ref=f2e107]: Campagnes actives
+          - generic [ref=f2e108]: "3"
+          - generic [ref=f2e109]: en cours
+        - generic [ref=f2e115]:
+          - generic [ref=f2e116]: Parcelles
+          - generic [ref=f2e117]: "3"
+          - generic [ref=f2e118]: 9,7 ha au total
+        - generic [ref=f2e124]:
+          - generic [ref=f2e125]: Récolte totale
+          - generic [ref=f2e126]: 4 050
+          - generic [ref=f2e127]: kg cumulés
+        - generic [ref=f2e133]:
+          - generic [ref=f2e134]: Poids des lots
+          - generic [ref=f2e135]: 1 450
+          - generic [ref=f2e136]: kg tracés
+      - generic [ref=f2e137]:
+        - generic [ref=f2e138]:
+          - generic [ref=f2e140]:
+            - heading "Indicateurs calculés" [level=3] [ref=f2e141]
+            - paragraph [ref=f2e142]: Performance de la campagne en cours.
+          - list [ref=f2e143]:
+            - listitem [ref=f2e144]:
+              - generic [ref=f2e145]: Rendement
+              - strong [ref=f2e146]: 417,5 kg/ha
+            - listitem [ref=f2e147]:
+              - generic [ref=f2e148]: Récolte non affectée
+              - strong [ref=f2e149]: 64,2 %
+            - listitem [ref=f2e150]:
+              - generic [ref=f2e151]: Coût de production
+              - strong [ref=f2e152]: 372,41 /kg
+        - generic [ref=f2e153]:
+          - generic [ref=f2e154]:
+            - generic [ref=f2e155]:
+              - heading "Finances" [level=3] [ref=f2e156]
+              - paragraph [ref=f2e157]: Marge simplifiée sur l'exploitation.
+            - link "Détail" [ref=f2e158] [cursor=pointer]:
+              - /url: http://127.0.0.1:8123/finances
+          - list [ref=f2e159]:
+            - listitem [ref=f2e160]:
+              - generic [ref=f2e161]: Dépenses
+              - strong [ref=f2e162]: 540 000,00
+            - listitem [ref=f2e163]:
+              - generic [ref=f2e164]: Recettes
+              - strong [ref=f2e165]: 4 500 000,00
+            - listitem [ref=f2e166]:
+              - generic [ref=f2e167]: Marge
+              - strong [ref=f2e168]: 3 960 000,00
+        - generic [ref=f2e169]:
+          - generic [ref=f2e171]:
+            - heading "Alertes" [level=3] [ref=f2e172]
+            - paragraph [ref=f2e173]: Points à traiter en priorité.
+          - list [ref=f2e174]:
+            - listitem [ref=f2e175]:
+              - generic [ref=f2e176]: Stocks
+              - strong [ref=f2e177]: Aucune alerte
+            - listitem [ref=f2e178]:
+              - generic [ref=f2e179]: Récoltes non affectées
+              - strong [ref=f2e180]: 9 depuis plus de 3 jours
+      - generic [ref=f2e181]:
+        - generic [ref=f2e182]:
+          - generic [ref=f2e183]:
+            - heading "État des stocks" [level=3] [ref=f2e184]
+            - link "Voir tout" [ref=f2e185] [cursor=pointer]:
+              - /url: http://127.0.0.1:8123/intrants
+          - table [ref=f2e187]:
+            - rowgroup [ref=f2e188]:
+              - row [ref=f2e189]:
+                - cell "Bouillie bordelaise" [ref=f2e190]
+                - cell "28.00 kg" [ref=f2e191]
+                - cell "seuil 10.00" [ref=f2e192]
+              - row [ref=f2e193]:
+                - cell "Caisses de 10 kg" [ref=f2e194]
+                - cell "600.00 pièce" [ref=f2e195]
+                - cell "seuil 100.00" [ref=f2e196]
+              - row [ref=f2e197]:
+                - cell "NPK 15-15-15" [ref=f2e198]
+                - cell "55.00 kg" [ref=f2e199]
+                - cell "seuil 50.00" [ref=f2e200]
+        - generic [ref=f2e201]:
+          - generic [ref=f2e202]:
+            - heading "Activités récentes" [level=3] [ref=f2e203]
+            - link "Voir tout" [ref=f2e204] [cursor=pointer]:
+              - /url: http://127.0.0.1:8123/activites
+          - table [ref=f2e206]:
+            - rowgroup [ref=f2e207]:
+              - row [ref=f2e208]:
+                - cell "15/09/2026" [ref=f2e209]
+                - cell "Traitement" [ref=f2e210]
+                - cell "Litchi AMB-P03 2026-2027" [ref=f2e211]
+              - row [ref=f2e212]:
+                - cell "14/09/2026" [ref=f2e213]
+                - cell "Traitement" [ref=f2e214]
+                - cell "Litchi AMB-P02 2026-2027" [ref=f2e215]
+              - row [ref=f2e216]:
+                - cell "13/09/2026" [ref=f2e217]
+                - cell "Traitement" [ref=f2e218]
+                - cell "Litchi AMB-P01 2026-2027" [ref=f2e219]
+              - row [ref=f2e220]:
+                - cell "21/08/2026" [ref=f2e221]
+                - cell "Taille" [ref=f2e222]
+                - cell "Litchi AMB-P03 2026-2027" [ref=f2e223]
+              - row [ref=f2e224]:
+                - cell "20/08/2026" [ref=f2e225]
+                - cell "Taille" [ref=f2e226]
+                - cell "Litchi AMB-P02 2026-2027" [ref=f2e227]

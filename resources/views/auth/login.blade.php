@@ -5,21 +5,26 @@
 @section('contenu')
 <div class="auth-layout">
     <div class="auth-visual">
-        <div class="auth-panel-badge">AgroTrace</div>
-        <h1>Suivi précis des cultures et des opérations.</h1>
+        <svg class="auth-art" viewBox="0 0 220 220" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+            <path d="M108 18c44 26 66 68 60 112-44 11-86-9-103-53-17-43 5-68 43-59Z"/>
+            <path d="M108 18c-6 48 5 90 60 112"/>
+            <path d="M172 130c-32 6-59 27-69 64"/>
+            <path d="M145 78c-18 2-34 11-44 25"/>
+        </svg>
+        <h1>La traçabilité, du verger au lot.</h1>
         <p>Centralisez les parcelles, les récoltes, les stocks et les activités agricoles dans une interface claire et rapide.</p>
 
         <ul class="auth-checklist">
-            <li>Suivi de terrain</li>
-            <li>Traçabilité des lots</li>
-            <li>Alertes de stock</li>
+            <li><x-icon name="check" /> Suivi de terrain</li>
+            <li><x-icon name="check" /> Traçabilité des lots</li>
+            <li><x-icon name="check" /> Alertes de stock</li>
         </ul>
     </div>
 
     <div class="auth-card">
         <div class="auth-header">
-            <span class="eyebrow">Connexion</span>
-            <h2>Bienvenue</h2>
+            <h2>Connexion</h2>
+            <p class="hint">Accédez à l'espace de votre exploitation.</p>
         </div>
 
         <form method="POST" action="{{ route('login') }}" class="auth-form">

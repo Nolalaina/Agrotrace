@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Traçabilité</span>
         <h1>Lots de production</h1>
+        <p class="lead">Chaque lot relie les récoltes d'origine à sa vente et à sa fiche de traçabilité.</p>
     </div>
     <div class="actions">
         @can('create', App\Models\Lot::class)
@@ -23,8 +23,8 @@
             <label class="label" for="statut">Statut</label>
             <select id="statut" name="statut" class="select">
                 <option value="">Tous les statuts</option>
-                @foreach (['ouvert', 'cloture', 'vendu'] as $s)
-                    <option value="{{ $s }}" @selected(request('statut') === $s)>{{ ucfirst($s) }}</option>
+                @foreach (['ouvert' => 'Ouvert', 'cloture' => 'Clôturé', 'vendu' => 'Vendu'] as $s => $libelle)
+                    <option value="{{ $s }}" @selected(request('statut') === $s)>{{ $libelle }}</option>
                 @endforeach
             </select>
         </div>
@@ -53,7 +53,7 @@
             @forelse ($lots as $l)
                 <tr>
                     <td><a href="{{ route('lots.show', $l) }}"><strong>{{ $l->code }}</strong></a></td>
-                    <td><span class="badge {{ $l->statut === 'ouvert' ? 'success' : ($l->statut === 'cloture' ? 'warning' : 'info') }}">{{ $l->statut }}</span></td>
+                    <td><span class="badge {{ $l->statut === 'ouvert' ? 'success' : ($l->statut === 'cloture' ? 'warning' : 'info') }}">{{ ['ouvert' => 'Ouvert', 'cloture' => 'Clôturé', 'vendu' => 'Vendu'][$l->statut] ?? $l->statut }}</span></td>
                     <td>{{ $l->qualite }}</td>
                     <td class="text-end">{{ $l->poids_total_kg }}</td>
                     <td class="nowrap">{{ $l->created_at->format('d/m/Y') }}</td>

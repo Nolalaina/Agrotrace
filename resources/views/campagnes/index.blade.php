@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Planning</span>
         <h1>Campagnes</h1>
+        <p class="lead">Planifiez les cycles de production et gardez une campagne active par parcelle.</p>
     </div>
     <div class="actions">
         @can('create', App\Models\Campagne::class)

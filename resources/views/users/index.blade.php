@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Administration</span>
         <h1>Utilisateurs de l'exploitation</h1>
+        <p class="lead">Gérez les rôles et les accès de l'équipe.</p>
     </div>
 </div>
 

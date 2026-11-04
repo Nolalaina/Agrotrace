@@ -1,0 +1,28 @@
+- generic [ref=f6e2]:
+  - generic [ref=f6e3]:
+    - link [ref=f6e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8123
+    - button "Activer le thème sombre" [ref=f6e9] [cursor=pointer]
+  - banner [ref=f6e12]:
+    - generic [ref=f6e13]: Lot clôturé
+    - heading "Lot LOT-1-261018-BCBT" [level=1] [ref=f6e14]
+    - paragraph [ref=f6e15]: 250,00 kg · qualité premiere · clôturé le 18/10/2026
+  - generic [ref=f6e16]:
+    - generic [ref=f6e18]:
+      - heading "Origine des fruits" [level=3] [ref=f6e19]
+      - paragraph [ref=f6e20]: Parcelles et dates de récolte rattachées à ce lot.
+    - generic [ref=f6e21]:
+      - strong [ref=f6e22]: Parcelle AMB-P01
+      - text: — Tanambao Haut
+      - generic [ref=f6e23]:
+        - term [ref=f6e24]: Variété
+        - definition [ref=f6e25]: Mauritius
+        - term [ref=f6e26]: Lieu
+        - definition [ref=f6e27]: Mahambo, Analanjirofo
+        - term [ref=f6e28]: Récolté le
+        - definition [ref=f6e29]: 14/10/2026
+        - term [ref=f6e30]: Quantité
+        - definition [ref=f6e31]: 250,00 kg
+        - term [ref=f6e32]: Calibre
+        - definition [ref=f6e33]: moyen
+  - paragraph [ref=f6e34]: Cette page ne contient aucune donnée financière.

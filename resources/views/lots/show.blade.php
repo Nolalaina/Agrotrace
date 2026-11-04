@@ -3,15 +3,14 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Lot</span>
         <h1>{{ $lot->code }}</h1>
         <p class="lead">
-            <span class="badge {{ $lot->statut === 'ouvert' ? 'success' : ($lot->statut === 'cloture' ? 'warning' : 'info') }}">{{ $lot->statut }}</span>
+            <span class="badge {{ $lot->statut === 'ouvert' ? 'success' : ($lot->statut === 'cloture' ? 'warning' : 'info') }}">{{ ['ouvert' => 'Ouvert', 'cloture' => 'Clôturé', 'vendu' => 'Vendu'][$lot->statut] ?? $lot->statut }}</span>
             &nbsp;{{ $lot->poids_total_kg }} kg @if ($lot->qualite) — qualité {{ $lot->qualite }} @endif
         </p>
     </div>
     @if ($lot->statut !== 'ouvert' && class_exists('SimpleSoftwareIO\QrCode\Facades\QrCode'))
-        <div class="panel flush" style="padding:10px;">{!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(110)->generate(route('tracabilite.public', $lot->code)) !!}</div>
+        <div class="panel flush qr-card" title="QR code de traçabilité">{!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(110)->generate(route('tracabilite.public', $lot->code)) !!}</div>
     @endif
 </div>
 

@@ -3,6 +3,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
+    /* ---------- Thème clair / sombre ---------- */
+    const themeToggles = document.querySelectorAll('[data-theme-toggle]');
+    const applyTheme = (theme) => {
+        document.documentElement.dataset.theme = theme;
+        themeToggles.forEach((toggle) => {
+            toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+            toggle.setAttribute('aria-label', theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre');
+        });
+        try { localStorage.setItem('agrotrace-theme', theme); } catch (e) { /* stockage indisponible */ }
+    };
+    applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    themeToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+        });
+    });
+
     /* ---------- Menu mobile ---------- */
     const toggle = document.querySelector('[data-menu-toggle]');
     const closeMenu = () => {

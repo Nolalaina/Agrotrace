@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Stocks</span>
         <h1>Intrants et mouvements</h1>
+        <p class="lead">Suivez les entrées, consommations et ajustements de stock sans jamais passer sous le seuil.</p>
     </div>
 </div>
 
@@ -65,7 +65,7 @@
         <form method="POST" action="{{ route('intrants.store') }}">
             @csrf
             <div class="form-grid">
-                <div class="field span-4">
+                <div class="field span-3">
                     <label class="label" for="nom">Nom</label>
                     <input id="nom" name="nom" class="input" placeholder="ex. NPK 15-15-15" value="{{ old('nom') }}" required>
                 </div>
@@ -81,11 +81,11 @@
                     <label class="label" for="unite">Unité</label>
                     <input id="unite" name="unite" class="input" value="{{ old('unite', 'kg') }}" required>
                 </div>
-                <div class="field span-3">
+                <div class="field span-2">
                     <label class="label" for="seuil_minimum">Seuil minimum</label>
                     <input id="seuil_minimum" type="number" step="0.01" min="0" name="seuil_minimum" class="input" value="{{ old('seuil_minimum') }}" required>
                 </div>
-                <div class="field span-3">
+                <div class="field span-2">
                     <label class="label" for="stock_initial">Stock initial</label>
                     <input id="stock_initial" type="number" step="0.01" min="0" name="stock_initial" class="input" value="{{ old('stock_initial') }}">
                 </div>

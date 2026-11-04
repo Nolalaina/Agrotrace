@@ -16,6 +16,17 @@
         'check' => '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
         'alert' => '<path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17.5v.01"/>',
         'info' => '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>',
+        'leaf' => '<path d="M20 4s-9-1.2-13 3.8C3.8 12 5 16.5 8.5 18.4 12 20.3 17.5 19 20 4Z"/><path d="M4 20 13.5 10.5"/>',
+        'sun' => '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+        'moon' => '<path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
+        'download' => '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',
+        'qr' => '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14h1M14 20h1M20 20h1"/>',
+        'bell' => '<path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>',
+        'search' => '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+        'x' => '<path d="M18 6 6 18M6 6l12 12"/>',
+        'chevron-left' => '<path d="m15 18-6-6 6-6"/>',
+        'chevron-right' => '<path d="m9 18 6-6-6-6"/>',
+        'arrow-right' => '<path d="M5 12h14M13 6l6 6-6 6"/>',
     ];
 @endphp
 <svg {{ $attributes->merge(['class' => 'icon']) }} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{!! $paths[$name] ?? '' !!}</svg>

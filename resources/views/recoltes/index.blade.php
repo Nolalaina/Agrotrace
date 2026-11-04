@@ -3,8 +3,8 @@
 @section('contenu')
 <div class="page-head">
     <div>
-        <span class="eyebrow">Production</span>
         <h1>Récoltes</h1>
+        <p class="lead">Quantités récoltées et volumes encore disponibles pour composer des lots.</p>
     </div>
     <div class="actions">
         @can('create', App\Models\Recolte::class)
