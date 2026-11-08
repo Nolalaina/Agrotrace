@@ -47,6 +47,7 @@
                     <th>Qualité</th>
                     <th class="text-end">Poids (kg)</th>
                     <th>Créé le</th>
+                    <th class="text-end">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,12 +55,20 @@
                 <tr>
                     <td><a href="{{ route('lots.show', $l) }}"><strong>{{ $l->code }}</strong></a></td>
                     <td><span class="badge {{ $l->statut === 'ouvert' ? 'success' : ($l->statut === 'cloture' ? 'warning' : 'info') }}">{{ ['ouvert' => 'Ouvert', 'cloture' => 'Clôturé', 'vendu' => 'Vendu'][$l->statut] ?? $l->statut }}</span></td>
-                    <td>{{ $l->qualite }}</td>
+                    <td>{{ ucfirst($l->qualite ?? '—') }}</td>
                     <td class="text-end">{{ $l->poids_total_kg }}</td>
                     <td class="nowrap">{{ $l->created_at->format('d/m/Y') }}</td>
+                    <td class="col-actions text-end">
+                        <div class="row-actions">
+                            <a href="{{ route('lots.show', $l) }}" class="btn btn-sm btn-secondary">Consulter</a>
+                            @if ($l->statut !== 'ouvert')
+                                <a href="{{ route('tracabilite.public', $l->code) }}" target="_blank" rel="noopener" class="btn btn-sm btn-link" title="Voir la page publique de traçabilité">Public</a>
+                            @endif
+                        </div>
+                    </td>
                 </tr>
             @empty
-                <tr class="empty-row"><td colspan="5">Aucun lot.</td></tr>
+                <tr class="empty-row"><td colspan="6">Aucun lot.</td></tr>
             @endforelse
             </tbody>
         </table>

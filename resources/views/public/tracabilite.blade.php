@@ -27,10 +27,13 @@
             <span class="brand-mark"><x-icon name="leaf" /></span>
             AgroTrace
         </a>
-        <button type="button" class="icon-btn" data-theme-toggle aria-label="Basculer le thème clair/sombre" aria-pressed="false" title="Basculer le thème">
-            <x-icon name="moon" class="icon-moon" />
-            <x-icon name="sun" class="icon-sun" />
-        </button>
+        <div class="flex gap-2 items-center">
+            <button type="button" class="btn btn-sm btn-secondary" onclick="window.print()"><x-icon name="printer" /> Imprimer</button>
+            <button type="button" class="icon-btn" data-theme-toggle aria-label="Basculer le thème clair/sombre" aria-pressed="false" title="Basculer le thème">
+                <x-icon name="moon" class="icon-moon" />
+                <x-icon name="sun" class="icon-sun" />
+            </button>
+        </div>
     </div>
 
     <header class="panel public-head">

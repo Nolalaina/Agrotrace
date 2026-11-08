@@ -710,7 +710,7 @@ dialog.confirm::backdrop { background: rgba(18, 26, 21, 0.6); }
 }
 
 @media print {
-    .sidebar, .topbar, .page-head .actions, .filters, .guest-topbar, .ephemeride { display: none !important; }
+    .sidebar, .topbar, .page-head .actions, .filters, .guest-topbar, .ephemeride, .col-actions, .row-actions, .form-actions { display: none !important; }
     body { background: #fff; color: #000; }
     .panel, .stat-card { box-shadow: none; border-color: #ccc; }
     .page-head { border-bottom: 2px solid #000; }

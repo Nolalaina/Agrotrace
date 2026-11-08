@@ -13,7 +13,12 @@
         @if ($campagnes->isEmpty())
             <div class="alert alert-warning">
                 <x-icon name="info" />
-                <div class="alert-body">Aucune campagne en cours : une récolte doit être rattachée à une campagne active.</div>
+                <div class="alert-body">
+                    Aucune campagne en cours : une récolte doit être rattachée à une campagne active.
+                    @can('create', App\Models\Campagne::class)
+                        <a href="{{ route('campagnes.create') }}" class="btn btn-sm btn-secondary ml-2">Créer une campagne</a>
+                    @endcan
+                </div>
             </div>
         @endif
 
@@ -50,7 +55,7 @@
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button type="submit" class="btn btn-primary" @disabled($campagnes->isEmpty())>Enregistrer</button>
             <a href="{{ route('recoltes.index') }}" class="btn btn-link">Annuler</a>
         </div>
     </div>

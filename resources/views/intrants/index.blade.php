@@ -33,13 +33,26 @@
                     <td>
                         <form method="POST" action="{{ route('intrants.mouvement', $i) }}" class="inline-form" data-movement-form>
                             @csrf
-                            <select name="type" class="select select-sm" style="width:140px" aria-label="Type de mouvement">
+                            <select name="type" class="select select-sm" style="width:150px" aria-label="Type de mouvement">
                                 @foreach ($types as $t)
-                                    <option value="{{ $t }}" @selected($t === 'entree')>{{ ucfirst(str_replace('_', ' ', $t)) }}</option>
+                                    @php
+                                        $typeLabels = [
+                                            'entree' => 'Entrée (+)',
+                                            'consommation' => 'Consommation (-)',
+                                            'sortie' => 'Sortie (-)',
+                                            'ajustement' => 'Ajustement (+/-)',
+                                            'stock_initial' => 'Stock initial (+)',
+                                        ];
+                                        $isDisabled = ($t === 'consommation' && $campagnes->isEmpty());
+                                    @endphp
+                                    <option value="{{ $t }}" @selected($t === 'entree') @disabled($isDisabled)>
+                                        {{ $typeLabels[$t] ?? ucfirst(str_replace('_', ' ', $t)) }}
+                                        @if ($isDisabled) (campagne requise) @endif
+                                    </option>
                                 @endforeach
                             </select>
-                            <input type="number" step="0.01" name="quantite" class="input input-sm" style="width:100px" placeholder="Qté ({{ $i->unite }})" aria-label="Quantité" required>
-                            <input type="number" step="0.01" min="0" name="cout_total" class="input input-sm" style="width:120px" placeholder="Coût total" aria-label="Coût total">
+                            <input type="number" step="0.01" name="quantite" class="input input-sm" style="width:105px" placeholder="Qté ({{ $i->unite }})" aria-label="Quantité" required>
+                            <input type="number" step="0.01" min="0" name="cout_total" class="input input-sm" style="width:115px" placeholder="Coût total" aria-label="Coût total">
                             <select name="campagne_id" class="select select-sm" style="width:160px" aria-label="Campagne">
                                 <option value="">Campagne…</option>
                                 @foreach ($campagnes as $c)

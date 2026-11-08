@@ -119,4 +119,63 @@ document.addEventListener('DOMContentLoaded', () => {
         type?.addEventListener('change', sync);
         sync();
     });
+
+    /* ---------- Composition de lot : calcul en direct et boutons d'aide ---------- */
+    const lotForm = document.querySelector('[data-lot-form]');
+    if (lotForm) {
+        const totalPoidsEl = document.getElementById('lot-total-poids');
+        const countEl = document.getElementById('lot-count');
+        const inputs = lotForm.querySelectorAll('.lot-qty-input');
+
+        const recalculate = () => {
+            let total = 0;
+            let count = 0;
+            inputs.forEach((input) => {
+                const val = parseFloat(input.value);
+                if (!isNaN(val) && val > 0) {
+                    total += val;
+                    count++;
+                }
+            });
+            if (totalPoidsEl) {
+                totalPoidsEl.textContent = total.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+            if (countEl) {
+                countEl.textContent = count.toString();
+            }
+        };
+
+        inputs.forEach((input) => {
+            input.addEventListener('input', recalculate);
+        });
+
+        lotForm.querySelectorAll('[data-lot-max]').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                const row = e.target.closest('tr');
+                const input = row?.querySelector('.lot-qty-input');
+                if (input && input.dataset.dispo) {
+                    input.value = input.dataset.dispo;
+                    recalculate();
+                }
+            });
+        });
+
+        lotForm.querySelector('[data-lot-fill-all]')?.addEventListener('click', () => {
+            inputs.forEach((input) => {
+                if (input.dataset.dispo) {
+                    input.value = input.dataset.dispo;
+                }
+            });
+            recalculate();
+        });
+
+        lotForm.querySelector('[data-lot-clear-all]')?.addEventListener('click', () => {
+            inputs.forEach((input) => {
+                input.value = '';
+            });
+            recalculate();
+        });
+
+        recalculate();
+    }
 });

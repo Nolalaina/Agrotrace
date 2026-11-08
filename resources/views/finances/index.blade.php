@@ -6,6 +6,9 @@
         <h1>Finances <span class="muted" style="font-weight:500;font-size:1rem">(simplifiées)</span></h1>
         <p class="lead">Dépenses et recettes de l'exploitation, avec une marge calculée automatiquement.</p>
     </div>
+    <div class="actions">
+        <button type="button" class="btn btn-secondary" onclick="window.print()"><x-icon name="printer" /> Imprimer le rapport</button>
+    </div>
 </div>
 
 <div class="panel">

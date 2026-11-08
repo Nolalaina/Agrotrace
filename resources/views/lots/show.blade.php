@@ -15,6 +15,9 @@
             &nbsp;{{ $lot->poids_total_kg }} kg @if ($lot->qualite) — qualité {{ $lot->qualite }} @endif
         </p>
     </div>
+    <div class="actions">
+        <a href="{{ route('lots.index') }}" class="btn btn-secondary"><x-icon name="chevron-left" /> Retour aux lots</a>
+    </div>
     @if ($lot->statut !== 'ouvert' && class_exists('SimpleSoftwareIO\QrCode\Facades\QrCode'))
         <div class="panel flush qr-card" title="QR code de traçabilité">{!! \SimpleSoftwareIO\QrCode\Facades\QrCode::size(110)->generate(route('tracabilite.public', $lot->code)) !!}</div>
     @endif
@@ -67,9 +70,10 @@
                     <button type="submit" class="btn btn-secondary">{{ $ficheDisponible ? 'Régénérer la fiche' : 'Générer la fiche de traçabilité' }}</button>
                 </form>
                 @if ($ficheDisponible)
-                    <a class="btn btn-secondary" href="{{ route('lots.fiche.telecharger', $lot) }}">Télécharger la fiche</a>
+                    <a class="btn btn-secondary" href="{{ route('lots.fiche.telecharger', ['lot' => $lot, 'apercu' => 1]) }}" target="_blank" rel="noopener"><x-icon name="printer" /> Imprimer / Aperçu</a>
+                    <a class="btn btn-secondary" href="{{ route('lots.fiche.telecharger', $lot) }}"><x-icon name="download" /> Télécharger la fiche</a>
                 @endif
-                <a class="btn btn-secondary" href="{{ route('tracabilite.public', $lot->code) }}" target="_blank" rel="noopener">Page publique</a>
+                <a class="btn btn-secondary" href="{{ route('tracabilite.public', $lot->code) }}" target="_blank" rel="noopener"><x-icon name="eye" /> Page publique</a>
             @endcan
         </div>
     </div>
