@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('titre', 'Lot '.$lot->code)
+@section('topbar-badge')
+    @php($campagneLot = $lot->recoltes->first()?->campagne?->libelle)
+    @if ($campagneLot)
+        <span class="meta-badge"><x-icon name="leaf" /> {{ $campagneLot }}</span>
+    @endif
+@endsection
 @section('contenu')
 <div class="page-head">
     <div>

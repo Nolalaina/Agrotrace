@@ -8,9 +8,21 @@
     </div>
 </div>
 
-<form method="POST" action="{{ route('lots.store') }}">
+<form method="POST" action="{{ route('lots.store') }}" data-lot-form>
     @csrf
     <div class="panel">
+        <div class="panel-head">
+            <div>
+                <h3>Sélection des récoltes</h3>
+                <p class="hint">Poids total sélectionné : <strong id="lot-total-poids">0,00</strong> kg (<span id="lot-count">0</span> récolte(s))</p>
+            </div>
+            @if ($recoltes->isNotEmpty())
+                <div class="flex gap-2">
+                    <button type="button" class="btn btn-sm btn-secondary" data-lot-fill-all>Tout remplir au max</button>
+                    <button type="button" class="btn btn-sm btn-link" data-lot-clear-all>Tout vider</button>
+                </div>
+            @endif
+        </div>
         <div class="table-wrap">
             <table class="table">
                 <thead>
@@ -20,7 +32,7 @@
                         <th>Campagne</th>
                         <th>Calibre</th>
                         <th class="text-end">Disponible (kg)</th>
-                        <th style="width:170px">À affecter (kg)</th>
+                        <th style="width:200px">À affecter (kg)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,16 +44,26 @@
                         </td>
                         <td>{{ $r->campagne?->parcelle?->code }}</td>
                         <td>{{ $r->campagne?->libelle }}</td>
-                        <td>{{ $r->calibre }}</td>
+                        <td>{{ ucfirst($r->calibre ?? '—') }}</td>
                         <td class="text-end">{{ $r->quantite_disponible_kg }}</td>
                         <td>
-                            <input type="number" step="0.01" min="0.01" max="{{ $r->quantite_disponible_kg }}"
-                                   name="lignes[{{ $i }}][quantite_kg]" value="{{ old('lignes.'.$i.'.quantite_kg') }}"
-                                   class="input input-sm" aria-label="Quantité à affecter">
+                            <div style="display:flex;gap:6px;align-items:center;">
+                                <input type="number" step="0.01" min="0.01" max="{{ $r->quantite_disponible_kg }}"
+                                       name="lignes[{{ $i }}][quantite_kg]" value="{{ old('lignes.'.$i.'.quantite_kg') }}"
+                                       class="input input-sm lot-qty-input" aria-label="Quantité à affecter" data-dispo="{{ $r->quantite_disponible_kg }}">
+                                <button type="button" class="btn btn-sm btn-secondary" data-lot-max title="Affecter le maximum disponible">Max</button>
+                            </div>
                         </td>
                     </tr>
                 @empty
-                    <tr class="empty-row"><td colspan="6">Aucune récolte disponible.</td></tr>
+                    <tr class="empty-row">
+                        <td colspan="6">
+                            Aucune récolte disponible.
+                            @can('create', App\Models\Recolte::class)
+                                <a href="{{ route('recoltes.create') }}" class="btn btn-sm btn-primary ml-2">Enregistrer une récolte</a>
+                            @endcan
+                        </td>
+                    </tr>
                 @endforelse
                 </tbody>
             </table>

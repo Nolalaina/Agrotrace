@@ -26,4 +26,9 @@ class RecoltePolicy
     {
         return $user->peutGerer() && (int) $user->exploitation_id === (int) $recolte->exploitation_id;
     }
+
+    public function delete(User $user, Recolte $recolte): bool
+    {
+        return $user->peutGerer() && (int) $user->exploitation_id === (int) $recolte->exploitation_id;
+    }
 }

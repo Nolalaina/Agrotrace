@@ -19,9 +19,18 @@
             <label class="label" for="q">Recherche</label>
             <input id="q" type="search" name="q" value="{{ request('q') }}" class="input" placeholder="Code ou nom de la parcelle">
         </div>
+        <div class="field">
+            <label class="label" for="etat">État</label>
+            <select id="etat" name="etat" class="select">
+                <option value="">Tous les états</option>
+                @foreach (['productive' => 'Productive', 'en_repos' => 'En repos', 'en_replantation' => 'En replantation'] as $v => $l)
+                    <option value="{{ $v }}" @selected(request('etat') === $v)>{{ $l }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="filter-actions">
             <button type="submit" class="btn btn-secondary">Filtrer</button>
-            @if (request()->filled('q'))
+            @if (request()->hasAny(['q', 'etat']))
                 <a href="{{ route('parcelles.index') }}" class="btn btn-link">Réinitialiser</a>
             @endif
         </div>
@@ -44,7 +53,7 @@
             <tbody>
             @forelse ($parcelles as $p)
                 <tr>
-                    <td><strong>{{ $p->code }}</strong></td>
+                    <td><a href="{{ route('parcelles.edit', $p) }}"><strong>{{ $p->code }}</strong></a></td>
                     <td>{{ $p->nom }}</td>
                     <td>{{ $p->variete }}</td>
                     <td class="text-end">{{ $p->superficie_ha }}</td>
@@ -53,6 +62,13 @@
                         <div class="row-actions">
                             @can('update', $p)
                                 <a href="{{ route('parcelles.edit', $p) }}" class="btn btn-sm btn-secondary">Modifier</a>
+                            @endcan
+                            @can('delete', $p)
+                                <form method="POST" action="{{ route('parcelles.destroy', $p) }}" data-confirm="Supprimer définitivement la parcelle {{ $p->code }} ?" data-confirm-label="Supprimer">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Supprimer</button>
+                                </form>
                             @endcan
                         </div>
                     </td>

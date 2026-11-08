@@ -21,9 +21,7 @@ class DashboardService
 {
     public const TTL_MINUTES = 10;
 
-    public function __construct(private FinanceService $finance)
-    {
-    }
+    public function __construct(private FinanceService $finance) {}
 
     public static function cle(int $exploitationId): string
     {
@@ -60,6 +58,7 @@ class DashboardService
         return [
             'campagnes_actives' => Campagne::pourExploitation($id)->where('statut', Campagne::EN_COURS)->count(),
             'campagne_principale' => Campagne::pourExploitation($id)->where('statut', Campagne::EN_COURS)->orderBy('id')->value('libelle'),
+            'campagne_fin' => Campagne::pourExploitation($id)->where('statut', Campagne::EN_COURS)->orderBy('id')->value('date_fin_prevue')?->toDateString(),
             'nb_parcelles' => Parcelle::pourExploitation($id)->count(),
             'superficie_ha' => $superficie,
             'recolte_totale_kg' => $recolteTotale,

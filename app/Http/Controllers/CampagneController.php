@@ -6,16 +6,24 @@ use App\Http\Requests\StoreCampagneRequest;
 use App\Models\Campagne;
 use App\Models\Parcelle;
 use App\Services\DashboardService;
+use Illuminate\Http\Request;
 
 class CampagneController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $this->authorize('viewAny', Campagne::class);
 
-        $campagnes = Campagne::with('parcelle')->orderByDesc('date_debut')->paginate(10);
+        $campagnes = Campagne::with('parcelle')
+            ->when($request->filled('q'), fn ($q) => $q->where('libelle', 'like', '%'.$request->q.'%'))
+            ->when($request->filled('statut'), fn ($q) => $q->where('statut', $request->statut))
+            ->when($request->filled('parcelle_id'), fn ($q) => $q->where('parcelle_id', $request->parcelle_id))
+            ->orderByDesc('date_debut')->paginate(10)->withQueryString();
 
-        return view('campagnes.index', compact('campagnes'));
+        return view('campagnes.index', [
+            'campagnes' => $campagnes,
+            'parcelles' => Parcelle::orderBy('code')->get(['id', 'code', 'nom']),
+        ]);
     }
 
     public function create()

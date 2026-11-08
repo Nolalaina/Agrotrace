@@ -1,0 +1,192 @@
+- generic [ref=f22e2]:
+  - generic [ref=f22e4]:
+    - generic [ref=f22e5]: Internal Server Error
+    - button "Copy as Markdown" [ref=f22e11] [cursor=pointer]
+  - generic [ref=f22e18]:
+    - generic [ref=f22e19]:
+      - heading "ParseError" [level=1] [ref=f22e20]
+      - generic [ref=f22e21]: resources\views\components\ephemeride.blade.php:37
+      - paragraph [ref=f22e23]: syntax error, unexpected token "endif", expecting end of file
+    - generic [ref=f22e24]:
+      - generic [ref=f22e25]:
+        - generic [ref=f22e26]:
+          - generic [ref=f22e27]: LARAVEL
+          - generic [ref=f22e28]: 13.37.0
+        - generic [ref=f22e29]:
+          - generic [ref=f22e30]: PHP
+          - generic [ref=f22e31]: 8.4.25
+      - generic [ref=f22e32]: UNHANDLED
+      - generic [ref=f22e36]: CODE 0
+    - generic [ref=f22e38]:
+      - generic [ref=f22e39]: "500"
+      - generic [ref=f22e43]: GET
+      - generic [ref=f22e47]: http://127.0.0.1:8000/lots/1
+      - button [ref=f22e48] [cursor=pointer]
+  - generic [ref=f22e53]:
+    - generic [ref=f22e54]:
+      - heading "Exception trace" [level=3] [ref=f22e60]
+      - generic [ref=f22e61]:
+        - generic [ref=f22e62]:
+          - generic [ref=f22e63] [cursor=pointer]:
+            - generic [ref=f22e66]:
+              - code [ref=f22e70]:
+                - generic [ref=f22e71]: "Illuminate\\Filesystem\\Filesystem::{closure:Illuminate\\Filesystem\\Filesystem::getRequire():120}()"
+              - generic [ref=f22e72]: resources\views\components\ephemeride.blade.php:37
+            - button [ref=f22e75]
+          - code [ref=f22e84]:
+            - generic [ref=f22e85]: 32 <div class="ephemeride" role="note" aria-label="Éphéméride">
+            - generic [ref=f22e86]: 33 <span class="moon"><x-icon name="moon" /></span>
+            - generic [ref=f22e87]: "34 <span class=\"txt\"><b>{{ $now->locale('fr_FR')->translatedFormat('l j F Y') }}</b><span class=\"stop\">·</span>jour {{ $now->dayOfYear }} du calendrier<span class=\"stop\">·</span>{{ $phase }} · {{ $illumination }} % éclairée<span class=\"stop\">·</span>{{ $stats['campagnes_actives'] ?? 0 }} campagne{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }} active{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }}<span class=\"stop\">·</span>{{ number_format((float) ($stats['superficie_ha'] ?? 0), 1, ',', ' ') }} ha en production@if ($fin)<span class=\"stop\">·</span>campagne jusqu'au {{ $fin }}@endif</span>"
+            - generic [ref=f22e88]: 35 <span class="cap">Éphéméride</span>
+            - generic [ref=f22e89]: 36 </div>
+            - generic [ref=f22e90]: 37@endif
+            - generic [ref=f22e91]: "38"
+        - generic [ref=f22e93] [cursor=pointer]:
+          - generic [ref=f22e98]: 7 vendor frames
+          - button [ref=f22e99]
+        - generic [ref=f22e105] [cursor=pointer]:
+          - generic [ref=f22e108]:
+            - code [ref=f22e112]:
+              - generic [ref=f22e113]: Illuminate\View\Factory->renderComponent()
+            - generic [ref=f22e114]: resources\views\lots\show.blade.php:23
+          - button [ref=f22e117]
+        - generic [ref=f22e123] [cursor=pointer]:
+          - generic [ref=f22e128]: 63 vendor frames
+          - button [ref=f22e129]
+        - generic [ref=f22e135] [cursor=pointer]:
+          - generic [ref=f22e138]:
+            - code [ref=f22e142]:
+              - generic [ref=f22e143]: Illuminate\Foundation\Application->handleRequest()
+            - generic [ref=f22e144]: public\index.php:20
+          - button [ref=f22e147]
+        - generic [ref=f22e153] [cursor=pointer]:
+          - generic [ref=f22e158]: 1 vendor frame
+          - button [ref=f22e159]
+    - generic [ref=f22e164]:
+      - generic [ref=f22e165]:
+        - heading "Queries" [level=3] [ref=f22e170]
+        - generic [ref=f22e171]: 1-7 of 7
+      - generic [ref=f22e173]:
+        - generic [ref=f22e174]:
+          - generic [ref=f22e175]:
+            - generic [ref=f22e176]: sqlite
+            - code [ref=f22e183]:
+              - generic [ref=f22e184]: select * from "sessions" where "id" = 'jM19q8csm4mWbv4HfXigsT8jkCL6vD8plKpphW0j' limit 1
+          - generic [ref=f22e185]: 6.04ms
+        - generic [ref=f22e186]:
+          - generic [ref=f22e187]:
+            - generic [ref=f22e188]: sqlite
+            - code [ref=f22e195]:
+              - generic [ref=f22e196]: select * from "users" where "id" = 1 limit 1
+          - generic [ref=f22e197]: 0.41ms
+        - generic [ref=f22e198]:
+          - generic [ref=f22e199]:
+            - generic [ref=f22e200]: sqlite
+            - code [ref=f22e207]:
+              - generic [ref=f22e208]: select * from "lots" where "id" = '1' and "lots"."exploitation_id" = 1 limit 1
+          - generic [ref=f22e209]: 0.45ms
+        - generic [ref=f22e210]:
+          - generic [ref=f22e211]:
+            - generic [ref=f22e212]: sqlite
+            - code [ref=f22e219]:
+              - generic [ref=f22e220]: select "recoltes".*, "lot_recoltes"."lot_id" as "pivot_lot_id", "lot_recoltes"."recolte_id" as "pivot_recolte_id", "lot_recoltes"."quantite_kg" as "pivot_quantite_kg", "lot_recoltes"."created_at" as "pivot_created_at", "lot_recoltes"."updated_at" as "pivot_updated_at" from "recoltes" inner join "lot_recoltes" on "recoltes"."id" = "lot_recoltes"."recolte_id" where "lot_recoltes"."lot_id" in (1) and "recoltes"."exploitation_id" = 1
+          - generic [ref=f22e221]: 0.34ms
+        - generic [ref=f22e222]:
+          - generic [ref=f22e223]:
+            - generic [ref=f22e224]: sqlite
+            - code [ref=f22e231]:
+              - generic [ref=f22e232]: select * from "campagnes" where "campagnes"."id" in (2) and "campagnes"."exploitation_id" = 1
+          - generic [ref=f22e233]: 0.29ms
+        - generic [ref=f22e234]:
+          - generic [ref=f22e235]:
+            - generic [ref=f22e236]: sqlite
+            - code [ref=f22e243]:
+              - generic [ref=f22e244]: select * from "parcelles" where "parcelles"."id" in (1) and "parcelles"."exploitation_id" = 1
+          - generic [ref=f22e245]: 0.31ms
+        - generic [ref=f22e246]:
+          - generic [ref=f22e247]:
+            - generic [ref=f22e248]: sqlite
+            - code [ref=f22e255]:
+              - generic [ref=f22e256]: select * from "ventes" where "ventes"."lot_id" in (1) and "ventes"."exploitation_id" = 1
+          - generic [ref=f22e257]: 0.33ms
+  - generic [ref=f22e259]:
+    - generic [ref=f22e260]:
+      - heading "Headers" [level=2] [ref=f22e261]
+      - generic [ref=f22e262]:
+        - generic [ref=f22e263]:
+          - generic [ref=f22e264]: host
+          - generic [ref=f22e266]: 127.0.0.1:8000
+        - generic [ref=f22e267]:
+          - generic [ref=f22e268]: connection
+          - generic [ref=f22e270]: keep-alive
+        - generic [ref=f22e271]:
+          - generic [ref=f22e272]: sec-ch-ua
+          - generic [ref=f22e274]: "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"Google Chrome\";v=\"156\""
+        - generic [ref=f22e275]:
+          - generic [ref=f22e276]: sec-ch-ua-mobile
+          - generic [ref=f22e278]: "?0"
+        - generic [ref=f22e279]:
+          - generic [ref=f22e280]: sec-ch-ua-platform
+          - generic [ref=f22e282]: "\"Windows\""
+        - generic [ref=f22e283]:
+          - generic [ref=f22e284]: upgrade-insecure-requests
+          - generic [ref=f22e286]: "1"
+        - generic [ref=f22e287]:
+          - generic [ref=f22e288]: user-agent
+          - generic [ref=f22e290]: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+        - generic [ref=f22e291]:
+          - generic [ref=f22e292]: accept
+          - generic [ref=f22e294]: text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+        - generic [ref=f22e295]:
+          - generic [ref=f22e296]: sec-fetch-site
+          - generic [ref=f22e298]: none
+        - generic [ref=f22e299]:
+          - generic [ref=f22e300]: sec-fetch-mode
+          - generic [ref=f22e302]: navigate
+        - generic [ref=f22e303]:
+          - generic [ref=f22e304]: sec-fetch-user
+          - generic [ref=f22e306]: "?1"
+        - generic [ref=f22e307]:
+          - generic [ref=f22e308]: sec-fetch-dest
+          - generic [ref=f22e310]: document
+        - generic [ref=f22e311]:
+          - generic [ref=f22e312]: accept-encoding
+          - generic [ref=f22e314]: gzip, deflate, br, zstd
+        - generic [ref=f22e315]:
+          - generic [ref=f22e316]: accept-language
+          - generic [ref=f22e318]: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+        - generic [ref=f22e319]:
+          - generic [ref=f22e320]: cookie
+          - generic [ref=f22e322]: XSRF-TOKEN=eyJpdiI6IjRVMjVNMjVxaUdSNDh2emRBNFQ1NXc9PSIsInZhbHVlIjoiMTVDT2pyWWM0RlNKd1dKbjVRRVRBM1FyWDNyTHFkVGE0U2dJUVhSTTZ6UStSemdvN2xnNDVaZkxFZjdUUGNPODlFM2NxaTVlTy9KWldTQXEzb1FmbjBMazZXaTFxNC9PUVVreXd0SHV2VmpnZFNMK3pGMGlVZytyLzN6ZHRPTjciLCJtYWMiOiI4MzRjN2YyNjcyNzZmZjJiNzAwMGUzZWI2YTU0NDY5YzU1M2QxNzM1MTlmZmY0MTRlYmU4YTFiNDA0YWE1NGI2IiwidGFnIjoiIn0%3D; laravel-session=eyJpdiI6Im0reTNTTG1HMmpuRjFEekhBTTF2MGc9PSIsInZhbHVlIjoiTkxTNzErVGlSa3cxV3czMzlINmtqS2dLZlpaZXN0REZoYiswM3NDS1N5WUk5ZUJyQWpTN3JkU0xlbXlNazNKUXdCSldjQzgxaTBzbHJhbXFVVU9CQWVoRHpKbjNsamI3ZzJZYk5UbUtndzljNExEY3psd1BuUVp2S1A3VDBRODAiLCJtYWMiOiI3OWJiOTE5NTEzNGY2N2U4MDBhM2JlNjA5NzgxMzk5MWQzNDI5YjRmMzMwMDg5Yzk1MDQyMzg4YjBjNjNlNTgxIiwidGFnIjoiIn0%3D
+    - generic [ref=f22e323]:
+      - heading "Body" [level=2] [ref=f22e324]
+      - generic [ref=f22e325]: // No request body
+    - generic [ref=f22e326]:
+      - heading "Routing" [level=2] [ref=f22e327]
+      - generic [ref=f22e328]:
+        - generic [ref=f22e329]:
+          - generic [ref=f22e330]: controller
+          - generic [ref=f22e332]: App\Http\Controllers\LotController@show
+        - generic [ref=f22e333]:
+          - generic [ref=f22e334]: route name
+          - generic [ref=f22e336]: lots.show
+        - generic [ref=f22e337]:
+          - generic [ref=f22e338]: middleware
+          - generic [ref=f22e340]: web, auth
+    - generic [ref=f22e341]:
+      - heading "Routing parameters" [level=2] [ref=f22e342]
+      - code [ref=f22e347]:
+        - generic [ref=f22e348]: "{"
+        - generic [ref=f22e349]: "\"lot\": {"
+        - generic [ref=f22e350]: "\"id\": 1,"
+        - generic [ref=f22e351]: "\"exploitation_id\": 1,"
+        - generic [ref=f22e352]: "\"user_id\": 2,"
+        - generic [ref=f22e353]: "\"code\": \"LOT-1-261018-R1ZW\","
+        - generic [ref=f22e354]: "\"poids_total_kg\": \"900.00\","
+        - generic [ref=f22e355]: "\"statut\": \"vendu\","
+        - generic [ref=f22e356]: "\"qualite\": \"extra\","
+        - generic [ref=f22e357]: "\"cloture_le\": \"2026-10-18T09:00:40.000000Z\","
+        - generic [ref=f22e358]: "\"created_at\": \"2026-10-18T09:00:38.000000Z\","
+        - generic [ref=f22e359]: "\"updated_at\": \"2026-10-18T09:00:41.000000Z\""
+        - generic [ref=f22e360]: "}"
+        - generic [ref=f22e361]: "}"

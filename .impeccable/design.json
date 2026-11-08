@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T07:00:00.000Z",
+  "title": "Design System: AgroTrace — L'Almanach des vergers",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Vert impérial", "canonical": "#20352a", "tonalRamp": ["#0f1c15", "#16241c", "#20352a", "#33503f", "#4a6b54", "#6f8f79", "#9db198", "#cdd6c4"] },
+      "ink": { "role": "neutral", "displayName": "Encre", "canonical": "#221f1c", "tonalRamp": ["#12100e", "#221f1c", "#36322e", "#4c4842", "#6e6a62", "#948f85", "#b8b4aa", "#dddad2"] },
+      "paper": { "role": "neutral", "displayName": "Papier vergé", "canonical": "#efe9d8", "tonalRamp": ["#c9c2ab", "#d6cfb8", "#e3ddcb", "#efe9d8", "#f3efe0", "#f7f5ec", "#fbfaf4", "#ffffff"] },
+      "oxblood": { "role": "tertiary", "displayName": "Oxblood", "canonical": "#7c2222", "tonalRamp": ["#3f1010", "#5a1818", "#7c2222", "#9a3737", "#b8552f", "#cd7a5f", "#ddab9c", "#ecd0c6"] },
+      "laiton": { "role": "secondary", "displayName": "Laiton", "canonical": "#b08d57", "tonalRamp": ["#4a3820", "#6b5530", "#8a6d3b", "#b08d57", "#bfa06f", "#d8c49a", "#e6dabb", "#f5efe0"] },
+      "success": { "role": "neutral", "displayName": "Vert tampon", "canonical": "#2f5d3f", "tonalRamp": ["#152a1e", "#1f3d29", "#2f5d3f", "#47754f", "#6f9070", "#94ad90", "#bccfba", "#e2ecdf"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Alegreya 800", "purpose": "Titres de page et chiffres de stats ; jamais de corps de texte." },
+      "body": { "displayName": "Alegreya Sans", "purpose": "Interface courante ; 400–700." },
+      "label": { "displayName": "Alegreya Sans SC", "purpose": "Étiquettes en capitales espacées ; rail, tableaux, badges, rubriques." }
+    },
+    "shadows": [
+      { "name": "ambient-sm", "value": "0 1px 0 rgba(34, 31, 28, 0.05), 0 10px 24px -16px rgba(34, 31, 28, 0.35)", "purpose": "Seule élévation ambiante ; dialogues utilisent shadow-md." },
+      { "name": "ambient-md", "value": "0 20px 44px -22px rgba(24, 28, 22, 0.5)", "purpose": "Dialogue de confirmation uniquement." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "ease", "purpose": "Transitions d'état 160ms (hover, focus)." },
+      { "name": "drawer", "value": "220ms ease", "purpose": "Rail en drawer mobile uniquement." }
+    ],
+    "breakpoints": [
+      { "name": "lg", "value": "1100px" },
+      { "name": "md", "value": "980px" },
+      { "name": "sm", "value": "760px" },
+      { "name": "xs", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Action principale (ex. Enregistrer une récolte) ; encre sur papier, inversé au sombre.",
+      "html": "<button class=\"ds-btn-primary\">Enregistrer une récolte</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #20352a; color: #f7f5ec; border: 1px solid #20352a; font: 600 0.88rem/1 \"Alegreya Sans\", system-ui, sans-serif; cursor: pointer; transition: background 160ms ease; } .ds-btn-primary:hover { background: #16241c; border-color: #16241c; } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.45); } @media (prefers-color-scheme: dark) { .ds-btn-primary { background: #d8c49a; border-color: #d8c49a; color: #121a15; } }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Action secondaire, contour filet fort ; hover teinte primaire douce.",
+      "html": "<button class=\"ds-btn-secondary\">Nouvelle activité</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; background: transparent; color: #221f1c; border: 1px solid #c3bba4; font: 600 0.88rem/1 \"Alegreya Sans\", system-ui, sans-serif; cursor: pointer; transition: border-color 160ms ease, color 160ms ease, background 160ms ease; } .ds-btn-secondary:hover { border-color: #20352a; color: #20352a; background: #e4e0cf; } .ds-btn-secondary:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.45); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ vergé, filet fort ; focus laiton + anneau.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Quantité (kg)</span><input class=\"ds-input\" type=\"number\" placeholder=\"320\"></label>",
+      "css": ".ds-field { display: grid; gap: 6px; font-family: \"Alegreya Sans\", system-ui, sans-serif; } .ds-label { font-weight: 600; font-size: 0.84rem; color: #221f1c; } .ds-input { min-height: 42px; padding: 9px 12px; border: 1px solid #c3bba4; background: #f3efe0; color: #221f1c; font: 0.94rem/1.4 inherit; } .ds-input::placeholder { color: #57544a; font-style: italic; } .ds-input:focus { outline: none; border-color: #b08d57; box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.45); background: #f7f5ec; }"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Rail vert impérial ; liens 01–09, actif = fond + filet laiton + folio laiton.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-nav is-active\" href=\"#\"><span class=\"ds-dot\"></span>Tableau de bord<span class=\"ds-folio\">01</span></a></nav>",
+      "css": ".ds-rail { width: 236px; padding: 14px 12px; background: #20352a; display: grid; gap: 2px; font-family: \"Alegreya Sans\", system-ui, sans-serif; } .ds-nav { display: flex; align-items: center; gap: 10px; padding: 8px 11px; color: #9db198; text-decoration: none; border-left: 1px solid transparent; font-size: 13px; } .ds-nav:hover { background: rgba(239,233,216,.07); color: #f3efe0; } .ds-nav.is-active { background: rgba(239,233,216,.13); color: #f3efe0; border-left-color: #b08d57; } .ds-folio { margin-left: auto; font-family: Alegreya, Georgia, serif; font-size: 12px; color: #9db198; } .ds-nav.is-active .ds-folio { color: #d8c49a; }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "Carte de statistique : filet haut encre, rubrique SC, valeur Alegreya tabulaire.",
+      "html": "<div class=\"ds-stat\"><span class=\"ds-rub\">Rubrique III · Récolte</span><b class=\"ds-val\">18 240 <small>kg</small></b><span class=\"ds-sub\">+12 % vs 2025</span></div>",
+      "css": ".ds-stat { background: #f7f5ec; border: 1px solid #c3bba4; border-top: 2px solid #221f1c; padding: 15px 18px 14px; display: grid; gap: 2px; font-family: \"Alegreya Sans\", system-ui, sans-serif; } .ds-rub { font-family: \"Alegreya Sans SC\", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #57544a; } .ds-val { font-family: Alegreya, Georgia, serif; font-weight: 800; font-size: 28px; letter-spacing: -.015em; color: #1e2b24; font-variant-numeric: tabular-nums; } .ds-val small { font-size: 12px; font-weight: 500; color: #57544a; } .ds-sub { font-size: 12px; color: #57544a; font-variant-numeric: tabular-nums; } @media (prefers-color-scheme: dark) { .ds-stat { background: #18221b; border-color: #3a4a3f; border-top-color: #b08d57; } .ds-val { color: #f2eede; } }"
+    },
+    {
+      "name": "Badge / Leaf Tag",
+      "kind": "chip",
+      "refersTo": "badge-danger",
+      "description": "Étiquette carrée SC capitales ; success/warning/danger/info par teinte tonale.",
+      "html": "<span class=\"ds-badge ds-danger\">Critique</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 3px 10px; font-family: \"Alegreya Sans SC\", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border: 1px solid #c3bba4; background: #ece7d8; color: #3f3d35; } .ds-danger { background: #f3e2d8; color: #7c2222; border-color: transparent; } .ds-success { background: #e6efe4; color: #2f5d3f; border-color: transparent; } .ds-info { background: #e3ebef; color: #2f5468; border-color: transparent; }"
+    },
+    {
+      "name": "Éphéméride Band",
+      "kind": "custom",
+      "refersTo": "ephemeride",
+      "description": "Signature : bande verte, lune + date + jour de l'année + phase calculée ; compact sur fiche lot.",
+      "html": "<div class=\"ds-ephemeride\"><span class=\"ds-moon\">◐</span><span class=\"ds-txt\"><b>mercredi 4 novembre 2026</b> · jour 308 · Dernier croissant · 25 % éclairée · 3 campagnes · 9,7 ha · jusqu'au 18 janv. 2027</span></div>",
+      "css": ".ds-ephemeride { display: flex; align-items: center; gap: 14px; background: #20352a; border: 1px solid #b08d57; color: #efe9d8; padding: 8px 16px; font-family: Alegreya, Georgia, serif; font-size: 14px; } .ds-ephemeride b { color: #f3efe0; } .ds-moon { color: #b08d57; flex: none; }"
+    },
+    {
+      "name": "Leaders List",
+      "kind": "custom",
+      "refersTo": "leaders",
+      "description": "Points de conduite pointillés ; libellé sourd → valeur Alegreya tabulaire.",
+      "html": "<ul class=\"ds-leaders\"><li>Rendement <span class=\"ds-dots\"></span> <b>744 kg/ha</b></li></ul>",
+      "css": ".ds-leaders { list-style: none; margin: 0; padding: 0; } .ds-leaders li { display: flex; align-items: baseline; gap: 12px; padding: 6px 0; border-bottom: 1px dotted #d8cfba; font-size: 15px; color: #221f1c; } .ds-leaders li:last-child { border-bottom: 0; } .ds-dots { flex: 1; border-bottom: 2px dotted #c3bba4; transform: translateY(-3px); } .ds-leaders b { font-family: Alegreya, Georgia, serif; font-variant-numeric: tabular-nums; color: #1e2b24; }"
+    },
+    {
+      "name": "Data Table",
+      "kind": "custom",
+      "refersTo": "table",
+      "description": "Filets pointillés, en-têtes SC capitales sur fond vergé doux, chiffres tabulaires.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Code</th><th class=\"num\">Poids (kg)</th></tr></thead><tbody><tr><td>LOT-1-261018-DUBQ</td><td class=\"num\">300.00</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; } .ds-table th, .ds-table td { padding: 12px 18px; border-bottom: 1px dotted #d8cfba; text-align: left; } .ds-table th { font-family: \"Alegreya Sans SC\", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #57544a; background: #ece7d8; border-bottom: 1px solid #c3bba4; } .ds-table .num { text-align: right; } .ds-table tbody tr:hover { background: #ece7d8; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "L'Almanach des vergers",
+    "overview": "AgroTrace se lit comme l'almanach d'un verger : un calendrier imprimé, tenu pour le travail, feuilleté chaque matin par l'exploitant à son bureau. Chaque écran est une page de campagne — la date, la phase lunaire, le jour du calendrier, la fin de campagne — où le métier parle avant l'ornement. La matière est le papier vergé, l'encre, le rail vert impérial et les filets de laiton ; la voix est Alegreya et Alegreya Sans, avec des petites capitales espacées pour les étiquettes. Le système refuse le tableau de bord SaaS générique et le cream-serif-terracotta par défaut des interfaces générées. Ici, la profondeur n'est pas une ombre mais un empilement de surfaces et de filets, et l'oxblood est réservé à l'alerte.",
+    "keyCharacteristics": [
+      "Papier vergé à lignes couchées, jamais de grain ni de bruit",
+      "Rail vert impérial, filet laiton 1px, folios de marge 01–09",
+      "Deux thèmes, un seul monde : même grille, valeurs inversées",
+      "Chiffres tabulaires partout ; petites capitales pour les étiquettes",
+      "Oxblood réservé aux alertes critiques ; laiton = filets et marque",
+      "Éphéméride = faits calculés uniquement (date, phase lunaire, BDD)"
+    ],
+    "rules": [
+      { "name": "The Reserve Rule", "body": "Oxblood apparaît uniquement sur ce qui exige un geste ou signale un manque : alerte critique, tampon, rubrique. Il n'est jamais décoratif.", "section": "colors" },
+      { "name": "The Inversion Rule", "body": "Le thème sombre est l'almanach imprimé sur encre noire : mêmes proportions, mêmes contrastes inversés — jamais une palette différente.", "section": "colors" },
+      { "name": "The Folios Rule", "body": "Les numéros de marge (01–09 rail, Rubrique I–IV) hiérarchisent la lecture sans jamais précéder d'un surtitre décoratif ; un titre ne porte pas de kicker.", "section": "typography" },
+      { "name": "The Fillet Rule", "body": "Un filet simple ou double fait plus qu'une ombre : laiton (accent), encre (structure), pointillé (registre). Aucune carte fantôme 1px + grosse ombre.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do garder deux thèmes en un seul monde : même grille, même hiérarchie, valeurs inversées.",
+      "Do réserver l'oxblood aux alertes critiques et tampons.",
+      "Do des chiffres tabulaires et des libellés en petites capitales pour toute donnée dense.",
+      "Do des filets simples/doubles, jamais une ombre pour créer la hiérarchie.",
+      "Do des éphémérides fondées sur des données réellement calculées ou stockées.",
+      "Do le clavier d'abord : focus laiton visible partout."
+    ],
+    "donts": [
+      "Don't ajouter de surtitre décoratif (kicker) au-dessus d'un titre.",
+      "Don't utiliser de bordure latérale colorée > 1px sur cartes, listes, alertes.",
+      "Don't utiliser de dégradés de texte, d'ombres dures sans décalage, ni de pilules.",
+      "Don't glisser vers le cream-sérif-terracotta ou le bleu SaaS par défaut.",
+      "Don't inventer de dates, fenêtres de récolte ou conseils lunaires.",
+      "Don't contredire le monde sombre (pas de second style sombre, pas de néon)."
+    ]
+  }
+}

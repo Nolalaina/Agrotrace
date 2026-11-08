@@ -80,11 +80,19 @@ class LotController extends Controller
         return back()->with('succes', 'Fiche de traçabilité générée : vous pouvez la télécharger.');
     }
 
-    public function telechargerFiche(Lot $lot)
+    public function telechargerFiche(Request $request, Lot $lot)
     {
         $this->authorize('genererFiche', $lot);
-        abort_unless(Storage::disk('local')->exists(GenererFicheTracabilite::chemin($lot->code)), 404);
+        $chemin = GenererFicheTracabilite::chemin($lot->code);
+        abort_unless(Storage::disk('local')->exists($chemin), 404);
 
-        return Storage::disk('local')->download(GenererFicheTracabilite::chemin($lot->code), $lot->code.'.html');
+        if ($request->boolean('apercu')) {
+            return response(Storage::disk('local')->get($chemin), 200, [
+                'Content-Type' => 'text/html; charset=utf-8',
+                'Content-Disposition' => 'inline; filename="'.$lot->code.'.html"',
+            ]);
+        }
+
+        return Storage::disk('local')->download($chemin, $lot->code.'.html');
     }
 }

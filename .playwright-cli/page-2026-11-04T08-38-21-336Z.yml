@@ -1,0 +1,204 @@
+- generic [ref=f21e2]:
+  - generic [ref=f21e4]:
+    - generic [ref=f21e5]: Internal Server Error
+    - button "Copy as Markdown" [ref=f21e11] [cursor=pointer]
+  - generic [ref=f21e18]:
+    - generic [ref=f21e19]:
+      - heading "ParseError" [level=1] [ref=f21e20]
+      - generic [ref=f21e21]: resources\views\components\ephemeride.blade.php:37
+      - paragraph [ref=f21e23]: syntax error, unexpected token "endif", expecting end of file
+    - generic [ref=f21e24]:
+      - generic [ref=f21e25]:
+        - generic [ref=f21e26]:
+          - generic [ref=f21e27]: LARAVEL
+          - generic [ref=f21e28]: 13.37.0
+        - generic [ref=f21e29]:
+          - generic [ref=f21e30]: PHP
+          - generic [ref=f21e31]: 8.4.25
+      - generic [ref=f21e32]: UNHANDLED
+      - generic [ref=f21e36]: CODE 0
+    - generic [ref=f21e38]:
+      - generic [ref=f21e39]: "500"
+      - generic [ref=f21e43]: GET
+      - generic [ref=f21e47]: http://127.0.0.1:8000/dashboard
+      - button [ref=f21e48] [cursor=pointer]
+  - generic [ref=f21e53]:
+    - generic [ref=f21e54]:
+      - heading "Exception trace" [level=3] [ref=f21e60]
+      - generic [ref=f21e61]:
+        - generic [ref=f21e62]:
+          - generic [ref=f21e63] [cursor=pointer]:
+            - generic [ref=f21e66]:
+              - code [ref=f21e70]:
+                - generic [ref=f21e71]: "Illuminate\\Filesystem\\Filesystem::{closure:Illuminate\\Filesystem\\Filesystem::getRequire():120}()"
+              - generic [ref=f21e72]: resources\views\components\ephemeride.blade.php:37
+            - button [ref=f21e75]
+          - code [ref=f21e84]:
+            - generic [ref=f21e85]: 32 <div class="ephemeride" role="note" aria-label="Éphéméride">
+            - generic [ref=f21e86]: 33 <span class="moon"><x-icon name="moon" /></span>
+            - generic [ref=f21e87]: "34 <span class=\"txt\"><b>{{ $now->locale('fr_FR')->translatedFormat('l j F Y') }}</b><span class=\"stop\">·</span>jour {{ $now->dayOfYear }} du calendrier<span class=\"stop\">·</span>{{ $phase }} · {{ $illumination }} % éclairée<span class=\"stop\">·</span>{{ $stats['campagnes_actives'] ?? 0 }} campagne{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }} active{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }}<span class=\"stop\">·</span>{{ number_format((float) ($stats['superficie_ha'] ?? 0), 1, ',', ' ') }} ha en production@if ($fin)<span class=\"stop\">·</span>campagne jusqu'au {{ $fin }}@endif</span>"
+            - generic [ref=f21e88]: 35 <span class="cap">Éphéméride</span>
+            - generic [ref=f21e89]: 36 </div>
+            - generic [ref=f21e90]: 37@endif
+            - generic [ref=f21e91]: "38"
+        - generic [ref=f21e93] [cursor=pointer]:
+          - generic [ref=f21e98]: 7 vendor frames
+          - button [ref=f21e99]
+        - generic [ref=f21e105] [cursor=pointer]:
+          - generic [ref=f21e108]:
+            - code [ref=f21e112]:
+              - generic [ref=f21e113]: Illuminate\View\Factory->renderComponent()
+            - generic [ref=f21e114]: resources\views\dashboard.blade.php:25
+          - button [ref=f21e117]
+        - generic [ref=f21e123] [cursor=pointer]:
+          - generic [ref=f21e128]: 63 vendor frames
+          - button [ref=f21e129]
+        - generic [ref=f21e135] [cursor=pointer]:
+          - generic [ref=f21e138]:
+            - code [ref=f21e142]:
+              - generic [ref=f21e143]: Illuminate\Foundation\Application->handleRequest()
+            - generic [ref=f21e144]: public\index.php:20
+          - button [ref=f21e147]
+        - generic [ref=f21e153] [cursor=pointer]:
+          - generic [ref=f21e158]: 1 vendor frame
+          - button [ref=f21e159]
+    - generic [ref=f21e164]:
+      - generic [ref=f21e165]:
+        - heading "Queries" [level=3] [ref=f21e170]
+        - generic [ref=f21e171]: 1-10 of 22
+      - generic [ref=f21e173]:
+        - generic [ref=f21e174]:
+          - generic [ref=f21e175]:
+            - generic [ref=f21e176]: sqlite
+            - code [ref=f21e183]:
+              - generic [ref=f21e184]: select * from "sessions" where "id" = 'jM19q8csm4mWbv4HfXigsT8jkCL6vD8plKpphW0j' limit 1
+          - generic [ref=f21e185]: 10.85ms
+        - generic [ref=f21e186]:
+          - generic [ref=f21e187]:
+            - generic [ref=f21e188]: sqlite
+            - code [ref=f21e195]:
+              - generic [ref=f21e196]: select * from "users" where "id" = 1 limit 1
+          - generic [ref=f21e197]: 0.34ms
+        - generic [ref=f21e198]:
+          - generic [ref=f21e199]:
+            - generic [ref=f21e200]: sqlite
+            - code [ref=f21e207]:
+              - generic [ref=f21e208]: select * from "cache" where "key" in ('laravel-cache-dashboard:exploitation:1')
+          - generic [ref=f21e209]: 0.32ms
+        - generic [ref=f21e210]:
+          - generic [ref=f21e211]:
+            - generic [ref=f21e212]: sqlite
+            - code [ref=f21e219]:
+              - generic [ref=f21e220]: delete from "cache" where "key" in ('laravel-cache-dashboard:exploitation:1', 'laravel-cache-illuminate:cache:flexible:created:dashboard:exploitation:1') and "expiration" <= 1793781488
+          - generic [ref=f21e221]: 170.81ms
+        - generic [ref=f21e222]:
+          - generic [ref=f21e223]:
+            - generic [ref=f21e224]: sqlite
+            - code [ref=f21e231]:
+              - generic [ref=f21e232]: select sum("superficie_ha") as "aggregate" from "parcelles" where "parcelles"."exploitation_id" = 1
+          - generic [ref=f21e233]: 0.9ms
+        - generic [ref=f21e234]:
+          - generic [ref=f21e235]:
+            - generic [ref=f21e236]: sqlite
+            - code [ref=f21e243]:
+              - generic [ref=f21e244]: select sum("quantite_kg") as "aggregate" from "recoltes" where "recoltes"."exploitation_id" = 1
+          - generic [ref=f21e245]: 0.39ms
+        - generic [ref=f21e246]:
+          - generic [ref=f21e247]:
+            - generic [ref=f21e248]: sqlite
+            - code [ref=f21e255]:
+              - generic [ref=f21e256]: select sum("quantite_disponible_kg") as "aggregate" from "recoltes" where "recoltes"."exploitation_id" = 1
+          - generic [ref=f21e257]: 0.27ms
+        - generic [ref=f21e258]:
+          - generic [ref=f21e259]:
+            - generic [ref=f21e260]: sqlite
+            - code [ref=f21e267]:
+              - generic [ref=f21e268]: select sum("poids_total_kg") as "aggregate" from "lots" where "lots"."exploitation_id" = 1
+          - generic [ref=f21e269]: 0.35ms
+        - generic [ref=f21e270]:
+          - generic [ref=f21e271]:
+            - generic [ref=f21e272]: sqlite
+            - code [ref=f21e279]:
+              - generic [ref=f21e280]: select sum("montant") as "aggregate" from "transactions_financieres" where "transactions_financieres"."exploitation_id" = 1 and "type" = 'depense'
+          - generic [ref=f21e281]: 0.53ms
+        - generic [ref=f21e282]:
+          - generic [ref=f21e283]:
+            - generic [ref=f21e284]: sqlite
+            - code [ref=f21e291]:
+              - generic [ref=f21e292]: select sum("montant") as "aggregate" from "transactions_financieres" where "transactions_financieres"."exploitation_id" = 1 and "type" = 'recette'
+          - generic [ref=f21e293]: 0.24ms
+      - generic [ref=f21e294]:
+        - button [disabled] [ref=f21e295]
+        - button [disabled] [ref=f21e299]
+        - button "1" [ref=f21e303] [cursor=pointer]
+        - button "2" [ref=f21e305] [cursor=pointer]
+        - button "3" [ref=f21e307] [cursor=pointer]
+        - button [ref=f21e308] [cursor=pointer]
+        - button [ref=f21e311] [cursor=pointer]
+  - generic [ref=f21e316]:
+    - generic [ref=f21e317]:
+      - heading "Headers" [level=2] [ref=f21e318]
+      - generic [ref=f21e319]:
+        - generic [ref=f21e320]:
+          - generic [ref=f21e321]: host
+          - generic [ref=f21e323]: 127.0.0.1:8000
+        - generic [ref=f21e324]:
+          - generic [ref=f21e325]: connection
+          - generic [ref=f21e327]: keep-alive
+        - generic [ref=f21e328]:
+          - generic [ref=f21e329]: sec-ch-ua
+          - generic [ref=f21e331]: "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"Google Chrome\";v=\"156\""
+        - generic [ref=f21e332]:
+          - generic [ref=f21e333]: sec-ch-ua-mobile
+          - generic [ref=f21e335]: "?0"
+        - generic [ref=f21e336]:
+          - generic [ref=f21e337]: sec-ch-ua-platform
+          - generic [ref=f21e339]: "\"Windows\""
+        - generic [ref=f21e340]:
+          - generic [ref=f21e341]: upgrade-insecure-requests
+          - generic [ref=f21e343]: "1"
+        - generic [ref=f21e344]:
+          - generic [ref=f21e345]: user-agent
+          - generic [ref=f21e347]: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+        - generic [ref=f21e348]:
+          - generic [ref=f21e349]: accept
+          - generic [ref=f21e351]: text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+        - generic [ref=f21e352]:
+          - generic [ref=f21e353]: sec-fetch-site
+          - generic [ref=f21e355]: none
+        - generic [ref=f21e356]:
+          - generic [ref=f21e357]: sec-fetch-mode
+          - generic [ref=f21e359]: navigate
+        - generic [ref=f21e360]:
+          - generic [ref=f21e361]: sec-fetch-user
+          - generic [ref=f21e363]: "?1"
+        - generic [ref=f21e364]:
+          - generic [ref=f21e365]: sec-fetch-dest
+          - generic [ref=f21e367]: document
+        - generic [ref=f21e368]:
+          - generic [ref=f21e369]: accept-encoding
+          - generic [ref=f21e371]: gzip, deflate, br, zstd
+        - generic [ref=f21e372]:
+          - generic [ref=f21e373]: accept-language
+          - generic [ref=f21e375]: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+        - generic [ref=f21e376]:
+          - generic [ref=f21e377]: cookie
+          - generic [ref=f21e379]: XSRF-TOKEN=eyJpdiI6Im01Mll5WnZuekVuMzZ3SEt3WVZNRHc9PSIsInZhbHVlIjoiOFNidzMwWnlybEs5UWhkYnhFNEtYa3hVWUVZcTY4S1BNTEkveFZ6dGhnNURUblRxWW9MU1NkNEVOaWVoU2M0UDFRTWN2VEFvTEFETmNUK0V2THVXL2U0Q0ZONXpaZEliVGNTMXVobGNzTk9vVlRtcm9jSS9BZU9PclFNSU9IY08iLCJtYWMiOiI3ZDc2MDUzMTg1ODlhZGIyMzFmZjM5MGQwZjA5MzQzZGJkNDk0MWEwMmZlMjc3NGUyZjlkOWVjZTAyYWM1YWRiIiwidGFnIjoiIn0%3D; laravel-session=eyJpdiI6Ilo5NjdsS2pXaGdLVFJOb0ZaWjJDS2c9PSIsInZhbHVlIjoiUGV1eTFiSm1IcDVTdXhrOEUvUHlpd3VWUWZuc0NzUVNzbGx6UEQ3YXNoMndyUVoybXB6d1JJL3ZHcmVQQ3Q2V1kxdXhBUmtqaG5yQTUwRHJTeU9FWVRTQ1pFKzBhV29KaHIwa0E5SkpXTmVzQTEzQXh2RXpjQ3Y2YzBqUURQdDEiLCJtYWMiOiIxODMzNmYwMmIxOGYyZjM0ZjkyMjlmNWFlYmU0NTZjZjcyYzYyNmNmY2E0MWNlYjRhZmE1Y2I2MjJmNzA3YjdhIiwidGFnIjoiIn0%3D
+    - generic [ref=f21e380]:
+      - heading "Body" [level=2] [ref=f21e381]
+      - generic [ref=f21e382]: // No request body
+    - generic [ref=f21e383]:
+      - heading "Routing" [level=2] [ref=f21e384]
+      - generic [ref=f21e385]:
+        - generic [ref=f21e386]:
+          - generic [ref=f21e387]: controller
+          - generic [ref=f21e389]: App\Http\Controllers\DashboardController
+        - generic [ref=f21e390]:
+          - generic [ref=f21e391]: route name
+          - generic [ref=f21e393]: dashboard
+        - generic [ref=f21e394]:
+          - generic [ref=f21e395]: middleware
+          - generic [ref=f21e397]: web, auth
+    - generic [ref=f21e398]:
+      - heading "Routing parameters" [level=2] [ref=f21e399]
+      - generic [ref=f21e400]: // No routing parameters

@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('parcelles', ParcelleController::class)->except(['show']);
     Route::resource('campagnes', CampagneController::class)->except(['show']);
     Route::resource('activites', ActiviteController::class)->only(['index', 'create', 'store']);
-    Route::resource('recoltes', RecolteController::class)->only(['index', 'create', 'store']);
+    Route::resource('recoltes', RecolteController::class)->only(['index', 'create', 'store', 'destroy']);
 
     Route::get('/intrants', [IntrantController::class, 'index'])->name('intrants.index');
     Route::post('/intrants', [IntrantController::class, 'store'])->name('intrants.store');

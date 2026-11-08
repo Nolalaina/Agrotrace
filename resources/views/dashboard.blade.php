@@ -17,7 +17,12 @@
         <p class="lead">Suivi de l'exploitation : parcelles, récoltes, lots et santé des stocks.</p>
     </div>
     <div class="actions">
-        <a href="{{ route('recoltes.create') }}" class="btn btn-primary"><x-icon name="plus" /> Enregistrer une récolte</a>
+        @can('create', App\Models\Recolte::class)
+            <a href="{{ route('recoltes.create') }}" class="btn btn-primary"><x-icon name="plus" /> Enregistrer une récolte</a>
+        @endcan
+        @can('create', App\Models\Lot::class)
+            <a href="{{ route('lots.create') }}" class="btn btn-secondary"><x-icon name="layers" /> Composer un lot</a>
+        @endcan
         <a href="{{ route('activites.create') }}" class="btn btn-secondary"><x-icon name="activity" /> Nouvelle activité</a>
     </div>
 </div>
@@ -36,38 +41,38 @@
 @endif
 
 <div class="grid grid-4">
-    <div class="stat-card has-icon">
+    <a href="{{ route('campagnes.index') }}" class="stat-card has-icon" style="text-decoration:none;color:inherit">
         <span class="stat-icon"><x-icon name="calendar" /></span>
         <div class="stat-body">
-            <span class="stat-label">Rubrique I · Campagnes actives</span>
+            <span class="stat-label">Rubrique I · Campagnes</span>
             <span class="stat-value">{{ $stats['campagnes_actives'] }}</span>
             <span class="stat-sub">en cours</span>
         </div>
-    </div>
-    <div class="stat-card has-icon">
+    </a>
+    <a href="{{ route('parcelles.index') }}" class="stat-card has-icon" style="text-decoration:none;color:inherit">
         <span class="stat-icon info"><x-icon name="map" /></span>
         <div class="stat-body">
             <span class="stat-label">Rubrique II · Parcelles</span>
             <span class="stat-value">{{ $stats['nb_parcelles'] }}</span>
             <span class="stat-sub">{{ $n($stats['superficie_ha'], 1) }} ha au total</span>
         </div>
-    </div>
-    <div class="stat-card has-icon">
+    </a>
+    <a href="{{ route('recoltes.index') }}" class="stat-card has-icon" style="text-decoration:none;color:inherit">
         <span class="stat-icon success"><x-icon name="basket" /></span>
         <div class="stat-body">
-            <span class="stat-label">Rubrique III · Récolte totale</span>
+            <span class="stat-label">Rubrique III · Récolte</span>
             <span class="stat-value">{{ $n($stats['recolte_totale_kg']) }}</span>
             <span class="stat-sub">kg cumulés</span>
         </div>
-    </div>
-    <div class="stat-card has-icon">
+    </a>
+    <a href="{{ route('lots.index') }}" class="stat-card has-icon" style="text-decoration:none;color:inherit">
         <span class="stat-icon accent"><x-icon name="layers" /></span>
         <div class="stat-body">
-            <span class="stat-label">Rubrique IV · Poids des lots</span>
+            <span class="stat-label">Rubrique IV · Lots</span>
             <span class="stat-value">{{ $n($stats['poids_lots_kg']) }}</span>
             <span class="stat-sub">kg tracés</span>
         </div>
-    </div>
+    </a>
 </div>
 
 <div class="grid grid-3">
@@ -113,12 +118,12 @@
         </div>
         <ul class="data-list">
             @forelse ($stats['stocks_critiques'] as $s)
-                <li><span>Stock critique</span><strong class="text-danger">{{ $s['nom'] }} ({{ $s['quantite_disponible'] }} {{ $s['unite'] }})</strong></li>
+                <li><span>Stock critique</span><a href="{{ route('intrants.index') }}" class="text-danger" style="font-weight:700">{{ $s['nom'] }} ({{ $s['quantite_disponible'] }} {{ $s['unite'] }})</a></li>
             @empty
                 <li><span>Stocks</span><strong class="text-success">Aucune alerte</strong></li>
             @endforelse
             @if ($stats['recoltes_non_affectees_anciennes'] > 0)
-                <li><span>Récoltes non affectées</span><strong>{{ $stats['recoltes_non_affectees_anciennes'] }} depuis plus de 3 jours</strong></li>
+                <li><span>Récoltes non affectées</span><a href="{{ route('recoltes.index', ['non_affectees' => 1]) }}" style="font-weight:700">{{ $stats['recoltes_non_affectees_anciennes'] }} depuis plus de 3 jours</a></li>
             @endif
         </ul>
     </section>

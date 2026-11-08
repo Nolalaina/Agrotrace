@@ -1,0 +1,174 @@
+- generic [ref=f23e2]:
+  - generic [ref=f23e4]:
+    - generic [ref=f23e5]: Internal Server Error
+    - button "Copy as Markdown" [ref=f23e11] [cursor=pointer]
+  - generic [ref=f23e18]:
+    - generic [ref=f23e19]:
+      - heading "TypeError" [level=1] [ref=f23e20]
+      - generic [ref=f23e21]: vendor\nesbot\carbon\src\Carbon\Traits\Creator.php:207
+      - paragraph [ref=f23e23]: "Carbon\\Carbon::parse(): Argument #1 ($time) must be of type DateTimeInterface|Carbon\\WeekDay|Carbon\\Month|string|int|float|null, __PHP_Incomplete_Class given, called in D:\\Licence3\\Framework_php\\agrotrace\\storage\\framework\\views\\e7a03a124025a9863fb3b5da49043dc8.php on line 51"
+    - generic [ref=f23e24]:
+      - generic [ref=f23e25]:
+        - generic [ref=f23e26]:
+          - generic [ref=f23e27]: LARAVEL
+          - generic [ref=f23e28]: 13.37.0
+        - generic [ref=f23e29]:
+          - generic [ref=f23e30]: PHP
+          - generic [ref=f23e31]: 8.4.25
+      - generic [ref=f23e32]: UNHANDLED
+      - generic [ref=f23e36]: CODE 0
+    - generic [ref=f23e38]:
+      - generic [ref=f23e39]: "500"
+      - generic [ref=f23e43]: GET
+      - generic [ref=f23e47]: http://127.0.0.1:8000/dashboard
+      - button [ref=f23e48] [cursor=pointer]
+  - generic [ref=f23e53]:
+    - generic [ref=f23e54]:
+      - heading "Exception trace" [level=3] [ref=f23e60]
+      - generic [ref=f23e61]:
+        - generic [ref=f23e63] [cursor=pointer]:
+          - generic [ref=f23e68]: 1 vendor frame
+          - button [ref=f23e69]
+        - generic [ref=f23e74]:
+          - generic [ref=f23e75] [cursor=pointer]:
+            - generic [ref=f23e78]:
+              - code [ref=f23e82]:
+                - generic [ref=f23e83]: Carbon\Carbon::parse()
+              - generic [ref=f23e84]: resources\views\components\ephemeride.blade.php:1
+            - button [ref=f23e87]
+          - code [ref=f23e96]:
+            - generic [ref=f23e97]: 1@props(['stats' => null, 'compact' => false])
+            - generic [ref=f23e98]: "2"
+            - generic [ref=f23e99]: 3@php
+            - generic [ref=f23e100]: 4 $now = now('UTC');
+            - generic [ref=f23e101]: 5 $days = ($now->timestamp - 1791658211) / 86400;
+            - generic [ref=f23e102]: 6 $age = fmod($days, 29.53058867);
+            - generic [ref=f23e103]: "7 if ($age < 0) {"
+            - generic [ref=f23e104]: 8 $age += 29.53058867;
+            - generic [ref=f23e105]: "9 }"
+            - generic [ref=f23e106]: 10 $frac = $age / 29.53058867;
+            - generic [ref=f23e107]: 11 $illumination = (int) round((1 - cos(2 * M_PI * $frac)) / 2 * 100);
+            - generic [ref=f23e108]: "12 $phase = match (true) {"
+            - generic [ref=f23e109]: 13 $age < 1 => 'Nouvelle lune',
+            - generic [ref=f23e110]: 14 $age < 6.4 => 'Premier croissant',
+            - generic [ref=f23e111]: 15 $age < 8.4 => 'Premier quartier',
+            - generic [ref=f23e112]: 16 $age < 13.8 => 'Gibbeuse croissante',
+            - generic [ref=f23e113]: 17 $age < 15.8 => 'Pleine lune',
+            - generic [ref=f23e114]: "18"
+        - generic [ref=f23e116] [cursor=pointer]:
+          - generic [ref=f23e121]: 8 vendor frames
+          - button [ref=f23e122]
+        - generic [ref=f23e128] [cursor=pointer]:
+          - generic [ref=f23e131]:
+            - code [ref=f23e135]:
+              - generic [ref=f23e136]: Illuminate\View\Factory->renderComponent()
+            - generic [ref=f23e137]: resources\views\dashboard.blade.php:25
+          - button [ref=f23e140]
+        - generic [ref=f23e146] [cursor=pointer]:
+          - generic [ref=f23e151]: 63 vendor frames
+          - button [ref=f23e152]
+        - generic [ref=f23e158] [cursor=pointer]:
+          - generic [ref=f23e161]:
+            - code [ref=f23e165]:
+              - generic [ref=f23e166]: Illuminate\Foundation\Application->handleRequest()
+            - generic [ref=f23e167]: public\index.php:20
+          - button [ref=f23e170]
+        - generic [ref=f23e176] [cursor=pointer]:
+          - generic [ref=f23e181]: 1 vendor frame
+          - button [ref=f23e182]
+    - generic [ref=f23e187]:
+      - generic [ref=f23e188]:
+        - heading "Queries" [level=3] [ref=f23e193]
+        - generic [ref=f23e194]: 1-4 of 4
+      - generic [ref=f23e196]:
+        - generic [ref=f23e197]:
+          - generic [ref=f23e198]:
+            - generic [ref=f23e199]: sqlite
+            - code [ref=f23e206]:
+              - generic [ref=f23e207]: select * from "sessions" where "id" = 'jM19q8csm4mWbv4HfXigsT8jkCL6vD8plKpphW0j' limit 1
+          - generic [ref=f23e208]: 5.17ms
+        - generic [ref=f23e209]:
+          - generic [ref=f23e210]:
+            - generic [ref=f23e211]: sqlite
+            - code [ref=f23e218]:
+              - generic [ref=f23e219]: select * from "users" where "id" = 1 limit 1
+          - generic [ref=f23e220]: 0.33ms
+        - generic [ref=f23e221]:
+          - generic [ref=f23e222]:
+            - generic [ref=f23e223]: sqlite
+            - code [ref=f23e230]:
+              - generic [ref=f23e231]: select * from "cache" where "key" in ('laravel-cache-dashboard:exploitation:1')
+          - generic [ref=f23e232]: 0.36ms
+        - generic [ref=f23e233]:
+          - generic [ref=f23e234]:
+            - generic [ref=f23e235]: sqlite
+            - code [ref=f23e242]:
+              - generic [ref=f23e243]: select * from "notifications" where "notifications"."notifiable_type" = 'App\Models\User' and "notifications"."notifiable_id" = 1 and "notifications"."notifiable_id" is not null and "read_at" is null order by "created_at" desc, "created_at" desc limit 5
+          - generic [ref=f23e244]: 0.48ms
+  - generic [ref=f23e246]:
+    - generic [ref=f23e247]:
+      - heading "Headers" [level=2] [ref=f23e248]
+      - generic [ref=f23e249]:
+        - generic [ref=f23e250]:
+          - generic [ref=f23e251]: host
+          - generic [ref=f23e253]: 127.0.0.1:8000
+        - generic [ref=f23e254]:
+          - generic [ref=f23e255]: connection
+          - generic [ref=f23e257]: keep-alive
+        - generic [ref=f23e258]:
+          - generic [ref=f23e259]: sec-ch-ua
+          - generic [ref=f23e261]: "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"Google Chrome\";v=\"156\""
+        - generic [ref=f23e262]:
+          - generic [ref=f23e263]: sec-ch-ua-mobile
+          - generic [ref=f23e265]: "?0"
+        - generic [ref=f23e266]:
+          - generic [ref=f23e267]: sec-ch-ua-platform
+          - generic [ref=f23e269]: "\"Windows\""
+        - generic [ref=f23e270]:
+          - generic [ref=f23e271]: upgrade-insecure-requests
+          - generic [ref=f23e273]: "1"
+        - generic [ref=f23e274]:
+          - generic [ref=f23e275]: user-agent
+          - generic [ref=f23e277]: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+        - generic [ref=f23e278]:
+          - generic [ref=f23e279]: accept
+          - generic [ref=f23e281]: text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+        - generic [ref=f23e282]:
+          - generic [ref=f23e283]: sec-fetch-site
+          - generic [ref=f23e285]: none
+        - generic [ref=f23e286]:
+          - generic [ref=f23e287]: sec-fetch-mode
+          - generic [ref=f23e289]: navigate
+        - generic [ref=f23e290]:
+          - generic [ref=f23e291]: sec-fetch-user
+          - generic [ref=f23e293]: "?1"
+        - generic [ref=f23e294]:
+          - generic [ref=f23e295]: sec-fetch-dest
+          - generic [ref=f23e297]: document
+        - generic [ref=f23e298]:
+          - generic [ref=f23e299]: accept-encoding
+          - generic [ref=f23e301]: gzip, deflate, br, zstd
+        - generic [ref=f23e302]:
+          - generic [ref=f23e303]: accept-language
+          - generic [ref=f23e305]: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+        - generic [ref=f23e306]:
+          - generic [ref=f23e307]: cookie
+          - generic [ref=f23e309]: XSRF-TOKEN=eyJpdiI6IitnNk5HdDRnemlEcWVpc3hKM0o4T1E9PSIsInZhbHVlIjoiMFE1QWplK24yMENLamlKWHYyOS9MQnZCOGV2NTFKRkVyR0hKOVFvWGRDYnd2SDdhQWw3NHdUZ0pWM0NaM0lJSDJMOTlQSVUwRUxNcXE2dmZEZDVMeHB1TW1JVzR2OGxzc1pIaFFvbFNzbWxhRis0OTVZcEJoT0RXSzBhMWNzM3kiLCJtYWMiOiI3MTIwOTFjNmExMTA2YTUyYWRhNGJjMzY4MzVkNzkyODA2NGM2ODJiMzRiYjFiNzRiZjc4NzU0NzJlZGI0NjE0IiwidGFnIjoiIn0%3D; laravel-session=eyJpdiI6IkdjVVl5ZTRwekJicDd6NTQwV2YvVkE9PSIsInZhbHVlIjoibHlqNkNwMFk3TkhMRjhSOTFuRERnSUpTQmppS0pSYVNvWHNUMG1CemJlV0M2c09hYVBibVRGdlp5cFVVdFo3OVVoMkJqUFh4ODRXcEhGQVpLQnl0bjdUS2FJQUNlSjFzTmowQk1MZ2ZaUzlYQ1FXU3NFSWIvMkRrcXhtdS9NL1AiLCJtYWMiOiJhM2RiN2Q1YzlmM2NiMzIwNzJkMmYxY2VkMDExZjdhY2JlZDBlNmQ3NmNiNzYzN2RkZTAxNzMwZWJmNDBhN2M3IiwidGFnIjoiIn0%3D
+    - generic [ref=f23e310]:
+      - heading "Body" [level=2] [ref=f23e311]
+      - generic [ref=f23e312]: // No request body
+    - generic [ref=f23e313]:
+      - heading "Routing" [level=2] [ref=f23e314]
+      - generic [ref=f23e315]:
+        - generic [ref=f23e316]:
+          - generic [ref=f23e317]: controller
+          - generic [ref=f23e319]: App\Http\Controllers\DashboardController
+        - generic [ref=f23e320]:
+          - generic [ref=f23e321]: route name
+          - generic [ref=f23e323]: dashboard
+        - generic [ref=f23e324]:
+          - generic [ref=f23e325]: middleware
+          - generic [ref=f23e327]: web, auth
+    - generic [ref=f23e328]:
+      - heading "Routing parameters" [level=2] [ref=f23e329]
+      - generic [ref=f23e330]: // No routing parameters

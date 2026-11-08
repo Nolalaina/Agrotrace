@@ -20,17 +20,19 @@
         $age < 28.6 => 'Dernier croissant',
         default => 'Nouvelle lune',
     };
+    $fin = !empty($stats['campagne_fin']) ? \Illuminate\Support\Carbon::parse($stats['campagne_fin'])->locale('fr_FR')->translatedFormat('j M Y') : null;
+    $finTxt = $fin ? ' · jusqu\'au '.$fin : '';
 @endphp
 
 @if ($compact)
     <div class="ephemeride ephemeride-compact" role="note" aria-label="Éphéméride">
         <span class="moon"><x-icon name="moon" /></span>
-        <span class="txt"><b>{{ $now->locale('fr_FR')->translatedFormat('l j F Y') }}</b><span class="stop">·</span>jour {{ $now->dayOfYear }}<span class="stop">·</span>{{ $phase }} ({{ $illumination }} % éclairée)</span>
+        <span class="txt"><b>Jour {{ $now->dayOfYear }}</b><span class="stop">·</span>{{ $phase }} · {{ $illumination }} % éclairée</span>
     </div>
 @else
     <div class="ephemeride" role="note" aria-label="Éphéméride">
         <span class="moon"><x-icon name="moon" /></span>
-        <span class="txt"><b>{{ $now->locale('fr_FR')->translatedFormat('l j F Y') }}</b><span class="stop">·</span>jour {{ $now->dayOfYear }} du calendrier<span class="stop">·</span>{{ $phase }} · {{ $illumination }} % éclairée<span class="stop">·</span>{{ $stats['campagnes_actives'] ?? 0 }} campagne{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }} active{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }}<span class="stop">·</span>{{ number_format((float) ($stats['superficie_ha'] ?? 0), 1, ',', ' ') }} ha en production</span>
+        <span class="txt"><b>{{ $now->locale('fr_FR')->translatedFormat('l j F Y') }}</b><span class="stop">·</span>jour {{ $now->dayOfYear }}<span class="stop">·</span>{{ $phase }} · {{ $illumination }} % éclairée<span class="stop">·</span>{{ $stats['campagnes_actives'] ?? 0 }} campagne{{ ($stats['campagnes_actives'] ?? 0) > 1 ? 's' : '' }}<span class="stop">·</span>{{ number_format((float) ($stats['superficie_ha'] ?? 0), 1, ',', ' ') }} ha{{ $finTxt }}</span>
         <span class="cap">Éphéméride</span>
     </div>
 @endif

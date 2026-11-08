@@ -16,6 +16,7 @@ class ParcelleController extends Controller
         $parcelles = Parcelle::query()
             ->when($request->string('q')->toString(), fn ($q, $s) => $q->where(fn ($w) => $w
                 ->where('nom', 'like', "%{$s}%")->orWhere('code', 'like', "%{$s}%")))
+            ->when($request->filled('etat'), fn ($q) => $q->where('etat', $request->etat))
             ->orderBy('code')->paginate(10)->withQueryString();
 
         return view('parcelles.index', compact('parcelles'));
