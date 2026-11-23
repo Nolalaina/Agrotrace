@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Recolte extends Model
 {
-    use HasFactory, BelongsToExploitation;
+    use BelongsToExploitation, HasFactory;
 
     public const CALIBRES = ['petit', 'moyen', 'gros'];
 

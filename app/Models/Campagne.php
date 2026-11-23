@@ -10,11 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Campagne extends Model
 {
-    use HasFactory, BelongsToExploitation;
+    use BelongsToExploitation, HasFactory;
 
     public const PLANIFIEE = 'planifiee';
+
     public const EN_COURS = 'en_cours';
+
     public const TERMINEE = 'terminee';
+
     public const STATUTS = [self::PLANIFIEE, self::EN_COURS, self::TERMINEE];
 
     protected $fillable = ['exploitation_id', 'parcelle_id', 'libelle', 'date_debut', 'date_fin_prevue', 'statut'];

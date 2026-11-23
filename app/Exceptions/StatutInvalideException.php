@@ -2,6 +2,4 @@
 
 namespace App\Exceptions;
 
-class StatutInvalideException extends RegleMetierException
-{
-}
+class StatutInvalideException extends RegleMetierException {}

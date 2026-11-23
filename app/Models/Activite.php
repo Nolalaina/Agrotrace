@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Activite extends Model
 {
-    use HasFactory, BelongsToExploitation;
+    use BelongsToExploitation, HasFactory;
 
     public const TYPES = ['taille', 'fertilisation', 'traitement', 'irrigation', 'desherbage', 'floraison', 'recolte', 'entretien'];
 

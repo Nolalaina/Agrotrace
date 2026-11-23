@@ -11,10 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Lot extends Model
 {
-    use HasFactory, BelongsToExploitation;
+    use BelongsToExploitation, HasFactory;
 
     public const OUVERT = 'ouvert';
+
     public const CLOTURE = 'cloture';
+
     public const VENDU = 'vendu';
 
     protected $fillable = ['exploitation_id', 'user_id', 'code', 'poids_total_kg', 'statut', 'qualite', 'cloture_le'];

@@ -10,9 +10,7 @@ use App\Services\DashboardService;
  */
 class InvalidateDashboardCache
 {
-    public function __construct(private DashboardService $dashboard)
-    {
-    }
+    public function __construct(private DashboardService $dashboard) {}
 
     public function handle($event): void
     {

@@ -22,9 +22,7 @@ class GenererFicheTracabilite implements ShouldQueue
 
     public int $tries = 3;
 
-    public function __construct(public Lot $lot)
-    {
-    }
+    public function __construct(public Lot $lot) {}
 
     public function handle(TracabiliteService $tracabilite): void
     {

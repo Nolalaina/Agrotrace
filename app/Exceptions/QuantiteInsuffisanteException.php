@@ -2,6 +2,4 @@
 
 namespace App\Exceptions;
 
-class QuantiteInsuffisanteException extends RegleMetierException
-{
-}
+class QuantiteInsuffisanteException extends RegleMetierException {}

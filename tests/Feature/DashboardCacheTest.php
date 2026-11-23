@@ -11,7 +11,7 @@ use Tests\TestCase;
 
 class DashboardCacheTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_les_statistiques_sont_mises_en_cache_puis_invalidees_par_un_evenement(): void
     {

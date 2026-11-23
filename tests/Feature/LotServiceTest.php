@@ -15,7 +15,7 @@ use Tests\TestCase;
 /** Test de fonctionnalité métier + règles critiques (intégrité, transaction, concurrence). */
 class LotServiceTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_composer_un_lot_decremente_les_recoltes_et_calcule_le_poids(): void
     {

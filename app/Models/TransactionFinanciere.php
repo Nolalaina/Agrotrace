@@ -11,7 +11,9 @@ class TransactionFinanciere extends Model
     use BelongsToExploitation;
 
     public const DEPENSE = 'depense';
+
     public const RECETTE = 'recette';
+
     public const CATEGORIES_DEPENSE = ['intrants', 'main_oeuvre', 'traitement', 'transport', 'energie', 'activite', 'autre'];
 
     protected $table = 'transactions_financieres';

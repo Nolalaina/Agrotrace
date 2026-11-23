@@ -15,9 +15,7 @@ class StockCritiqueNotification extends Notification
 {
     use Queueable;
 
-    public function __construct(public Intrant $intrant)
-    {
-    }
+    public function __construct(public Intrant $intrant) {}
 
     public function via(object $notifiable): array
     {

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Intrant extends Model
 {
-    use HasFactory, BelongsToExploitation;
+    use BelongsToExploitation, HasFactory;
 
     public const CATEGORIES = ['engrais', 'phytosanitaire', 'emballage', 'carburant', 'consommable'];
 

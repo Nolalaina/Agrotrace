@@ -178,4 +178,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
         recalculate();
     }
+
+    /* ---------- Animations d'entrée stagger pour le tableau de bord ---------- */
+    const dashboardCards = document.querySelectorAll('.stat-card, .panel');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    if (dashboardCards.length && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    const delay = index * 100;
+                    entry.target.style.transitionDelay = `${delay}ms`;
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        dashboardCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            card.style.transition = 'opacity 300ms ease, transform 300ms ease';
+            observer.observe(card);
+        });
+    }
+
+    /* ---------- Micro-interactions : survol des liens de navigation ---------- */
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach((link) => {
+        link.addEventListener('mouseenter', () => {
+            if (!link.classList.contains('active')) {
+                link.style.color = '#f3efe0';
+            }
+        });
+        link.addEventListener('mouseleave', () => {
+            if (!link.classList.contains('active')) {
+                link.style.color = '';
+            }
+        });
+    });
+
+    /* ---------- Focus-visible renforcé pour les éléments interactifs ---------- */
+    const focusableElements = document.querySelectorAll('a[href], button, input, select, textarea');
+    focusableElements.forEach((el) => {
+        el.addEventListener('focus-visible', (e) => {
+            e.preventDefault();
+            el.style.outline = '2px solid var(--laiton)';
+            el.style.outlineOffset = '2px';
+        });
+    });
 });

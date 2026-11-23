@@ -13,8 +13,11 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public const ROLE_ADMIN = 'admin';
+
     public const ROLE_RESPONSABLE = 'responsable';
+
     public const ROLE_TECHNICIEN = 'technicien';
+
     public const ROLES = [self::ROLE_ADMIN, self::ROLE_RESPONSABLE, self::ROLE_TECHNICIEN];
 
     // Mass assignment : ne jamais faire User::create($request->all()). Les contrôleurs

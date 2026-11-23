@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\DB;
  */
 class StockService
 {
-    public function __construct(private FinanceService $finance, private DashboardService $dashboard)
-    {
-    }
+    public function __construct(private FinanceService $finance, private DashboardService $dashboard) {}
 
     public function enregistrer(
         User $user,

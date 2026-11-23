@@ -9,7 +9,7 @@ use Tests\TestCase;
 /** Test d'autorisation : contrôle serveur, indépendant de l'affichage des boutons. */
 class AutorisationTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_un_technicien_ne_peut_pas_composer_un_lot(): void
     {

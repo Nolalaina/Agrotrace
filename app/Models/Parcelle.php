@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Parcelle extends Model
 {
-    use HasFactory, BelongsToExploitation;
+    use BelongsToExploitation, HasFactory;
 
     protected $fillable = ['exploitation_id', 'code', 'nom', 'superficie_ha', 'localisation', 'variete', 'etat', 'date_creation'];
 

@@ -11,7 +11,7 @@ use Tests\TestCase;
 /** Test d'API : authentification, JSON structuré, codes HTTP, validation. */
 class ApiTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_les_routes_protegees_exigent_un_jeton(): void
     {
@@ -57,8 +57,8 @@ class ApiTest extends TestCase
             'quantite_kg' => 320.5,
             'calibre' => 'gros',
         ])->assertCreated()
-          ->assertJsonPath('data.quantite_kg', 320.5)
-          ->assertJsonPath('data.quantite_disponible_kg', 320.5);
+            ->assertJsonPath('data.quantite_kg', 320.5)
+            ->assertJsonPath('data.quantite_disponible_kg', 320.5);
     }
 
     public function test_une_donnee_invalide_renvoie_422(): void

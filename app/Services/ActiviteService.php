@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ActiviteService
 {
-    public function __construct(private FinanceService $finance, private DashboardService $dashboard)
-    {
-    }
+    public function __construct(private FinanceService $finance, private DashboardService $dashboard) {}
 
     /** Enregistre l'activité et, si elle a un coût, la dépense associée (atomique). */
     public function enregistrer(User $user, array $data): Activite

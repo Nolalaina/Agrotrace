@@ -11,10 +11,15 @@ class MouvementStock extends Model
     use BelongsToExploitation;
 
     public const STOCK_INITIAL = 'stock_initial';
+
     public const ENTREE = 'entree';
+
     public const SORTIE = 'sortie';
+
     public const CONSOMMATION = 'consommation';
+
     public const AJUSTEMENT = 'ajustement';
+
     public const TYPES = [self::STOCK_INITIAL, self::ENTREE, self::SORTIE, self::CONSOMMATION, self::AJUSTEMENT];
 
     protected $table = 'mouvements_stock';

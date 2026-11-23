@@ -9,6 +9,4 @@ use DomainException;
  * Rendue en 422 JSON pour l'API, ou en message d'erreur de formulaire pour le web
  * (voir bootstrap/app.php).
  */
-class RegleMetierException extends DomainException
-{
-}
+class RegleMetierException extends DomainException {}

@@ -12,7 +12,7 @@ use Tests\TestCase;
 /** Règle critique : un utilisateur de l'exploitation A ne voit jamais les données de B. */
 class IsolationTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_un_utilisateur_ne_peut_pas_consulter_un_lot_d_une_autre_exploitation(): void
     {

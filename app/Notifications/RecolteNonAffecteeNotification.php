@@ -9,9 +9,7 @@ class RecolteNonAffecteeNotification extends Notification
 {
     use Queueable;
 
-    public function __construct(public int $nombre, public float $quantiteKg, public int $joursSeuil)
-    {
-    }
+    public function __construct(public int $nombre, public float $quantiteKg, public int $joursSeuil) {}
 
     public function via(object $notifiable): array
     {

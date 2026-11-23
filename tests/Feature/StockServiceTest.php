@@ -15,7 +15,7 @@ use Tests\TestCase;
 
 class StockServiceTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_le_stock_ne_devient_jamais_negatif(): void
     {

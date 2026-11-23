@@ -10,7 +10,7 @@ use Tests\TestCase;
 /** Module personnel : page publique de traçabilité. */
 class TracabiliteTest extends TestCase
 {
-    use RefreshDatabase, CreatesAgroContext;
+    use CreatesAgroContext, RefreshDatabase;
 
     public function test_la_page_publique_montre_la_parcelle_d_origine_d_un_lot_cloture(): void
     {

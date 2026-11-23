@@ -27,8 +27,6 @@
     </div>
 </div>
 
-<x-ephemeride :stats="$stats" />
-
 @if (!empty($notifications) && count($notifications))
     <div class="stack">
         @foreach ($notifications as $notif)
